@@ -18,6 +18,8 @@ raises a bare `pydantic.ValidationError` (which can quote raw model output)
 from inside the call itself, not just from reading `.parsed_output`
 afterward — caught and re-raised clean, `from None`, same PII rationale.
 """
+import random
+import re
 import time
 
 import anthropic
@@ -73,11 +75,17 @@ def _serialize_candidate(candidate: Candidate, include_name: bool) -> str:
         # Dropping the `name` field isn't enough on its own — the name can
         # still appear inside free text (a role bullet, a summary line).
         # Scrub the full name and each individual token (longest first, so
-        # "Jordan Rivera" doesn't leave a dangling "Rivera").
+        # "Jordan Rivera" doesn't leave a dangling "Rivera"). Word-boundary
+        # + case-insensitive regex, not a plain .replace(): a naive replace
+        # both under-scrubs (misses "ROWAN RHODES" in a header, or a
+        # lowercased email like "rowan.rhodes@...") and over-scrubs (a
+        # last name that's a real word's prefix — "Foster" inside
+        # "Fostered" — silently corrupts unrelated text). Demonstrated
+        # both failure modes empirically before switching to this.
         name_tokens = sorted({candidate.name, *candidate.name.split()}, key=len, reverse=True)
         for token in name_tokens:
             if token:
-                text = text.replace(token, "[name]")
+                text = re.sub(rf"\b{re.escape(token)}\b", "[name]", text, flags=re.IGNORECASE)
     return text
 
 
@@ -115,8 +123,19 @@ def score_candidate(candidate: Candidate, job_description: str, candidate_id: st
 
 
 def rank_candidates(scores: list[CandidateScore]) -> list[CandidateScore]:
-    # Ties: stable sort keeps input order for equal weighted_total (i.e.
-    # whatever order the caller passed candidates in) — callers that care
-    # about a specific tie-break (e.g. eval/run_eval.py's ranking metric)
-    # should sort their input accordingly before calling this.
-    return sorted(scores, key=lambda s: s.weighted_total, reverse=True)
+    # Ties are the common case, not the edge case: weighted_total only has
+    # 77 distinct possible values across all 625 rubric-score combinations,
+    # so with ~8 candidates/JD, ties happen often. A plain stable sort would
+    # resolve every tie in *caller* order — and Phase 4/5 callers pass
+    # candidates in Phase 1's manifest order (looped category-then-tier),
+    # so ties would silently favor whichever tier comes first in the
+    # manifest every time. Shuffle with a job_id-seeded RNG first instead:
+    # deterministic and reproducible per job (same job_id -> same order,
+    # so eval reruns are comparable), but not correlated with manifest/tier
+    # order the way caller order would be.
+    if not scores:
+        return []
+    rng = random.Random(scores[0].job_id)
+    shuffled = scores[:]
+    rng.shuffle(shuffled)
+    return sorted(shuffled, key=lambda s: s.weighted_total, reverse=True)

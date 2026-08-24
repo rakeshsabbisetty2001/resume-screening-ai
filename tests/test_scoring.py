@@ -79,10 +79,30 @@ def test_serialize_candidate_scrubs_name_from_free_text():
     assert "[name]" in text
 
 
-def test_rank_candidates_preserves_caller_order_on_true_ties():
+def test_serialize_candidate_scrub_is_case_insensitive_and_word_bounded():
+    # A naive .replace() both under-scrubs (misses a different-case
+    # occurrence, e.g. an all-caps header or a lowercased email) and
+    # over-scrubs (eats "Foster" out of the unrelated word "Fostered").
+    candidate = Candidate(
+        name="Sam Foster",
+        years_experience=2.0,
+        skills=["Sales"],
+        education=[],
+        roles=[Role(title="Rep", company="Acme", start_date="2022-01", end_date="2024-01",
+                     bullets=["SAM FOSTER fostered strong client relationships across a sample."])],
+    )
+    text = _serialize_candidate(candidate, include_name=False)
+    assert "SAM FOSTER" not in text  # case-insensitive: all-caps occurrence still scrubbed
+    assert "fostered" in text  # word-boundary: doesn't eat "Foster" out of "fostered"
+    assert "sample" in text  # word-boundary: doesn't eat "Sam" out of "sample"
+
+
+def test_rank_candidates_tie_order_is_deterministic_not_caller_order():
     # weighted_total is now rounded (rubric.py), so mathematically-equal
     # score vectors compare exactly equal rather than differing by float
-    # noise — this is what makes "stable sort, caller order on ties" true.
+    # noise. Ties resolve via a job_id-seeded shuffle, NOT caller order —
+    # caller order is Phase 1's manifest order (category-then-tier), which
+    # would otherwise silently favor whichever tier comes first every time.
     vec_a = RubricScore(  # 0.35*1 + 0.30*1 + 0.10*1 + 0.25*3 = 1.5
         skills_match=CriterionScore(score=1, rationale="x"),
         experience_fit=CriterionScore(score=1, rationale="x"),
@@ -97,11 +117,13 @@ def test_rank_candidates_preserves_caller_order_on_true_ties():
     )
     assert vec_a.weighted_total() == vec_b.weighted_total() == 1.5
     scores = [
-        CandidateScore(candidate_id="first", job_id="j", rubric=vec_a, weighted_total=vec_a.weighted_total()),
-        CandidateScore(candidate_id="second", job_id="j", rubric=vec_b, weighted_total=vec_b.weighted_total()),
+        CandidateScore(candidate_id="first", job_id="job_x", rubric=vec_a, weighted_total=vec_a.weighted_total()),
+        CandidateScore(candidate_id="second", job_id="job_x", rubric=vec_b, weighted_total=vec_b.weighted_total()),
     ]
-    ranked = rank_candidates(scores)
-    assert [s.candidate_id for s in ranked] == ["first", "second"]  # caller order preserved
+    ranked_once = [s.candidate_id for s in rank_candidates(scores)]
+    ranked_again = [s.candidate_id for s in rank_candidates(scores)]
+    assert ranked_once == ranked_again  # same job_id -> reproducible order
+    assert set(ranked_once) == {"first", "second"}  # both still present, tie didn't drop anyone
 
 
 def test_rank_candidates_sorts_descending():

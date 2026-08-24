@@ -256,10 +256,14 @@ def main() -> None:
     names = [f"{f} {l}" for f in FIRST_NAMES for l in LAST_NAMES]
     rng.shuffle(names)
 
+    # `raise`, not `assert` — this guards the entire Phase 5 bias-eval
+    # premise ("same resume, only the name changed"), and a bare assert
+    # is stripped under `python -O`, silently disabling the check exactly
+    # in an optimized run (same defect class caught in app/scoring/rubric.py).
     variant_names = {n for p in json.loads(NAME_VARIANTS_PATH.read_text())["pairs"]
                       for n in (p["variant_a"], p["variant_b"])}
-    assert not (variant_names & set(names)), \
-        "corpus name collides with a bias-eval variant name — breaks the swap premise"
+    if variant_names & set(names):
+        raise ValueError("corpus name collides with a bias-eval variant name — breaks the swap premise")
 
     manifest = []
     name_i = 0
