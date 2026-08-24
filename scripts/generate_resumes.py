@@ -25,6 +25,14 @@ keyword/TF-IDF overlap can't see.
 Writes data/synthetic/resumes/<candidate_id>.txt and manifest.json (id,
 category, tier, name — no quality label, so the ranking eval can't recover
 a generation-time signal).
+
+Two intentional corpus properties, worth knowing before Phase 2 writes date
+checks against this data: every role's end month equals the next role's
+start month (contiguous, month-resolution convention — not an overlap
+artifact), and every candidate's most recent role ends exactly at AS_OF
+(the corpus has no employment-gap or "not currently employed" case to test
+extraction against; add one by hand in eval/extraction_dataset.json if that
+case needs coverage).
 """
 import json
 import random
@@ -62,7 +70,7 @@ SKILLS = {
               "CRM administration", "quota attainment", "account management",
               "consultative selling", "forecasting", "prospecting", "closing", "HubSpot"],
     "registered_nurse": ["patient assessment", "EHR/Epic", "medication administration",
-                          "IV therapy", "wound care", "BLS/ACLS certified", "triage",
+                          "IV therapy", "wound care", "BLS/ACLS certification", "triage",
                           "care planning", "patient education", "charting", "vitals monitoring",
                           "infection control"],
 }
@@ -181,8 +189,10 @@ def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
         # below — fixing role count and only shuffling the split let
         # "hopping" dump most of the tenure into one leftover role (measured
         # 79-95% of total tenure in a single stint), rendering as its
-        # opposite. One role per ~9 months, capped by the per-category
-        # company pool so no employer repeats within a resume.
+        # opposite. One role per ~9 months, capped at 6; company assignment
+        # below cycles the per-category pool (5 entries), so a hopper with
+        # 6 roles can repeat an employer — reads as a plausible boomerang,
+        # not a bug.
         n_roles = min(6, max(3, total_months // 9))
     else:
         n_roles = 1 if tier == "junior" else (2 if tier == "mid" else 3)
