@@ -42,9 +42,9 @@ class ExtractionError(Exception):
     resume text or the model's raw output in its message — only a
     candidate id. Any exception caught inside this module that might embed
     model output (e.g. a `pydantic.ValidationError` on truncated/malformed
-    JSON, which quotes the raw text) is re-raised with `from None` so the
-    original message can't reach a log or error response through
-    `__cause__`/`__context__` either."""
+    JSON, which quotes the raw text) is re-raised with `from None`, which
+    sets `__cause__` to None and `__suppress_context__` so the original
+    message doesn't show up in a printed/logged traceback."""
 
 
 def extract_candidate(resume_text: str, candidate_id: str) -> Candidate:

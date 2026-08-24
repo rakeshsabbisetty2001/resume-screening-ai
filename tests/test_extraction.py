@@ -44,7 +44,7 @@ def test_start_after_end_rejected():
 
 
 def test_years_inconsistent_with_roles_rejected():
-    # 5 years stated, role only spans 1 year — well outside the 25%/12mo tolerance
+    # 5 years stated, role only spans 1 year — well outside the 10%/3mo tolerance
     bad = _candidate(years_experience=5.0,
                       roles=[Role(title="X", company="Y", start_date="2023-01",
                                   end_date="2024-01", bullets=[])])
