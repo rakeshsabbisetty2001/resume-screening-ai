@@ -1,13 +1,12 @@
 Jordan Novak
 
-1.0 years of experience in data analyst roles.
+0.6 years of experience in data analyst roles.
 
-Skills: R, Tableau, dashboarding, Power BI, Excel, SQL
+Skills: R, Power BI, ETL, statistics
 
 Experience:
-- Data Analyst I, Lakeside Financial (2025-08 - 2026-08)
-    * Partnered with stakeholders on dashboarding, contributing to a process improvement.
-    * Partnered with stakeholders on Excel, contributing to a process improvement.
-    * Applied dashboarding to resolve a recurring operational bottleneck.
+- Data Analyst I, Oakton Consulting (2026-01 - 2026-08)
+    * Applied ETL to resolve a recurring operational bottleneck.
+    * Led ETL initiative across a cross-functional team.
 
-Education: B.S. Statistics, Northgate University
+Education: B.S. Statistics, Riverbend University

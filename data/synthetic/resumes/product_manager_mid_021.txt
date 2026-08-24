@@ -1,15 +1,32 @@
 Cameron Tran
 
-4.2 years of experience in product manager roles.
+6.1 years of experience in product manager roles.
 
-Skills: Jira, competitive analysis, A/B testing, go-to-market strategy, SQL, roadmapping
+Skills: agile, OKRs, SQL, competitive analysis, stakeholder management, Jira
 
 Experience:
-- Product Manager, Northfield Systems (2025-11 - 2026-08)
-    * Improved quarterly active users 29% by leading a SQL project end-to-end.
-    * Grew NPS score 15% quarter-over-quarter by applying A/B testing consistently.
-- Associate Product Manager, Oakton Consulting (2022-05 - 2025-11)
-    * Reduced customer churn by 21% through a go-to-market strategy initiative.
-    * Grew NPS score 18% quarter-over-quarter by applying competitive analysis consistently.
+- Product Manager, Oakton Consulting (2025-11 - 2026-08)
+    * Owned day-to-day agile work as part of the broader team.
+    * Partnered with stakeholders on SQL, contributing to a process improvement.
+- Product Manager, Meridian Software (2024-04 - 2025-11)
+    * Applied OKRs to resolve a recurring operational bottleneck.
+    * Partnered with stakeholders on agile, contributing to a process improvement.
+    * Applied agile to resolve a recurring operational bottleneck.
+- Product Manager, Vantage Retail Group (2022-12 - 2024-04)
+    * Owned day-to-day stakeholder management work as part of the broader team.
+    * Mentored junior teammates on OKRs best practices.
+    * Partnered with stakeholders on Jira, contributing to a process improvement.
+- Product Manager, Northfield Systems (2022-04 - 2022-12)
+    * Led Jira initiative across a cross-functional team.
+    * Owned day-to-day OKRs work as part of the broader team.
+    * Mentored junior teammates on stakeholder management best practices.
+- Product Manager, Harbor Logistics (2021-03 - 2022-04)
+    * Led agile initiative across a cross-functional team.
+    * Owned day-to-day Jira work as part of the broader team.
+    * Applied stakeholder management to resolve a recurring operational bottleneck.
+- Product Manager, Oakton Consulting (2020-07 - 2021-03)
+    * Applied competitive analysis to resolve a recurring operational bottleneck.
+    * Mentored junior teammates on Jira best practices.
+    * Applied Jira to resolve a recurring operational bottleneck.
 
-Education: B.A. Business Administration, Central Tech Institute
+Education: B.A. Business Administration, Riverbend University

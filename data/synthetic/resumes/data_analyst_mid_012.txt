@@ -1,16 +1,16 @@
 Sam Tran
 
-4.5 years of experience in data analyst roles.
+3.0 years of experience in data analyst roles.
 
-Skills: data pipelines, R, Tableau, SQL, Power BI
+Skills: dashboarding, SQL, Python, Tableau, A/B testing
 
 Experience:
-- Data Analyst II, Cedar Ridge Analytics (2025-12 - 2026-08)
-    * Owned day-to-day Tableau work as part of the broader team.
-    * Applied Tableau to resolve a recurring operational bottleneck.
-- Data Analyst I, Vantage Retail Group (2022-02 - 2025-12)
-    * Led R initiative across a cross-functional team.
-    * Led data pipelines initiative across a cross-functional team.
-    * Partnered with stakeholders on SQL, contributing to a process improvement.
+- Data Analyst II, Meridian Software (2025-02 - 2026-08)
+    * Improved dashboard adoption 11% by leading a Tableau project end-to-end.
+    * Improved self-serve query volume 28% by leading a Tableau project end-to-end.
+- Data Analyst I, Oakton Consulting (2023-08 - 2025-02)
+    * Improved self-serve query volume 23% by leading a SQL project end-to-end.
+    * Reduced manual reporting time by 8% through a dashboarding initiative.
+    * Grew report accuracy 29% quarter-over-quarter by applying A/B testing consistently.
 
-Education: B.S. Statistics, Northgate University
+Education: B.S. Statistics, Central Tech Institute

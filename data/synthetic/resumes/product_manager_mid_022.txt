@@ -1,15 +1,31 @@
 Jamie Foster
 
-3.8 years of experience in product manager roles.
+5.0 years of experience in product manager roles.
 
-Skills: OKRs, user research, Figma, Jira, wireframing, SQL
+Skills: SQL, competitive analysis, roadmapping, agile, Jira, wireframing, go-to-market strategy
 
 Experience:
-- Product Manager, Harbor Logistics (2026-01 - 2026-08)
-    * Improved feature adoption 24% by leading a SQL project end-to-end.
-    * Improved NPS score 20% by leading a Jira project end-to-end.
-- Associate Product Manager, Oakton Consulting (2022-11 - 2026-01)
-    * Grew feature adoption 36% quarter-over-quarter by applying OKRs consistently.
-    * Grew NPS score 11% quarter-over-quarter by applying OKRs consistently.
+- Product Manager, Vantage Retail Group (2025-11 - 2026-08)
+    * Reduced support ticket volume by 25% through a competitive analysis initiative.
+    * Improved feature adoption 17% by leading a go-to-market strategy project end-to-end.
+- Associate Product Manager, Northfield Systems (2025-03 - 2025-11)
+    * Reduced support ticket volume by 22% through a wireframing initiative.
+    * Reduced customer churn by 28% through a agile initiative.
+    * Cut support ticket volume by 14% after redesigning the team's approach to agile.
+- Associate Product Manager, Meridian Software (2024-05 - 2025-03)
+    * Grew NPS score 13% quarter-over-quarter by applying wireframing consistently.
+    * Reduced feature cycle time by 20% through a Jira initiative.
+    * Reduced customer churn by 40% through a go-to-market strategy initiative.
+- Associate Product Manager, Harbor Logistics (2023-02 - 2024-05)
+    * Grew quarterly active users 12% quarter-over-quarter by applying roadmapping consistently.
+    * Cut feature cycle time by 24% after redesigning the team's approach to roadmapping.
+    * Improved feature adoption 38% by leading a wireframing project end-to-end.
+- Associate Product Manager, Oakton Consulting (2022-04 - 2023-02)
+    * Grew NPS score 17% quarter-over-quarter by applying roadmapping consistently.
+    * Cut support ticket volume by 9% after redesigning the team's approach to competitive analysis.
+- Associate Product Manager, Vantage Retail Group (2021-08 - 2022-04)
+    * Improved quarterly active users 38% by leading a SQL project end-to-end.
+    * Cut customer churn by 35% after redesigning the team's approach to Jira.
+    * Reduced feature cycle time by 28% through a agile initiative.
 
-Education: B.A. Business Administration, Northgate University
+Education: B.A. Business Administration, Central Tech Institute

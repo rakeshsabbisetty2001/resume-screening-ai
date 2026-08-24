@@ -1,12 +1,12 @@
 Riley Ortiz
 
-2.0 years of experience in product manager roles.
+1.8 years of experience in product manager roles.
 
-Skills: OKRs, SQL, A/B testing, agile, go-to-market strategy, competitive analysis, user research
+Skills: stakeholder management, user research, roadmapping, SQL, OKRs, competitive analysis
 
 Experience:
-- Associate Product Manager, Harbor Logistics (2024-08 - 2026-08)
-    * Led A/B testing initiative across a cross-functional team.
-    * Mentored junior teammates on agile best practices.
+- Associate Product Manager, Harbor Logistics (2024-10 - 2026-08)
+    * Reduced customer churn by 23% through a roadmapping initiative.
+    * Reduced support ticket volume by 36% through a roadmapping initiative.
 
-Education: B.A. Business Administration, Northgate University
+Education: B.A. Business Administration, Riverbend University

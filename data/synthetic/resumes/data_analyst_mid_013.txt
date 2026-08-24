@@ -1,15 +1,17 @@
 Alex Ortiz
 
-5.2 years of experience in data analyst roles.
+6.4 years of experience in data analyst roles.
 
-Skills: ETL, A/B testing, SQL, pandas, Excel, statistics
+Skills: statistics, Power BI, A/B testing, R, data pipelines, pandas, Python
 
 Experience:
-- Data Analyst II, Meridian Software (2023-12 - 2026-08)
-    * Applied Excel to resolve a recurring operational bottleneck.
-    * Applied SQL to resolve a recurring operational bottleneck.
-- Data Analyst II, Cedar Ridge Analytics (2021-05 - 2023-12)
-    * Partnered with stakeholders on ETL, contributing to a process improvement.
-    * Mentored junior teammates on A/B testing best practices.
+- Data Analyst II, Oakton Consulting (2023-03 - 2026-08)
+    * Reduced manual reporting time by 29% through a Power BI initiative.
+    * Reduced data pipeline failure rate by 23% through a R initiative.
+    * Cut manual reporting time by 13% after redesigning the team's approach to data pipelines.
+- Data Analyst I, Cedar Ridge Analytics (2020-03 - 2023-03)
+    * Grew self-serve query volume 34% quarter-over-quarter by applying A/B testing consistently.
+    * Cut manual reporting time by 36% after redesigning the team's approach to Python.
+    * Grew report accuracy 9% quarter-over-quarter by applying A/B testing consistently.
 
-Education: B.S. Statistics, Northgate University
+Education: B.S. Statistics, State University

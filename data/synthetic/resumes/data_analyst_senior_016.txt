@@ -1,21 +1,21 @@
 Casey Lambert
 
-13.2 years of experience in data analyst roles.
+10.2 years of experience in data analyst roles.
 
-Skills: pandas, data pipelines, R, ETL, Power BI, SQL, Excel
+Skills: Excel, SQL, R, Power BI, dashboarding
 
 Experience:
-- Senior Data Analyst, Vantage Retail Group (2022-03 - 2026-08)
-    * Grew dashboard adoption 24% quarter-over-quarter by applying pandas consistently.
-    * Improved dashboard adoption 23% by leading a SQL project end-to-end.
-    * Reduced data pipeline failure rate by 26% through a ETL initiative.
-- Senior Data Analyst, Lakeside Financial (2017-10 - 2022-03)
-    * Grew report accuracy 17% quarter-over-quarter by applying Excel consistently.
-    * Grew report accuracy 27% quarter-over-quarter by applying pandas consistently.
-    * Cut report turnaround time by 30% after redesigning the team's approach to Power BI.
-- Senior Data Analyst, Oakton Consulting (2013-06 - 2017-10)
-    * Cut report turnaround time by 22% after redesigning the team's approach to R.
-    * Grew self-serve query volume 25% quarter-over-quarter by applying SQL consistently.
-    * Reduced data pipeline failure rate by 32% through a SQL initiative.
+- Senior Data Analyst, Vantage Retail Group (2023-02 - 2026-08)
+    * Cut manual reporting time by 18% after redesigning the team's approach to dashboarding.
+    * Reduced manual reporting time by 22% through a R initiative.
+    * Improved dashboard adoption 13% by leading a Power BI project end-to-end.
+- Senior Data Analyst, Cedar Ridge Analytics (2019-12 - 2023-02)
+    * Improved dashboard adoption 20% by leading a R project end-to-end.
+    * Improved report accuracy 29% by leading a dashboarding project end-to-end.
+    * Grew report accuracy 23% quarter-over-quarter by applying dashboarding consistently.
+- Senior Data Analyst, Oakton Consulting (2016-06 - 2019-12)
+    * Reduced data pipeline failure rate by 11% through a R initiative.
+    * Grew report accuracy 22% quarter-over-quarter by applying R consistently.
+    * Improved report accuracy 13% by leading a SQL project end-to-end.
 
-Education: B.A. Communications, Riverbend University
+Education: B.S. Statistics, Riverbend University

@@ -1,17 +1,17 @@
 Morgan Novak
 
-6.3 years of experience in software engineer roles.
+4.4 years of experience in software engineer roles.
 
-Skills: Kubernetes, REST API design, unit testing, CI/CD, AWS, Docker, React
+Skills: AWS, Git, Python, PostgreSQL, Java, unit testing
 
 Experience:
-- Software Engineer, Meridian Software (2023-06 - 2026-08)
-    * Cut error rate by 23% after redesigning the team's approach to Docker.
-    * Improved deployment frequency 38% by leading a Docker project end-to-end.
-    * Cut response time by 12% after redesigning the team's approach to AWS.
-- Software Engineer, Cedar Ridge Analytics (2020-04 - 2023-06)
-    * Grew deployment frequency 40% quarter-over-quarter by applying Docker consistently.
-    * Improved test coverage 14% by leading a AWS project end-to-end.
-    * Reduced response time by 9% through a Kubernetes initiative.
+- Software Engineer, Meridian Software (2024-03 - 2026-08)
+    * Reduced response time by 39% through a Python initiative.
+    * Improved deployment frequency 19% by leading a AWS project end-to-end.
+    * Cut error rate by 37% after redesigning the team's approach to Java.
+- Junior Software Engineer, Northfield Systems (2022-03 - 2024-03)
+    * Reduced error rate by 8% through a PostgreSQL initiative.
+    * Reduced on-call incident count by 40% through a Python initiative.
+    * Improved test coverage 17% by leading a unit testing project end-to-end.
 
-Education: B.S. Computer Science, State University
+Education: B.S. Computer Science, Central Tech Institute

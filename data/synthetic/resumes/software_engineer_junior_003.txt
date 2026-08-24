@@ -1,13 +1,12 @@
 Sam Marsh
 
-1.5 years of experience in software engineer roles.
+1.7 years of experience in software engineer roles.
 
-Skills: React, unit testing, AWS, Java, REST API design, Go
+Skills: Java, Git, Kubernetes, AWS, React
 
 Experience:
-- Junior Software Engineer, Northfield Systems (2025-02 - 2026-08)
-    * Cut on-call incident count by 11% after redesigning the team's approach to Go.
-    * Improved system uptime 39% by leading a Go project end-to-end.
-    * Cut deploy time by 13% after redesigning the team's approach to REST API design.
+- Junior Software Engineer, Redstone Technologies (2024-12 - 2026-08)
+    * Grew system uptime 17% quarter-over-quarter by applying Git consistently.
+    * Grew deployment frequency 11% quarter-over-quarter by applying Java consistently.
 
-Education: B.S. Computer Science, Northgate University
+Education: B.S. Computer Science, State University

@@ -1,15 +1,30 @@
 Morgan Rhodes
 
-3.6 years of experience in data analyst roles.
+6.8 years of experience in data analyst roles.
 
-Skills: Excel, R, SQL, Python, pandas, Power BI
+Skills: ETL, R, Tableau, Power BI, data pipelines
 
 Experience:
-- Data Analyst II, Lakeside Financial (2025-11 - 2026-08)
-    * Applied pandas to resolve a recurring operational bottleneck.
-    * Mentored junior teammates on Python best practices.
-- Data Analyst I, Cedar Ridge Analytics (2023-01 - 2025-11)
-    * Owned day-to-day Power BI work as part of the broader team.
-    * Owned day-to-day pandas work as part of the broader team.
+- Data Analyst II, Vantage Retail Group (2025-09 - 2026-08)
+    * Led R initiative across a cross-functional team.
+    * Led data pipelines initiative across a cross-functional team.
+    * Partnered with stakeholders on Tableau, contributing to a process improvement.
+- Data Analyst I, Oakton Consulting (2024-09 - 2025-09)
+    * Owned day-to-day data pipelines work as part of the broader team.
+    * Owned day-to-day Tableau work as part of the broader team.
+    * Partnered with stakeholders on Power BI, contributing to a process improvement.
+- Data Analyst I, Cedar Ridge Analytics (2023-05 - 2024-09)
+    * Applied Tableau to resolve a recurring operational bottleneck.
+    * Partnered with stakeholders on R, contributing to a process improvement.
+- Data Analyst I, Meridian Software (2021-10 - 2023-05)
+    * Partnered with stakeholders on ETL, contributing to a process improvement.
+    * Led ETL initiative across a cross-functional team.
+    * Led Tableau initiative across a cross-functional team.
+- Data Analyst I, Lakeside Financial (2020-10 - 2021-10)
+    * Partnered with stakeholders on data pipelines, contributing to a process improvement.
+    * Mentored junior teammates on Tableau best practices.
+- Data Analyst I, Vantage Retail Group (2019-10 - 2020-10)
+    * Mentored junior teammates on ETL best practices.
+    * Applied Power BI to resolve a recurring operational bottleneck.
 
-Education: B.S. Statistics, Central Tech Institute
+Education: B.S. Statistics, Riverbend University

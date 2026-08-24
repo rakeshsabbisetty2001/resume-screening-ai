@@ -1,19 +1,19 @@
 Jordan Ortiz
 
-9.7 years of experience in product manager roles.
+8.7 years of experience in product manager roles.
 
-Skills: SQL, OKRs, competitive analysis, roadmapping, agile
+Skills: roadmapping, competitive analysis, Figma, stakeholder management, A/B testing
 
 Experience:
-- Senior Product Manager, Vantage Retail Group (2023-05 - 2026-08)
-    * Led OKRs initiative across a cross-functional team.
-    * Led agile initiative across a cross-functional team.
-    * Mentored junior teammates on agile best practices.
-- Senior Product Manager, Northfield Systems (2020-02 - 2023-05)
-    * Partnered with stakeholders on SQL, contributing to a process improvement.
-    * Partnered with stakeholders on roadmapping, contributing to a process improvement.
-- Senior Product Manager, Harbor Logistics (2016-12 - 2020-02)
-    * Owned day-to-day OKRs work as part of the broader team.
-    * Owned day-to-day competitive analysis work as part of the broader team.
+- Senior Product Manager, Vantage Retail Group (2023-08 - 2026-08)
+    * Reduced support ticket volume by 14% through a roadmapping initiative.
+    * Cut customer churn by 40% after redesigning the team's approach to competitive analysis.
+- Senior Product Manager, Oakton Consulting (2020-08 - 2023-08)
+    * Improved feature adoption 24% by leading a Figma project end-to-end.
+    * Grew NPS score 37% quarter-over-quarter by applying stakeholder management consistently.
+    * Grew quarterly active users 36% quarter-over-quarter by applying A/B testing consistently.
+- Senior Product Manager, Meridian Software (2017-12 - 2020-08)
+    * Cut feature cycle time by 29% after redesigning the team's approach to roadmapping.
+    * Cut feature cycle time by 16% after redesigning the team's approach to Figma.
 
-Education: B.A. Business Administration, Northgate University
+Education: B.A. Business Administration, Central Tech Institute

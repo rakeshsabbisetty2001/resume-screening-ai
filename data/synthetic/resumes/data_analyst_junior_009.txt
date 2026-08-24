@@ -1,13 +1,19 @@
 Rowan Rhodes
 
-1.9 years of experience in data analyst roles.
+1.1 years of experience in data analyst roles.
 
-Skills: R, dashboarding, SQL, statistics, data pipelines, pandas
+Skills: data pipelines, statistics, Excel, R, A/B testing, Python, Tableau
 
 Experience:
-- Data Analyst I, Lakeside Financial (2024-09 - 2026-08)
-    * Led SQL initiative across a cross-functional team.
-    * Led R initiative across a cross-functional team.
-    * Applied SQL to resolve a recurring operational bottleneck.
+- Data Analyst I, Vantage Retail Group (2026-05 - 2026-08)
+    * Applied A/B testing to resolve a recurring operational bottleneck.
+    * Applied Python to resolve a recurring operational bottleneck.
+    * Partnered with stakeholders on statistics, contributing to a process improvement.
+- Data Analyst I, Oakton Consulting (2025-11 - 2026-05)
+    * Led Tableau initiative across a cross-functional team.
+    * Owned day-to-day Excel work as part of the broader team.
+- Data Analyst I, Cedar Ridge Analytics (2025-07 - 2025-11)
+    * Led A/B testing initiative across a cross-functional team.
+    * Partnered with stakeholders on R, contributing to a process improvement.
 
-Education: B.S. Statistics, Central Tech Institute
+Education: B.S. Statistics, Riverbend University

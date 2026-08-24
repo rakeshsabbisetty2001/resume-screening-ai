@@ -1,20 +1,20 @@
 Quinn Coleman
 
-11.2 years of experience in data analyst roles.
+14.8 years of experience in data analyst roles.
 
-Skills: ETL, dashboarding, A/B testing, Excel, Power BI, SQL
+Skills: Tableau, Power BI, Excel, R, statistics, data pipelines, SQL
 
 Experience:
-- Senior Data Analyst, Cedar Ridge Analytics (2025-12 - 2026-08)
-    * Mentored junior teammates on dashboarding best practices.
-    * Applied ETL to resolve a recurring operational bottleneck.
-    * Owned day-to-day SQL work as part of the broader team.
-- Data Analyst II, Vantage Retail Group (2025-03 - 2025-12)
-    * Partnered with stakeholders on Power BI, contributing to a process improvement.
-    * Applied Excel to resolve a recurring operational bottleneck.
-- Data Analyst I, Oakton Consulting (2015-05 - 2025-03)
-    * Led SQL initiative across a cross-functional team.
-    * Partnered with stakeholders on dashboarding, contributing to a process improvement.
-    * Applied SQL to resolve a recurring operational bottleneck.
+- Senior Data Analyst, Oakton Consulting (2021-08 - 2026-08)
+    * Reduced data pipeline failure rate by 24% through a Tableau initiative.
+    * Cut report turnaround time by 20% after redesigning the team's approach to data pipelines.
+    * Reduced manual reporting time by 10% through a R initiative.
+- Senior Data Analyst, Lakeside Financial (2016-03 - 2021-08)
+    * Improved report accuracy 13% by leading a data pipelines project end-to-end.
+    * Grew report accuracy 28% quarter-over-quarter by applying Excel consistently.
+    * Cut manual reporting time by 38% after redesigning the team's approach to statistics.
+- Senior Data Analyst, Cedar Ridge Analytics (2011-10 - 2016-03)
+    * Improved dashboard adoption 36% by leading a Tableau project end-to-end.
+    * Reduced manual reporting time by 39% through a data pipelines initiative.
 
-Education: B.A. Communications, Central Tech Institute
+Education: B.S. Statistics, Central Tech Institute

@@ -1,16 +1,31 @@
 Harper Foster
 
-3.5 years of experience in software engineer roles.
+6.8 years of experience in software engineer roles.
 
-Skills: Git, Java, Python, Docker, REST API design
+Skills: Python, Docker, unit testing, CI/CD
 
 Experience:
-- Software Engineer, Redstone Technologies (2025-11 - 2026-08)
+- Software Engineer, Cedar Ridge Analytics (2025-02 - 2026-08)
+    * Led unit testing initiative across a cross-functional team.
+    * Partnered with stakeholders on unit testing, contributing to a process improvement.
+- Software Engineer, Northfield Systems (2024-02 - 2025-02)
+    * Owned day-to-day unit testing work as part of the broader team.
+    * Applied Docker to resolve a recurring operational bottleneck.
+    * Partnered with stakeholders on Docker, contributing to a process improvement.
+- Software Engineer, Meridian Software (2023-03 - 2024-02)
+    * Mentored junior teammates on Python best practices.
+    * Partnered with stakeholders on CI/CD, contributing to a process improvement.
+- Software Engineer, Vantage Retail Group (2022-05 - 2023-03)
+    * Applied CI/CD to resolve a recurring operational bottleneck.
+    * Applied Python to resolve a recurring operational bottleneck.
+    * Mentored junior teammates on Docker best practices.
+- Software Engineer, Redstone Technologies (2021-01 - 2022-05)
     * Led Python initiative across a cross-functional team.
-    * Partnered with stakeholders on REST API design, contributing to a process improvement.
-    * Owned day-to-day Java work as part of the broader team.
-- Software Engineer, Northfield Systems (2023-02 - 2025-11)
     * Owned day-to-day Docker work as part of the broader team.
-    * Applied Java to resolve a recurring operational bottleneck.
+    * Owned day-to-day Python work as part of the broader team.
+- Software Engineer, Cedar Ridge Analytics (2019-10 - 2021-01)
+    * Partnered with stakeholders on Python, contributing to a process improvement.
+    * Led Docker initiative across a cross-functional team.
+    * Led CI/CD initiative across a cross-functional team.
 
-Education: B.A. Communications, State University
+Education: B.S. Computer Science, Riverbend University

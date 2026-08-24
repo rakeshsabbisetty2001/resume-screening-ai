@@ -1,18 +1,20 @@
 Taylor Coleman
 
-14.6 years of experience in product manager roles.
+12.2 years of experience in product manager roles.
 
-Skills: A/B testing, stakeholder management, user research, competitive analysis, Figma
+Skills: A/B testing, Figma, agile, Jira
 
 Experience:
-- Senior Product Manager, Harbor Logistics (2021-09 - 2026-08)
-    * Improved NPS score 25% by leading a stakeholder management project end-to-end.
-    * Grew feature adoption 25% quarter-over-quarter by applying competitive analysis consistently.
-- Senior Product Manager, Northfield Systems (2016-11 - 2021-09)
-    * Reduced customer churn by 19% through a user research initiative.
-    * Cut customer churn by 17% after redesigning the team's approach to user research.
-- Senior Product Manager, Oakton Consulting (2012-01 - 2016-11)
-    * Cut customer churn by 11% after redesigning the team's approach to A/B testing.
-    * Grew feature adoption 27% quarter-over-quarter by applying A/B testing consistently.
+- Senior Product Manager, Northfield Systems (2022-05 - 2026-08)
+    * Improved feature adoption 27% by leading a Jira project end-to-end.
+    * Improved NPS score 31% by leading a Jira project end-to-end.
+    * Cut feature cycle time by 14% after redesigning the team's approach to Figma.
+- Product Manager, Oakton Consulting (2018-09 - 2022-05)
+    * Improved NPS score 27% by leading a agile project end-to-end.
+    * Reduced support ticket volume by 16% through a Figma initiative.
+- Associate Product Manager, Meridian Software (2014-06 - 2018-09)
+    * Cut feature cycle time by 30% after redesigning the team's approach to A/B testing.
+    * Cut support ticket volume by 15% after redesigning the team's approach to agile.
+    * Cut customer churn by 26% after redesigning the team's approach to A/B testing.
 
-Education: B.A. Communications, State University
+Education: B.A. Business Administration, Riverbend University

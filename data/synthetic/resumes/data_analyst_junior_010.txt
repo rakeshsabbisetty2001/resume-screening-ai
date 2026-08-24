@@ -1,13 +1,21 @@
 Reese Rhodes
 
-1.2 years of experience in data analyst roles.
+2.0 years of experience in data analyst roles.
 
-Skills: pandas, R, Excel, A/B testing, statistics, Power BI
+Skills: R, Tableau, A/B testing, Python
 
 Experience:
-- Data Analyst I, Vantage Retail Group (2025-05 - 2026-08)
-    * Owned day-to-day statistics work as part of the broader team.
-    * Partnered with stakeholders on Excel, contributing to a process improvement.
-    * Led Excel initiative across a cross-functional team.
+- Data Analyst I, Meridian Software (2025-11 - 2026-08)
+    * Grew report accuracy 30% quarter-over-quarter by applying R consistently.
+    * Improved self-serve query volume 30% by leading a R project end-to-end.
+    * Reduced manual reporting time by 22% through a Tableau initiative.
+- Data Analyst I, Cedar Ridge Analytics (2025-06 - 2025-11)
+    * Reduced manual reporting time by 16% through a Python initiative.
+    * Grew report accuracy 29% quarter-over-quarter by applying Python consistently.
+    * Reduced data pipeline failure rate by 36% through a Tableau initiative.
+- Data Analyst I, Vantage Retail Group (2024-08 - 2025-06)
+    * Reduced report turnaround time by 34% through a A/B testing initiative.
+    * Grew dashboard adoption 15% quarter-over-quarter by applying Python consistently.
+    * Cut report turnaround time by 9% after redesigning the team's approach to A/B testing.
 
-Education: B.S. Statistics, Northgate University
+Education: B.S. Statistics, Riverbend University

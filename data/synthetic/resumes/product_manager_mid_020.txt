@@ -1,16 +1,15 @@
 Riley Tran
 
-6.9 years of experience in product manager roles.
+6.1 years of experience in product manager roles.
 
-Skills: SQL, wireframing, OKRs, A/B testing, go-to-market strategy, user research, Jira
+Skills: roadmapping, competitive analysis, Jira, go-to-market strategy, Figma
 
 Experience:
-- Product Manager, Meridian Software (2025-07 - 2026-08)
-    * Improved feature adoption 17% by leading a Jira project end-to-end.
-    * Reduced support ticket volume by 30% through a go-to-market strategy initiative.
-- Associate Product Manager, Northfield Systems (2019-09 - 2025-07)
-    * Reduced feature cycle time by 39% through a go-to-market strategy initiative.
-    * Improved quarterly active users 14% by leading a OKRs project end-to-end.
-    * Improved feature adoption 21% by leading a SQL project end-to-end.
+- Product Manager, Northfield Systems (2023-12 - 2026-08)
+    * Mentored junior teammates on roadmapping best practices.
+    * Partnered with stakeholders on competitive analysis, contributing to a process improvement.
+- Product Manager, Vantage Retail Group (2020-07 - 2023-12)
+    * Partnered with stakeholders on Figma, contributing to a process improvement.
+    * Mentored junior teammates on Figma best practices.
 
-Education: B.S. Statistics, Lakeview College
+Education: B.A. Business Administration, Lakeview College

@@ -1,13 +1,19 @@
 Avery Hayes
 
-2.0 years of experience in product manager roles.
+0.7 years of experience in product manager roles.
 
-Skills: OKRs, A/B testing, Figma, user research, roadmapping
+Skills: user research, competitive analysis, agile, stakeholder management, go-to-market strategy
 
 Experience:
-- Associate Product Manager, Meridian Software (2024-08 - 2026-08)
-    * Owned day-to-day Figma work as part of the broader team.
-    * Owned day-to-day user research work as part of the broader team.
-    * Partnered with stakeholders on Figma, contributing to a process improvement.
+- Associate Product Manager, Northfield Systems (2026-05 - 2026-08)
+    * Grew quarterly active users 14% quarter-over-quarter by applying stakeholder management consistently.
+    * Reduced customer churn by 29% through a stakeholder management initiative.
+- Associate Product Manager, Vantage Retail Group (2026-02 - 2026-05)
+    * Cut customer churn by 8% after redesigning the team's approach to user research.
+    * Cut support ticket volume by 8% after redesigning the team's approach to stakeholder management.
+- Associate Product Manager, Meridian Software (2025-12 - 2026-02)
+    * Grew quarterly active users 36% quarter-over-quarter by applying user research consistently.
+    * Grew feature adoption 18% quarter-over-quarter by applying stakeholder management consistently.
+    * Cut feature cycle time by 31% after redesigning the team's approach to user research.
 
-Education: B.S. Statistics, State University
+Education: B.A. Business Administration, Central Tech Institute

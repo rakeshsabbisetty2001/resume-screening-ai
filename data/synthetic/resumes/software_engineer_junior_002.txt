@@ -2,11 +2,18 @@ Avery Marsh
 
 1.2 years of experience in software engineer roles.
 
-Skills: CI/CD, PostgreSQL, REST API design, Docker, Java, Go, Python
+Skills: REST API design, unit testing, Java, AWS, CI/CD, React
 
 Experience:
-- Junior Software Engineer, Vantage Retail Group (2025-06 - 2026-08)
-    * Cut response time by 37% after redesigning the team's approach to Go.
-    * Improved system uptime 10% by leading a Java project end-to-end.
+- Junior Software Engineer, Meridian Software (2026-05 - 2026-08)
+    * Cut error rate by 17% after redesigning the team's approach to React.
+    * Reduced response time by 21% through a Java initiative.
+- Junior Software Engineer, Redstone Technologies (2025-12 - 2026-05)
+    * Cut error rate by 11% after redesigning the team's approach to Java.
+    * Cut deploy time by 19% after redesigning the team's approach to React.
+    * Cut error rate by 28% after redesigning the team's approach to AWS.
+- Junior Software Engineer, Northfield Systems (2025-06 - 2025-12)
+    * Grew deployment frequency 18% quarter-over-quarter by applying REST API design consistently.
+    * Grew system uptime 32% quarter-over-quarter by applying unit testing consistently.
 
-Education: B.S. Computer Science, Riverbend University
+Education: B.S. Computer Science, Northgate University

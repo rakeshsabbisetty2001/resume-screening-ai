@@ -44,7 +44,11 @@ FIRST_NAMES = ["Jordan", "Taylor", "Morgan", "Casey", "Alex", "Sam", "Riley", "D
 LAST_NAMES = ["Bennett", "Coleman", "Foster", "Grant", "Hayes", "Irwin", "Kessler",
               "Lambert", "Marsh", "Novak", "Ortiz", "Pruitt", "Quintero", "Rhodes",
               "Sawyer", "Tran"]
-# Disjoint from data/name_variants.json's paired names by construction (checked at generation time).
+# Must stay disjoint from data/name_variants.json's paired names, or the bias
+# eval's "same resume, only the name changed" premise breaks — enforced by
+# an assertion in main(), not just this comment, so a future edit to either
+# list fails loudly instead of silently.
+NAME_VARIANTS_PATH = Path(__file__).resolve().parent.parent / "data" / "name_variants.json"
 
 SKILLS = {
     "software_engineer": ["Python", "Java", "Go", "React", "AWS", "Docker", "Kubernetes",
@@ -140,30 +144,26 @@ def shift_months(d: date, months: int) -> date:
 
 
 def split_months(rng: random.Random, total_months: int, n_roles: int, hopping: bool) -> list[int]:
+    # Weighted split, not a "dump the remainder into the last role" walk —
+    # the earlier version fixed n_roles by tier and only randomized the
+    # first n_roles-1 stints, so "hopping" reliably produced two short
+    # stints plus one leftover role holding 79-95% of total tenure: the
+    # opposite of what the attribute is supposed to signal. A bounded
+    # weight spread keeps every role's share of the total in a realistic
+    # range regardless of n_roles or total_months.
     if n_roles == 1:
         return [total_months]
-    if hopping:
-        parts, remaining = [], total_months
-        for i in range(n_roles - 1):
-            cap = remaining - (n_roles - 1 - i)  # leave >=1 month for each remaining role
-            part = max(1, min(cap, rng.randint(4, 14)))
-            parts.append(part)
-            remaining -= part
-        parts.append(max(1, remaining))
-    else:
-        base = max(1, total_months // n_roles)
-        parts = [base] * n_roles
-        leftover = total_months - base * n_roles
-        for i in range(leftover):
-            parts[i % n_roles] += 1
-    parts[-1] += total_months - sum(parts)  # absorb any rounding drift, keeps sum exact
+    spread = (0.5, 1.5) if hopping else (0.85, 1.15)
+    weights = [rng.uniform(*spread) for _ in range(n_roles)]
+    total_w = sum(weights)
+    parts = [max(1, round(total_months * w / total_w)) for w in weights]
+    parts[-1] += total_months - sum(parts)  # absorb rounding drift, keeps sum exact
     return [max(1, p) for p in parts]
 
 
 def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
     lo, hi = TIER_MONTHS[tier]
     total_months = rng.randint(lo, hi)
-    n_roles = 1 if tier == "junior" else (2 if tier == "mid" else 3)
 
     # Quality-relevant attributes, drawn independent of tier — the actual
     # gradient the ranking eval and a rubric judge (but not a bag-of-words
@@ -171,7 +171,21 @@ def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
     tenure_pattern = rng.choice(["stable", "hopping"])
     quantified = rng.choice([True, False])
     progressing = rng.choice([True, False])
-    degree_match = rng.random() < 0.75  # most resumes are on-field; some aren't, realistically
+    # Nurse licensure makes an off-field degree read as a fabricated resume
+    # (no nursing credential at all), not "less relevant" — exempt that
+    # category so the mismatch draw stays a realistic weak signal elsewhere.
+    degree_match = True if category == "registered_nurse" else rng.random() < 0.75
+
+    if tenure_pattern == "hopping":
+        # n_roles derived from tenure itself, not the tier-based 1/2/3 count
+        # below — fixing role count and only shuffling the split let
+        # "hopping" dump most of the tenure into one leftover role (measured
+        # 79-95% of total tenure in a single stint), rendering as its
+        # opposite. One role per ~9 months, capped by the per-category
+        # company pool so no employer repeats within a resume.
+        n_roles = min(6, max(3, total_months // 9))
+    else:
+        n_roles = 1 if tier == "junior" else (2 if tier == "mid" else 3)
 
     role_months = split_months(rng, total_months, n_roles, hopping=(tenure_pattern == "hopping"))
     ranks = TITLE_RANKS[category]
@@ -231,6 +245,11 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     names = [f"{f} {l}" for f in FIRST_NAMES for l in LAST_NAMES]
     rng.shuffle(names)
+
+    variant_names = {n for p in json.loads(NAME_VARIANTS_PATH.read_text())["pairs"]
+                      for n in (p["variant_a"], p["variant_b"])}
+    assert not (variant_names & set(names)), \
+        "corpus name collides with a bias-eval variant name — breaks the swap premise"
 
     manifest = []
     name_i = 0

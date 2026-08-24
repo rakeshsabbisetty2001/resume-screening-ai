@@ -1,12 +1,13 @@
 Morgan Sawyer
 
-1.4 years of experience in product manager roles.
+0.7 years of experience in product manager roles.
 
-Skills: go-to-market strategy, stakeholder management, SQL, A/B testing, user research, competitive analysis
+Skills: Jira, wireframing, agile, stakeholder management, SQL, OKRs, roadmapping
 
 Experience:
-- Associate Product Manager, Meridian Software (2025-03 - 2026-08)
-    * Partnered with stakeholders on A/B testing, contributing to a process improvement.
-    * Applied go-to-market strategy to resolve a recurring operational bottleneck.
+- Associate Product Manager, Meridian Software (2025-12 - 2026-08)
+    * Improved feature adoption 20% by leading a roadmapping project end-to-end.
+    * Reduced support ticket volume by 14% through a Jira initiative.
+    * Cut customer churn by 9% after redesigning the team's approach to agile.
 
-Education: B.S. Statistics, Northgate University
+Education: B.A. Business Administration, Lakeview College

@@ -1,19 +1,31 @@
 Quinn Marsh
 
-9.4 years of experience in software engineer roles.
+11.4 years of experience in software engineer roles.
 
-Skills: React, REST API design, Docker, Git, PostgreSQL
+Skills: Git, Python, Java, AWS
 
 Experience:
-- Senior Software Engineer, Redstone Technologies (2023-06 - 2026-08)
-    * Improved test coverage 40% by leading a React project end-to-end.
-    * Reduced on-call incident count by 34% through a Docker initiative.
-    * Grew test coverage 26% quarter-over-quarter by applying REST API design consistently.
-- Software Engineer, Northfield Systems (2020-04 - 2023-06)
-    * Cut deploy time by 18% after redesigning the team's approach to Git.
-    * Cut deploy time by 27% after redesigning the team's approach to React.
-- Junior Software Engineer, Meridian Software (2017-03 - 2020-04)
-    * Grew test coverage 39% quarter-over-quarter by applying Docker consistently.
-    * Reduced response time by 10% through a REST API design initiative.
+- Senior Software Engineer, Meridian Software (2025-02 - 2026-08)
+    * Cut error rate by 23% after redesigning the team's approach to AWS.
+    * Improved system uptime 30% by leading a AWS project end-to-end.
+- Senior Software Engineer, Vantage Retail Group (2022-08 - 2025-02)
+    * Cut error rate by 30% after redesigning the team's approach to Java.
+    * Improved deployment frequency 21% by leading a Java project end-to-end.
+    * Cut response time by 26% after redesigning the team's approach to Python.
+- Senior Software Engineer, Cedar Ridge Analytics (2020-07 - 2022-08)
+    * Reduced response time by 24% through a AWS initiative.
+    * Improved test coverage 25% by leading a Java project end-to-end.
+    * Reduced error rate by 37% through a AWS initiative.
+- Senior Software Engineer, Northfield Systems (2018-07 - 2020-07)
+    * Improved deployment frequency 16% by leading a AWS project end-to-end.
+    * Reduced error rate by 18% through a Git initiative.
+- Senior Software Engineer, Redstone Technologies (2016-05 - 2018-07)
+    * Reduced response time by 40% through a Java initiative.
+    * Reduced on-call incident count by 36% through a Git initiative.
+    * Cut response time by 38% after redesigning the team's approach to Java.
+- Senior Software Engineer, Meridian Software (2015-03 - 2016-05)
+    * Reduced deploy time by 19% through a AWS initiative.
+    * Grew system uptime 32% quarter-over-quarter by applying AWS consistently.
+    * Cut response time by 8% after redesigning the team's approach to AWS.
 
-Education: B.S. Computer Science, Northgate University
+Education: B.S. Nursing, Northgate University

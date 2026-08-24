@@ -1,17 +1,16 @@
 Morgan Hayes
 
-5.2 years of experience in software engineer roles.
+4.3 years of experience in software engineer roles.
 
-Skills: AWS, Git, Go, React, Docker, Java
+Skills: React, CI/CD, Java, Go
 
 Experience:
-- Software Engineer, Vantage Retail Group (2025-10 - 2026-08)
-    * Partnered with stakeholders on Go, contributing to a process improvement.
-    * Mentored junior teammates on Docker best practices.
-    * Led AWS initiative across a cross-functional team.
-- Software Engineer, Northfield Systems (2021-06 - 2025-10)
-    * Applied Go to resolve a recurring operational bottleneck.
-    * Mentored junior teammates on Git best practices.
-    * Owned day-to-day React work as part of the broader team.
+- Software Engineer, Meridian Software (2024-08 - 2026-08)
+    * Grew deployment frequency 23% quarter-over-quarter by applying CI/CD consistently.
+    * Reduced response time by 37% through a CI/CD initiative.
+    * Improved deployment frequency 26% by leading a Go project end-to-end.
+- Junior Software Engineer, Cedar Ridge Analytics (2022-04 - 2024-08)
+    * Reduced error rate by 28% through a Go initiative.
+    * Cut error rate by 35% after redesigning the team's approach to Go.
 
-Education: B.A. Communications, Central Tech Institute
+Education: B.S. Computer Science, Riverbend University
