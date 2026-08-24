@@ -22,11 +22,12 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = 10
     max_body_bytes: int = 32_000  # resumes are text, not files with attachments
 
-    # Pinned, dated model IDs so every number in eval/results.md and
+    # Pinned model IDs so every number in eval/results.md and
     # eval/bias_results.md stays attributable to a specific model version
-    # rather than drifting under a floating alias (sec-filings-rag's judge
-    # pin, same convention). Effort/thinking config lives next to the call
-    # site in extraction.py / scoring.py, not here.
+    # (sec-filings-rag's judge pin, same convention). Current model IDs
+    # carry no date suffix — a dated string here would be wrong, not more
+    # precise. Effort/thinking config lives next to the call site in
+    # extraction.py / scoring.py, not here.
     extraction_model: str = "claude-sonnet-5"
     scoring_model: str = "claude-sonnet-5"
 

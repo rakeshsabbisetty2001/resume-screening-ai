@@ -16,7 +16,7 @@ class Role(BaseModel):
 
 class Candidate(BaseModel):
     name: str  # dropped before the scorer sees this object — see app/scoring/score.py
-    years_experience: float
+    years_experience: float = Field(ge=0)
     skills: list[str]
     education: list[Education]
     roles: list[Role]
