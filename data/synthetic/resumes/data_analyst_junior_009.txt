@@ -1,0 +1,13 @@
+Rowan Rhodes
+
+1.9 years of experience in data analyst roles.
+
+Skills: R, dashboarding, SQL, statistics, data pipelines, pandas
+
+Experience:
+- Data Analyst I, Lakeside Financial (2024-09 - 2026-08)
+    * Led SQL initiative across a cross-functional team.
+    * Led R initiative across a cross-functional team.
+    * Applied SQL to resolve a recurring operational bottleneck.
+
+Education: B.S. Statistics, Central Tech Institute

@@ -1,0 +1,18 @@
+Rowan Hayes
+
+8.6 years of experience in software engineer roles.
+
+Skills: AWS, Git, Kubernetes, React, REST API design, CI/CD, Java
+
+Experience:
+- Senior Software Engineer, Meridian Software (2023-09 - 2026-08)
+    * Partnered with stakeholders on REST API design, contributing to a process improvement.
+    * Partnered with stakeholders on AWS, contributing to a process improvement.
+- Software Engineer, Northfield Systems (2020-11 - 2023-09)
+    * Owned day-to-day AWS work as part of the broader team.
+    * Mentored junior teammates on React best practices.
+- Junior Software Engineer, Cedar Ridge Analytics (2018-01 - 2020-11)
+    * Applied AWS to resolve a recurring operational bottleneck.
+    * Owned day-to-day React work as part of the broader team.
+
+Education: B.A. Communications, Riverbend University

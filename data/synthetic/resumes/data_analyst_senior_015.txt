@@ -1,0 +1,20 @@
+Quinn Coleman
+
+11.2 years of experience in data analyst roles.
+
+Skills: ETL, dashboarding, A/B testing, Excel, Power BI, SQL
+
+Experience:
+- Senior Data Analyst, Cedar Ridge Analytics (2025-12 - 2026-08)
+    * Mentored junior teammates on dashboarding best practices.
+    * Applied ETL to resolve a recurring operational bottleneck.
+    * Owned day-to-day SQL work as part of the broader team.
+- Data Analyst II, Vantage Retail Group (2025-03 - 2025-12)
+    * Partnered with stakeholders on Power BI, contributing to a process improvement.
+    * Applied Excel to resolve a recurring operational bottleneck.
+- Data Analyst I, Oakton Consulting (2015-05 - 2025-03)
+    * Led SQL initiative across a cross-functional team.
+    * Partnered with stakeholders on dashboarding, contributing to a process improvement.
+    * Applied SQL to resolve a recurring operational bottleneck.
+
+Education: B.A. Communications, Central Tech Institute

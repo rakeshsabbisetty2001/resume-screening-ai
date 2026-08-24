@@ -1,0 +1,242 @@
+[
+  {
+    "candidate_id": "software_engineer_junior_001",
+    "category": "software_engineer",
+    "tier": "junior",
+    "name": "Jordan Quintero"
+  },
+  {
+    "candidate_id": "software_engineer_junior_002",
+    "category": "software_engineer",
+    "tier": "junior",
+    "name": "Avery Marsh"
+  },
+  {
+    "candidate_id": "software_engineer_junior_003",
+    "category": "software_engineer",
+    "tier": "junior",
+    "name": "Sam Marsh"
+  },
+  {
+    "candidate_id": "software_engineer_mid_004",
+    "category": "software_engineer",
+    "tier": "mid",
+    "name": "Morgan Novak"
+  },
+  {
+    "candidate_id": "software_engineer_mid_005",
+    "category": "software_engineer",
+    "tier": "mid",
+    "name": "Morgan Hayes"
+  },
+  {
+    "candidate_id": "software_engineer_mid_006",
+    "category": "software_engineer",
+    "tier": "mid",
+    "name": "Harper Foster"
+  },
+  {
+    "candidate_id": "software_engineer_senior_007",
+    "category": "software_engineer",
+    "tier": "senior",
+    "name": "Rowan Hayes"
+  },
+  {
+    "candidate_id": "software_engineer_senior_008",
+    "category": "software_engineer",
+    "tier": "senior",
+    "name": "Quinn Marsh"
+  },
+  {
+    "candidate_id": "data_analyst_junior_009",
+    "category": "data_analyst",
+    "tier": "junior",
+    "name": "Rowan Rhodes"
+  },
+  {
+    "candidate_id": "data_analyst_junior_010",
+    "category": "data_analyst",
+    "tier": "junior",
+    "name": "Reese Rhodes"
+  },
+  {
+    "candidate_id": "data_analyst_junior_011",
+    "category": "data_analyst",
+    "tier": "junior",
+    "name": "Jordan Novak"
+  },
+  {
+    "candidate_id": "data_analyst_mid_012",
+    "category": "data_analyst",
+    "tier": "mid",
+    "name": "Sam Tran"
+  },
+  {
+    "candidate_id": "data_analyst_mid_013",
+    "category": "data_analyst",
+    "tier": "mid",
+    "name": "Alex Ortiz"
+  },
+  {
+    "candidate_id": "data_analyst_mid_014",
+    "category": "data_analyst",
+    "tier": "mid",
+    "name": "Morgan Rhodes"
+  },
+  {
+    "candidate_id": "data_analyst_senior_015",
+    "category": "data_analyst",
+    "tier": "senior",
+    "name": "Quinn Coleman"
+  },
+  {
+    "candidate_id": "data_analyst_senior_016",
+    "category": "data_analyst",
+    "tier": "senior",
+    "name": "Casey Lambert"
+  },
+  {
+    "candidate_id": "product_manager_junior_017",
+    "category": "product_manager",
+    "tier": "junior",
+    "name": "Morgan Sawyer"
+  },
+  {
+    "candidate_id": "product_manager_junior_018",
+    "category": "product_manager",
+    "tier": "junior",
+    "name": "Avery Hayes"
+  },
+  {
+    "candidate_id": "product_manager_junior_019",
+    "category": "product_manager",
+    "tier": "junior",
+    "name": "Riley Ortiz"
+  },
+  {
+    "candidate_id": "product_manager_mid_020",
+    "category": "product_manager",
+    "tier": "mid",
+    "name": "Riley Tran"
+  },
+  {
+    "candidate_id": "product_manager_mid_021",
+    "category": "product_manager",
+    "tier": "mid",
+    "name": "Cameron Tran"
+  },
+  {
+    "candidate_id": "product_manager_mid_022",
+    "category": "product_manager",
+    "tier": "mid",
+    "name": "Jamie Foster"
+  },
+  {
+    "candidate_id": "product_manager_senior_023",
+    "category": "product_manager",
+    "tier": "senior",
+    "name": "Jordan Ortiz"
+  },
+  {
+    "candidate_id": "product_manager_senior_024",
+    "category": "product_manager",
+    "tier": "senior",
+    "name": "Taylor Coleman"
+  },
+  {
+    "candidate_id": "sales_junior_025",
+    "category": "sales",
+    "tier": "junior",
+    "name": "Cameron Lambert"
+  },
+  {
+    "candidate_id": "sales_junior_026",
+    "category": "sales",
+    "tier": "junior",
+    "name": "Cameron Hayes"
+  },
+  {
+    "candidate_id": "sales_junior_027",
+    "category": "sales",
+    "tier": "junior",
+    "name": "Riley Novak"
+  },
+  {
+    "candidate_id": "sales_mid_028",
+    "category": "sales",
+    "tier": "mid",
+    "name": "Rowan Bennett"
+  },
+  {
+    "candidate_id": "sales_mid_029",
+    "category": "sales",
+    "tier": "mid",
+    "name": "Cameron Quintero"
+  },
+  {
+    "candidate_id": "sales_mid_030",
+    "category": "sales",
+    "tier": "mid",
+    "name": "Harper Quintero"
+  },
+  {
+    "candidate_id": "sales_senior_031",
+    "category": "sales",
+    "tier": "senior",
+    "name": "Quinn Sawyer"
+  },
+  {
+    "candidate_id": "sales_senior_032",
+    "category": "sales",
+    "tier": "senior",
+    "name": "Sam Novak"
+  },
+  {
+    "candidate_id": "registered_nurse_junior_033",
+    "category": "registered_nurse",
+    "tier": "junior",
+    "name": "Cameron Kessler"
+  },
+  {
+    "candidate_id": "registered_nurse_junior_034",
+    "category": "registered_nurse",
+    "tier": "junior",
+    "name": "Rowan Foster"
+  },
+  {
+    "candidate_id": "registered_nurse_junior_035",
+    "category": "registered_nurse",
+    "tier": "junior",
+    "name": "Harper Kessler"
+  },
+  {
+    "candidate_id": "registered_nurse_mid_036",
+    "category": "registered_nurse",
+    "tier": "mid",
+    "name": "Drew Tran"
+  },
+  {
+    "candidate_id": "registered_nurse_mid_037",
+    "category": "registered_nurse",
+    "tier": "mid",
+    "name": "Reese Grant"
+  },
+  {
+    "candidate_id": "registered_nurse_mid_038",
+    "category": "registered_nurse",
+    "tier": "mid",
+    "name": "Harper Irwin"
+  },
+  {
+    "candidate_id": "registered_nurse_senior_039",
+    "category": "registered_nurse",
+    "tier": "senior",
+    "name": "Rowan Tran"
+  },
+  {
+    "candidate_id": "registered_nurse_senior_040",
+    "category": "registered_nurse",
+    "tier": "senior",
+    "name": "Taylor Ortiz"
+  }
+]

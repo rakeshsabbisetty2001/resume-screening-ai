@@ -1,0 +1,8 @@
+{
+  "methodology": "Paired university names used as an SES/prestige-proxy swap axis for the bias eval (Phase 5) — the required, non-tautological measurement, since the scorer is name-blind by default and a name-only swap can't show anything beyond the noise floor. University text remains in whatever free-text education field the scorer does see, so a score delta beyond the noise floor here reflects real residual sensitivity, not a construction artifact. All three pairs are deliberately kept institution-type-matched (four-year university vs. four-year university) so the measured effect is prestige-connotation from the name itself, not institution type as a confound. Fictional names, not real institutions, to avoid implicating any real school.",
+  "pairs": [
+    {"pair_id": "univ_1", "variant_a": "Ivy Ridge University", "variant_b": "Eastland State University"},
+    {"pair_id": "univ_2", "variant_a": "Cambridge Heights University", "variant_b": "Riverside State University"},
+    {"pair_id": "univ_3", "variant_a": "Sterling Institute of Technology", "variant_b": "Fairview State University"}
+  ]
+}

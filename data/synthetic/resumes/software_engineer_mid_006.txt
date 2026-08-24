@@ -1,0 +1,16 @@
+Harper Foster
+
+3.5 years of experience in software engineer roles.
+
+Skills: Git, Java, Python, Docker, REST API design
+
+Experience:
+- Software Engineer, Redstone Technologies (2025-11 - 2026-08)
+    * Led Python initiative across a cross-functional team.
+    * Partnered with stakeholders on REST API design, contributing to a process improvement.
+    * Owned day-to-day Java work as part of the broader team.
+- Software Engineer, Northfield Systems (2023-02 - 2025-11)
+    * Owned day-to-day Docker work as part of the broader team.
+    * Applied Java to resolve a recurring operational bottleneck.
+
+Education: B.A. Communications, State University

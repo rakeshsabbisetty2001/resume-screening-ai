@@ -1,0 +1,3 @@
+Growth Analyst
+
+Analyst role focused on experimentation and funnel metrics. Requirements: SQL, A/B testing methodology, Excel or Python for analysis. Bonus: dashboarding tools, ETL experience.

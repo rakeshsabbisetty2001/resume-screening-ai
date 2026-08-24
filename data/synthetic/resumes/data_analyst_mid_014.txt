@@ -1,0 +1,15 @@
+Morgan Rhodes
+
+3.6 years of experience in data analyst roles.
+
+Skills: Excel, R, SQL, Python, pandas, Power BI
+
+Experience:
+- Data Analyst II, Lakeside Financial (2025-11 - 2026-08)
+    * Applied pandas to resolve a recurring operational bottleneck.
+    * Mentored junior teammates on Python best practices.
+- Data Analyst I, Cedar Ridge Analytics (2023-01 - 2025-11)
+    * Owned day-to-day Power BI work as part of the broader team.
+    * Owned day-to-day pandas work as part of the broader team.
+
+Education: B.S. Statistics, Central Tech Institute

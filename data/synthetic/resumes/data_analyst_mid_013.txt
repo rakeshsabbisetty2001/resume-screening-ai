@@ -1,0 +1,15 @@
+Alex Ortiz
+
+5.2 years of experience in data analyst roles.
+
+Skills: ETL, A/B testing, SQL, pandas, Excel, statistics
+
+Experience:
+- Data Analyst II, Meridian Software (2023-12 - 2026-08)
+    * Applied Excel to resolve a recurring operational bottleneck.
+    * Applied SQL to resolve a recurring operational bottleneck.
+- Data Analyst II, Cedar Ridge Analytics (2021-05 - 2023-12)
+    * Partnered with stakeholders on ETL, contributing to a process improvement.
+    * Mentored junior teammates on A/B testing best practices.
+
+Education: B.S. Statistics, Northgate University

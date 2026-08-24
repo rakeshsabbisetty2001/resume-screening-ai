@@ -1,0 +1,17 @@
+Morgan Hayes
+
+5.2 years of experience in software engineer roles.
+
+Skills: AWS, Git, Go, React, Docker, Java
+
+Experience:
+- Software Engineer, Vantage Retail Group (2025-10 - 2026-08)
+    * Partnered with stakeholders on Go, contributing to a process improvement.
+    * Mentored junior teammates on Docker best practices.
+    * Led AWS initiative across a cross-functional team.
+- Software Engineer, Northfield Systems (2021-06 - 2025-10)
+    * Applied Go to resolve a recurring operational bottleneck.
+    * Mentored junior teammates on Git best practices.
+    * Owned day-to-day React work as part of the broader team.
+
+Education: B.A. Communications, Central Tech Institute

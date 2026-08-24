@@ -1,0 +1,3 @@
+Backend Software Engineer
+
+We're hiring a backend engineer to build and operate services handling production traffic. Requirements: 3+ years professional experience, strong Python or Go, experience with REST API design, comfort with Docker/Kubernetes and CI/CD pipelines, PostgreSQL or similar. Bonus: AWS experience, unit testing discipline.

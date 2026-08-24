@@ -1,0 +1,13 @@
+Reese Rhodes
+
+1.2 years of experience in data analyst roles.
+
+Skills: pandas, R, Excel, A/B testing, statistics, Power BI
+
+Experience:
+- Data Analyst I, Vantage Retail Group (2025-05 - 2026-08)
+    * Owned day-to-day statistics work as part of the broader team.
+    * Partnered with stakeholders on Excel, contributing to a process improvement.
+    * Led Excel initiative across a cross-functional team.
+
+Education: B.S. Statistics, Northgate University

@@ -1,0 +1,13 @@
+Sam Marsh
+
+1.5 years of experience in software engineer roles.
+
+Skills: React, unit testing, AWS, Java, REST API design, Go
+
+Experience:
+- Junior Software Engineer, Northfield Systems (2025-02 - 2026-08)
+    * Cut on-call incident count by 11% after redesigning the team's approach to Go.
+    * Improved system uptime 39% by leading a Go project end-to-end.
+    * Cut deploy time by 13% after redesigning the team's approach to REST API design.
+
+Education: B.S. Computer Science, Northgate University

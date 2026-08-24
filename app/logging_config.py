@@ -12,7 +12,14 @@ class JsonFormatter(logging.Formatter):
             "message": record.getMessage(),
         }
         if record.exc_info:
-            payload["exc_info"] = self.formatException(record.exc_info)
+            # Deliberately NOT self.formatException(record.exc_info) here.
+            # sec-filings-rag's formatter does that, but this app's exceptions
+            # can carry resume/JD text (e.g. a Pydantic ValidationError's
+            # message embeds `input_value=...`, and uvicorn logs unhandled
+            # request exceptions through this same root handler) — a full
+            # traceback would be exactly the PII leak the call-site-discipline
+            # comment below claims to avoid. Log the exception type only.
+            payload["exc_type"] = record.exc_info[0].__name__ if record.exc_info[0] else None
         if hasattr(record, "extra_fields"):
             payload.update(record.extra_fields)
         return json.dumps(payload, default=str)

@@ -30,7 +30,11 @@ class Settings(BaseSettings):
     extraction_model: str = "claude-sonnet-5"
     scoring_model: str = "claude-sonnet-5"
 
-    model_config = SettingsConfigDict(env_file=".env")
+    # extra="ignore": later phases put PORT/LOG_LEVEL etc. in .env for the
+    # platform, and pydantic-settings 2.x defaults to extra="forbid" — an
+    # unmapped env key would otherwise crash the app at import with a
+    # ValidationError that doesn't name the real cause.
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 settings = Settings()

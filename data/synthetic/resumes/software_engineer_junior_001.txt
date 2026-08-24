@@ -1,0 +1,13 @@
+Jordan Quintero
+
+1.1 years of experience in software engineer roles.
+
+Skills: React, Go, Python, AWS, PostgreSQL, Docker, unit testing
+
+Experience:
+- Junior Software Engineer, Meridian Software (2025-07 - 2026-08)
+    * Owned day-to-day AWS work as part of the broader team.
+    * Mentored junior teammates on unit testing best practices.
+    * Led Go initiative across a cross-functional team.
+
+Education: B.S. Computer Science, Central Tech Institute

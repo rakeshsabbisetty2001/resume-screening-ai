@@ -1,0 +1,3 @@
+Full-Stack Developer
+
+Looking for a full-stack developer for a small product team. Requirements: React experience, a backend language (Python/Java/Go), REST API design, Git workflow fluency. Bonus: AWS, CI/CD, Kubernetes.

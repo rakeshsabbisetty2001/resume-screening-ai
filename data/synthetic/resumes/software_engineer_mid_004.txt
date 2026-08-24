@@ -1,0 +1,17 @@
+Morgan Novak
+
+6.3 years of experience in software engineer roles.
+
+Skills: Kubernetes, REST API design, unit testing, CI/CD, AWS, Docker, React
+
+Experience:
+- Software Engineer, Meridian Software (2023-06 - 2026-08)
+    * Cut error rate by 23% after redesigning the team's approach to Docker.
+    * Improved deployment frequency 38% by leading a Docker project end-to-end.
+    * Cut response time by 12% after redesigning the team's approach to AWS.
+- Software Engineer, Cedar Ridge Analytics (2020-04 - 2023-06)
+    * Grew deployment frequency 40% quarter-over-quarter by applying Docker consistently.
+    * Improved test coverage 14% by leading a AWS project end-to-end.
+    * Reduced response time by 9% through a Kubernetes initiative.
+
+Education: B.S. Computer Science, State University

@@ -1,0 +1,15 @@
+Cameron Tran
+
+4.2 years of experience in product manager roles.
+
+Skills: Jira, competitive analysis, A/B testing, go-to-market strategy, SQL, roadmapping
+
+Experience:
+- Product Manager, Northfield Systems (2025-11 - 2026-08)
+    * Improved quarterly active users 29% by leading a SQL project end-to-end.
+    * Grew NPS score 15% quarter-over-quarter by applying A/B testing consistently.
+- Associate Product Manager, Oakton Consulting (2022-05 - 2025-11)
+    * Reduced customer churn by 21% through a go-to-market strategy initiative.
+    * Grew NPS score 18% quarter-over-quarter by applying competitive analysis consistently.
+
+Education: B.A. Business Administration, Central Tech Institute

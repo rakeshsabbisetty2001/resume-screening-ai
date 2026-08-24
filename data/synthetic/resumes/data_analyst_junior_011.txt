@@ -1,0 +1,13 @@
+Jordan Novak
+
+1.0 years of experience in data analyst roles.
+
+Skills: R, Tableau, dashboarding, Power BI, Excel, SQL
+
+Experience:
+- Data Analyst I, Lakeside Financial (2025-08 - 2026-08)
+    * Partnered with stakeholders on dashboarding, contributing to a process improvement.
+    * Partnered with stakeholders on Excel, contributing to a process improvement.
+    * Applied dashboarding to resolve a recurring operational bottleneck.
+
+Education: B.S. Statistics, Northgate University

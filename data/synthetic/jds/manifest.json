@@ -1,0 +1,38 @@
+[
+  {
+    "job_id": "swe_backend",
+    "category": "software_engineer"
+  },
+  {
+    "job_id": "swe_fullstack",
+    "category": "software_engineer"
+  },
+  {
+    "job_id": "data_analyst_bi",
+    "category": "data_analyst"
+  },
+  {
+    "job_id": "data_analyst_growth",
+    "category": "data_analyst"
+  },
+  {
+    "job_id": "pm_core",
+    "category": "product_manager"
+  },
+  {
+    "job_id": "pm_associate",
+    "category": "product_manager"
+  },
+  {
+    "job_id": "sales_ae",
+    "category": "sales"
+  },
+  {
+    "job_id": "sales_bdr",
+    "category": "sales"
+  },
+  {
+    "job_id": "rn_medsurg",
+    "category": "registered_nurse"
+  }
+]

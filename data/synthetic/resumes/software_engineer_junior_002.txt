@@ -1,0 +1,12 @@
+Avery Marsh
+
+1.2 years of experience in software engineer roles.
+
+Skills: CI/CD, PostgreSQL, REST API design, Docker, Java, Go, Python
+
+Experience:
+- Junior Software Engineer, Vantage Retail Group (2025-06 - 2026-08)
+    * Cut response time by 37% after redesigning the team's approach to Go.
+    * Improved system uptime 10% by leading a Java project end-to-end.
+
+Education: B.S. Computer Science, Riverbend University

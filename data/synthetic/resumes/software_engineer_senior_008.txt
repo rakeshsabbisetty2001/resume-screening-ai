@@ -1,0 +1,19 @@
+Quinn Marsh
+
+9.4 years of experience in software engineer roles.
+
+Skills: React, REST API design, Docker, Git, PostgreSQL
+
+Experience:
+- Senior Software Engineer, Redstone Technologies (2023-06 - 2026-08)
+    * Improved test coverage 40% by leading a React project end-to-end.
+    * Reduced on-call incident count by 34% through a Docker initiative.
+    * Grew test coverage 26% quarter-over-quarter by applying REST API design consistently.
+- Software Engineer, Northfield Systems (2020-04 - 2023-06)
+    * Cut deploy time by 18% after redesigning the team's approach to Git.
+    * Cut deploy time by 27% after redesigning the team's approach to React.
+- Junior Software Engineer, Meridian Software (2017-03 - 2020-04)
+    * Grew test coverage 39% quarter-over-quarter by applying Docker consistently.
+    * Reduced response time by 10% through a REST API design initiative.
+
+Education: B.S. Computer Science, Northgate University

@@ -1,0 +1,3 @@
+Business Intelligence Analyst
+
+Seeking an analyst to own reporting and dashboarding for a growing team. Requirements: strong SQL, Tableau or Power BI, comfort building and maintaining data pipelines. Bonus: Python/R, A/B testing experience, statistics background.

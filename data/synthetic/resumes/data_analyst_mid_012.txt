@@ -1,0 +1,16 @@
+Sam Tran
+
+4.5 years of experience in data analyst roles.
+
+Skills: data pipelines, R, Tableau, SQL, Power BI
+
+Experience:
+- Data Analyst II, Cedar Ridge Analytics (2025-12 - 2026-08)
+    * Owned day-to-day Tableau work as part of the broader team.
+    * Applied Tableau to resolve a recurring operational bottleneck.
+- Data Analyst I, Vantage Retail Group (2022-02 - 2025-12)
+    * Led R initiative across a cross-functional team.
+    * Led data pipelines initiative across a cross-functional team.
+    * Partnered with stakeholders on SQL, contributing to a process improvement.
+
+Education: B.S. Statistics, Northgate University
