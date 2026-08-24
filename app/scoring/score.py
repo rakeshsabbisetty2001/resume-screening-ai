@@ -1,9 +1,11 @@
 """Candidate vs. job-description scoring, via Claude structured output.
 
 Name-blind by construction (plan design decision 3): `_serialize_candidate`
-omits the candidate's name by default, so the production scoring path never
-sends it to the model — blinding isn't a mode the caller has to remember to
-enable, it's what happens unless the caller explicitly opts out.
+never sends the candidate's name field, AND scrubs literal occurrences of
+the name (and its individual name-parts) out of the rendered free text —
+dropping the field alone isn't enough, since Phase 1's generated resumes
+(and real ones) can restate the name inside a role bullet or summary line;
+without the scrub, that text would flow into the model input unblinded.
 `include_name=True` exists only for the bias eval's name-visible arm
 (Phase 5), which needs to measure the *effect* of the name being visible.
 
@@ -65,7 +67,18 @@ def _serialize_candidate(candidate: Candidate, include_name: bool) -> str:
         lines.append(f"- {role.title}, {role.company} ({role.start_date} - {role.end_date})")
         for bullet in role.bullets:
             lines.append(f"    * {bullet}")
-    return "\n".join(lines)
+    text = "\n".join(lines)
+
+    if not include_name:
+        # Dropping the `name` field isn't enough on its own — the name can
+        # still appear inside free text (a role bullet, a summary line).
+        # Scrub the full name and each individual token (longest first, so
+        # "Jordan Rivera" doesn't leave a dangling "Rivera").
+        name_tokens = sorted({candidate.name, *candidate.name.split()}, key=len, reverse=True)
+        for token in name_tokens:
+            if token:
+                text = text.replace(token, "[name]")
+    return text
 
 
 def score_candidate(candidate: Candidate, job_description: str, candidate_id: str,

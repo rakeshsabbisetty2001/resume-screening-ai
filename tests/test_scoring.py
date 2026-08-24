@@ -62,6 +62,48 @@ def test_serialize_candidate_include_name_opt_in():
     assert "Jordan Rivera" in text
 
 
+def test_serialize_candidate_scrubs_name_from_free_text():
+    # Dropping the `name` field alone isn't enough — a real (or Phase 1
+    # synthetic) resume can restate the candidate's name inside a bullet.
+    leaky = Candidate(
+        name="Jordan Rivera",
+        years_experience=3.0,
+        skills=["Python"],
+        education=[],
+        roles=[Role(title="Engineer", company="Acme", start_date="2021-01", end_date="2024-01",
+                     bullets=["Jordan Rivera led the migration project."])],
+    )
+    text = _serialize_candidate(leaky, include_name=False)
+    assert "Jordan" not in text
+    assert "Rivera" not in text
+    assert "[name]" in text
+
+
+def test_rank_candidates_preserves_caller_order_on_true_ties():
+    # weighted_total is now rounded (rubric.py), so mathematically-equal
+    # score vectors compare exactly equal rather than differing by float
+    # noise — this is what makes "stable sort, caller order on ties" true.
+    vec_a = RubricScore(  # 0.35*1 + 0.30*1 + 0.10*1 + 0.25*3 = 1.5
+        skills_match=CriterionScore(score=1, rationale="x"),
+        experience_fit=CriterionScore(score=1, rationale="x"),
+        education_fit=CriterionScore(score=1, rationale="x"),
+        role_relevance=CriterionScore(score=3, rationale="x"),
+    )
+    vec_b = RubricScore(  # 0.35*1 + 0.30*2 + 0.10*3 + 0.25*1 = 1.5, differently composed
+        skills_match=CriterionScore(score=1, rationale="x"),
+        experience_fit=CriterionScore(score=2, rationale="x"),
+        education_fit=CriterionScore(score=3, rationale="x"),
+        role_relevance=CriterionScore(score=1, rationale="x"),
+    )
+    assert vec_a.weighted_total() == vec_b.weighted_total() == 1.5
+    scores = [
+        CandidateScore(candidate_id="first", job_id="j", rubric=vec_a, weighted_total=vec_a.weighted_total()),
+        CandidateScore(candidate_id="second", job_id="j", rubric=vec_b, weighted_total=vec_b.weighted_total()),
+    ]
+    ranked = rank_candidates(scores)
+    assert [s.candidate_id for s in ranked] == ["first", "second"]  # caller order preserved
+
+
 def test_rank_candidates_sorts_descending():
     scores = [
         CandidateScore(candidate_id="a", job_id="j", rubric=_rubric(2), weighted_total=2.0),

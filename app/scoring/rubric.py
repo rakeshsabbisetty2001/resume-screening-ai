@@ -11,7 +11,11 @@ CRITERIA: dict[str, float] = {
     "education_fit": 0.10,
     "role_relevance": 0.25,
 }
-assert abs(sum(CRITERIA.values()) - 1.0) < 1e-9, "rubric weights must sum to 1.0"
+# `raise`, not `assert` — assertions are stripped under `python -O`, which
+# would silently remove this guard in exactly the optimized deploy path
+# where a silent weight typo matters most.
+if abs(sum(CRITERIA.values()) - 1.0) > 1e-9:
+    raise ValueError("rubric weights must sum to 1.0")
 
 
 class CriterionScore(BaseModel):
@@ -26,4 +30,13 @@ class RubricScore(BaseModel):
     role_relevance: CriterionScore
 
     def weighted_total(self) -> float:
-        return sum(CRITERIA[name] * getattr(self, name).score for name in CRITERIA)
+        total = sum(CRITERIA[name] * getattr(self, name).score for name in CRITERIA)
+        # Collapse float noise: weights/scores are multiples of 0.05, so two
+        # mathematically-equal totals (e.g. 2.0 vs 1.9999999999999998) can
+        # otherwise compare unequal — which would break rank_candidates'
+        # documented "stable sort, caller order on ties" contract.
+        return round(total, 4)
+
+
+if set(CRITERIA) != set(RubricScore.model_fields):
+    raise ValueError("CRITERIA keys must match RubricScore fields exactly")
