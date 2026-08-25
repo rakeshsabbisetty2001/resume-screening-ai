@@ -35,7 +35,7 @@ from app.extraction.extract import ExtractionError, extract_candidate
 from app.extraction.schema import Education
 from app.scoring.score import ScoringError, score_candidate
 from eval.bias_metrics import delta_beyond_noise, noise_floor
-from eval.run_eval import load_jds, load_resumes
+from eval.run_eval import ESTIMATED_COST_PER_CALL_USD, load_jds, load_resumes
 
 ROOT = Path(__file__).resolve().parent.parent
 N_RERUNS = 3
@@ -84,7 +84,8 @@ def estimate_calls(n_reps: int) -> dict:
     per_rep = 1 + (name_pairs * 2 * N_RERUNS + N_RERUNS) + (univ_pairs * 2 * N_RERUNS + N_RERUNS)
     total = per_rep * n_reps
     return {"per_rep_calls": per_rep, "n_reps": n_reps, "total_calls": total,
-            "name_pairs": name_pairs, "univ_pairs": univ_pairs, "n_reruns": N_RERUNS}
+            "name_pairs": name_pairs, "univ_pairs": univ_pairs, "n_reruns": N_RERUNS,
+            "estimated_cost_usd": round(total * ESTIMATED_COST_PER_CALL_USD, 2)}
 
 
 def _run_arm(candidate, jd_text, candidate_id, job_id, include_name: bool, variants: list[dict],

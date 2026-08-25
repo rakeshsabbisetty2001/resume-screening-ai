@@ -55,19 +55,26 @@ job_description.txt ----------------------------------------> Claude structured 
 **Status: harness built, reviewed (2-3 Opus rounds per phase), and dry-run verified — not yet run against the live API.** Both eval scripts print an exact call-count estimate and refuse to spend anything without `ANTHROPIC_API_KEY` and an explicit `--run` flag:
 
 ```
-python -m eval.run_eval        # prints: 121 calls, ~$1.90 (dry run, no requests made)
+python -m eval.run_eval
+# Call estimate: {'extraction_calls': 40, 'scoring_calls': 72, 'baseline_llm_calls': 9,
+#                 'total_calls': 121, 'estimated_cost_usd': 1.94}
+# Dry run (default) — pass --run to actually call the API. No requests were made.
 python -m eval.run_eval --run  # actually runs it, writes eval/results.md
 
-python -m eval.bias_eval       # prints: 215 calls, ~$3.40 (dry run, no requests made)
+python -m eval.bias_eval
+# Call estimate: {'per_rep_calls': 43, 'n_reps': 5, 'total_calls': 215, 'name_pairs': 3,
+#                 'univ_pairs': 3, 'n_reruns': 3, 'estimated_cost_usd': 3.44}
 python -m eval.bias_eval --run # actually runs it, writes eval/bias_results.md
 ```
+
+(`estimated_cost_usd` is a rough per-call rate, not a billed figure — see `ESTIMATED_COST_PER_CALL_USD` in `eval/run_eval.py`. `total_calls` is exact, computed from the real manifests before anything is spent.)
 
 This section will be replaced with the real numbers once those run — no placeholder numbers are committed in their place.
 
 ### Methodology (what each eval actually measures)
 
 - **Extraction accuracy** (`eval/run_eval.py`): the synthetic corpus's generation script also emits the *factual* ground truth it used (skills, years, roles, education — deliberately not the quality-relevant attributes below, so this can't leak into the ranking eval) — extraction is scored against that directly, no LLM judge needed.
-- **Ranking quality**: ground truth is one non-recruiter labeler (a subagent, in this build) reading the actual resume/JD text — blind to the corpus's hidden generation parameters — ranked *within* seniority tier per job, not across tiers, since tier itself would otherwise be a generation-time confound. Headline metric is per-tier top-k precision and pairwise agreement; Kendall tau-b is reported as a secondary number only (at a handful of candidates per tier, it has no usable confidence interval). Two baselines, not one: deterministic TF-IDF cosine similarity, and a rubric-free single-call "just rank these" LLM baseline — the second isolates whether the structured rubric earns its extra cost over a bare LLM judgment, which the keyword-only baseline can't tell you (it only proves "LLM beats grep," which isn't in question).
+- **Ranking quality**: ground truth was labeled by Claude reading the actual resume/JD text directly — blind to the corpus's hidden generation parameters (tier, and the four quality attributes below), but still an LLM labeling the data used to grade an LLM scorer. That circularity is a real limitation, named here rather than glossed over as "one non-recruiter labeler" — see Known Limitations. Ranked *within* seniority tier per job, not across tiers, since tier itself would otherwise be a generation-time confound. Headline metric is per-tier top-k precision and pairwise agreement; Kendall tau-b is reported as a secondary number only (at a handful of candidates per tier, it has no usable confidence interval). Two baselines, not one: deterministic TF-IDF cosine similarity, and a rubric-free single-call "just rank these" LLM baseline — the second isolates whether the structured rubric earns its extra cost over a bare LLM judgment, which the keyword-only baseline can't tell you (it only proves "LLM beats grep," which isn't in question).
 - **Corpus quality gradient**: since tier alone gives the ranking eval nothing to grade beyond keyword/experience overlap, four tier-independent attributes are randomly assigned per resume (quantified vs. vague achievement bullets, stable vs. job-hopping tenure, title progression vs. flat, degree-field match vs. mismatch) — visible in the rendered text, not encoded as a hidden label, so a rubric judge and a TF-IDF baseline genuinely have different signal to work with.
 - **Bias eval** (`eval/bias_eval.py`): two arms, not the three the original plan sketched. Current Claude models have no determinism knob (`temperature`/`top_p`/`top_k` are removed), so every delta is measured against a same-input noise floor (n≥3 reruns) rather than a bare single-sample comparison, floored at 0.10 — the smallest single rubric criterion's weight, so a one-point flip on that criterion alone sits exactly at the detection floor, not below it.
   - **Arm 1 (name swap, name-visible scorer)** — the actual bias measurement: does the model score a candidate differently when only the name changes, with the name visible to it? Uses paired names from the Bertrand & Mullainathan (2004) audit-study convention.
@@ -77,7 +84,7 @@ This section will be replaced with the real numbers once those run — no placeh
 ## Known limitations (deliberate scope cuts)
 
 - **Synthetic corpus only.** No real resumes were used, for the PII and bias-eval-control reasons above — but that also means eval numbers describe how well the system handles *this* synthetic distribution, not real-world resume messiness (inconsistent formatting, OCR errors from scanned PDFs, non-US resume conventions).
-- **One non-recruiter labeler** for ranking ground truth — a genuine limitation the plan disclosed upfront, not discovered after the fact.
+- **Ranking ground truth was LLM-labeled, not human-labeled.** The plan called for "one non-recruiter labeler" and this build used Claude itself, reading resume/JD text directly (blind to the corpus's hidden generation parameters) rather than a person. That's a real circularity — an LLM's judgment grading an LLM scorer — disclosed here rather than described euphemistically. A human pass over the same ranking task would be a meaningful upgrade.
 - **Bias eval scope**: a narrow name/university-text sensitivity proxy on a synthetic corpus, explicitly not a full fairness audit. It measures score sensitivity to two specific swapped attributes, not disparate impact on real hiring outcomes.
 - **Rightmost-`X-Forwarded-For` rate limiting** assumes exactly one proxy hop appends the true client IP once deployed — unverified without an actual Render deployment; documented as a post-deploy check (log the real header shape once) rather than assumed correct.
 - **No resume file upload beyond .txt** — no PDF/DOCX parsing. A real product would need that; this demo accepts pasted or `.txt`-uploaded plain text only, to keep the extraction surface to what Claude's structured output actually needs to see.
@@ -122,7 +129,7 @@ This project was built with a per-phase review loop: each phase (data generation
 
 - A `pydantic.ValidationError` raised *inside* `client.messages.parse()` (not just readable from its result afterward) quoted the model's raw output, including a candidate's name — a live PII leak the `stop_reason`-only guard in an earlier version couldn't have caught, since that check never runs when the error path is a raised exception, not a normal return.
 - A "job-hopping" tenure attribute in the synthetic-resume generator that, due to a fixed role count being only shuffled rather than actually varied, reliably rendered as its *opposite* — two short stints plus one role holding 79-95% of the candidate's tenure.
-- A rate-limiter tie-break bug: `rank_candidates`' ties (the common case, not rare, given the rubric's limited resolution) resolved in whatever order candidates were passed in — which was always Phase 1's manifest order, itself built category-then-tier — so every tie silently favored junior candidates. Fixed with a job-id-seeded shuffle before sorting.
+- A ranking tie-break bug: `rank_candidates`' ties (the common case, not rare, given the rubric's limited resolution) resolved in whatever order candidates were passed in — which was always Phase 1's manifest order, itself built category-then-tier — so every tie silently favored junior candidates. Fixed with a job-id-seeded shuffle before sorting. The Streamlit UI does its own ranking (it talks to the API over HTTP, not by importing `app.scoring` directly, to keep `ui/requirements.txt` free of the anthropic/pydantic dependency) — it duplicates the same seeded-shuffle tie-break rather than the plain sort it originally used, so this fix covers the served UI path too, not just the eval scripts.
 - A Dockerfile flag (`--proxy-headers --forwarded-allow-ips='*'`) added on the assumption it would pair correctly with the app's own rate-limit trust logic — it didn't; uvicorn trusts the *leftmost* X-Forwarded-For entry, the app's logic trusts the *rightmost*, and the flag would have silently made the "no proxy" fallback spoofable. Found by rebuilding and testing the actual container with forged headers, not by reading the code.
 - uvicorn's own loggers bypass the app's PII-safe JSON log formatter by default (separate logger, separate handler, `propagate=False`) — an unhandled exception re-raised past the app's own catch-all handler would have logged its full traceback in plain text regardless of the formatter fix above it. Proven live with a fake name/SSN string before fixing it.
 

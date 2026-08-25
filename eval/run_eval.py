@@ -9,12 +9,9 @@ recorded into results.md so every number here stays attributable to a
 specific model version (see app/config.py's comment on why these carry no
 date suffix).
 
-Rough cost: ~$0.016/call at claude-sonnet-5 intro pricing ($3/$15 per 1M
-in/out tokens, ~1200 input + ~800 output tokens/call — extraction and
-scoring prompts are short, effort="low"). This project's total estimate:
-run_eval.py 121 calls (~$1.90), bias_eval.py 215 calls (~$3.40) — the call
-counts are exact (both scripts compute and print them from the real
-manifests before spending anything); the $ figures are the approximate part.
+Cost estimate: call counts are exact (computed from the real manifests
+before spending anything); the $ figure alongside them (ESTIMATED_COST_PER_CALL_USD)
+is a rough per-call rate, not a billed number — see that constant's comment.
 """
 import argparse
 import json
@@ -41,6 +38,14 @@ RESULTS_MD = Path(__file__).resolve().parent / "results.md"
 # PER JOB not per candidate. Actual n's come from the real manifests below;
 # this constant is just the shape of the estimate.
 N_EXTRACTION_RERUNS = 1  # not bias-sensitive; n>=3 reruns are Phase 5's job
+
+# Rough, not billed: ~1200 input + ~800 output tokens/call at claude-sonnet-5
+# intro pricing ($3/$15 per 1M in/out) — extraction/scoring prompts are
+# short, effort="low". Shared with eval/bias_eval.py so both scripts'
+# printed estimates use the same rate, and so the README's cost figures
+# come from this constant, not hand-typed numbers that can drift out of
+# sync with what the script actually prints.
+ESTIMATED_COST_PER_CALL_USD = 0.016
 
 
 def load_resumes() -> list[dict]:
@@ -70,7 +75,8 @@ def estimate_calls(resumes: list[dict], jds: list[dict]) -> dict:
     baseline_llm_calls = len(jds)  # one rubric-free ranking call per JD
     total = extraction_calls + scoring_calls + baseline_llm_calls
     return {"extraction_calls": extraction_calls, "scoring_calls": scoring_calls,
-            "baseline_llm_calls": baseline_llm_calls, "total_calls": total}
+            "baseline_llm_calls": baseline_llm_calls, "total_calls": total,
+            "estimated_cost_usd": round(total * ESTIMATED_COST_PER_CALL_USD, 2)}
 
 
 def run_extraction_eval(resumes: list[dict]) -> tuple[dict, dict]:

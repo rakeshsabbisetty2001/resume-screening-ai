@@ -1,4 +1,5 @@
 import os
+import random
 
 import requests
 import streamlit as st
@@ -72,7 +73,20 @@ if st.button("Rank candidates", type="primary") and job_description and uploaded
     progress.empty()
 
     if results:
-        ranked = sorted(results, key=lambda x: x["weighted_total"], reverse=True)
+        # Same tie-break as app/scoring/score.py::rank_candidates — a
+        # plain sort here resolves ties in upload order, which is exactly
+        # the "whichever tier/candidate the caller happened to list first
+        # wins" bias that function's job_id-seeded shuffle exists to kill.
+        # Duplicated (not imported) rather than importing app.scoring —
+        # that would pull anthropic/pydantic into ui/requirements.txt,
+        # which is deliberately scoped to streamlit+requests only (see
+        # that file's comment). Keep this in sync with rank_candidates if
+        # that function's tie-break logic ever changes.
+        job_id = job_description  # ties only need a stable seed per JD, not the API's sha256 job_id
+        rng = random.Random(job_id)
+        shuffled = results[:]
+        rng.shuffle(shuffled)
+        ranked = sorted(shuffled, key=lambda x: x["weighted_total"], reverse=True)
         st.subheader("Ranked candidates")
         st.table([{"Rank": i + 1, "File": r["file_name"], "Score": round(r["weighted_total"], 2)}
                    for i, r in enumerate(ranked)])
