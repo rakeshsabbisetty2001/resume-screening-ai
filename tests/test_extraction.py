@@ -8,6 +8,7 @@ import pytest
 from app.extraction import extract as extract_module
 from app.extraction.extract import ExtractionError, _validate_invariants, extract_candidate
 from app.extraction.schema import Candidate, Education, Role
+from tests.conftest import has_real_api_key
 
 THIS_YEAR = date.today().year
 
@@ -148,7 +149,7 @@ def test_extract_candidate_happy_path_logs(monkeypatch):
     assert logged["tokens"] == 250
 
 
-@pytest.mark.skipif(not os.environ.get("ANTHROPIC_API_KEY"), reason="live API smoke test")
+@pytest.mark.skipif(not has_real_api_key(), reason="live API smoke test")
 def test_live_extraction_smoke():
     resume = (
         "Jordan Rivera\n\n5.0 years of experience in software engineer roles.\n\n"

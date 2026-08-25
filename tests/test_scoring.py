@@ -9,6 +9,7 @@ from app.scoring import score as score_module
 from app.scoring.rubric import CRITERIA, CriterionScore, RubricScore
 from app.scoring.score import (CandidateScore, ScoringError, _serialize_candidate,
                                 rank_candidates, score_candidate)
+from tests.conftest import has_real_api_key
 
 
 def _candidate(name="Jordan Rivera") -> Candidate:
@@ -239,7 +240,7 @@ def test_score_candidate_include_name_true_sends_name(monkeypatch):
     assert "Jordan Rivera" in captured["messages"][0]["content"]
 
 
-@pytest.mark.skipif(not os.environ.get("ANTHROPIC_API_KEY"), reason="live API smoke test")
+@pytest.mark.skipif(not has_real_api_key(), reason="live API smoke test")
 def test_live_scoring_smoke():
     jd = "Backend Software Engineer. Requires Python, AWS, 3+ years experience."
     result = score_candidate(_candidate(), jd, "live_smoke_1", "live_jd_1")

@@ -1,0 +1,7 @@
+# Scoped to just the UI — Streamlit Community Cloud looks for a
+# requirements.txt in the same directory as the entrypoint script before
+# falling back to the repo root. The UI only ever talks to the API over
+# HTTP, so pulling in the API stack (anthropic, fastapi, etc.) here would
+# just slow the build for no reason. Same pattern as sec-filings-rag/ui/.
+streamlit==1.62.0
+requests==2.34.2
