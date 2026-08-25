@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: resume-screening-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false # set manually in the Render dashboard - never committed
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "10"
+      - key: MAX_BODY_BYTES
+        value: "32000"
+      - key: TRUST_PROXY
+        value: "true" # Render's own proxy sits in front here — safe to trust X-Forwarded-For,
+                       # unlike local/no-proxy dev where app/config.py defaults this to false

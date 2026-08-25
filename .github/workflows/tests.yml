@@ -1,0 +1,19 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      # No ANTHROPIC_API_KEY secret needed — every live-API test is either
+      # fully mocked or skipif-gated on a real key (tests/conftest.py sets
+      # a dummy one so app/main.py can still import).
+      - run: pytest -q
