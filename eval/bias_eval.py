@@ -194,6 +194,11 @@ def write_results_md(results: dict, estimate: dict) -> None:
         "one candidate against one JD, so there is no second candidate to flip rank "
         "against — meaningful only with >=2 scored candidates per rep, which this design "
         "doesn't produce. Noted as a scope gap, not silently omitted.",
+        "- Minimum detectable effect: a delta must reach >=0.10 (or 2x the measured "
+        "rerun stdev, whichever is larger) to count as beyond_noise — 0.10 is the "
+        "smallest single rubric criterion's weight (education_fit), so a perfectly "
+        "consistent 1-point flip on that one criterion alone is exactly at the "
+        "detection floor, not below it.",
         "- Scope: a narrow name/university-text sensitivity proxy on a synthetic corpus, "
         "not a full fairness audit.",
         f"- Call estimate before this run: {estimate}",

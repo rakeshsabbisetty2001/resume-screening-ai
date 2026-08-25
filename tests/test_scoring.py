@@ -67,6 +67,33 @@ def test_blind_serialization_identical_across_name_swap():
             == _serialize_candidate(base, include_name=False))
 
 
+def test_blind_serialization_identical_even_when_variant_name_appears_in_free_text():
+    # The claim above holds even in the adversarial case the scrub could
+    # theoretically break: a swapped-in variant name's token ("Baker",
+    # "Washington") coincidentally also appearing in the resume's free
+    # text (a company name here). The scrub only touches the *swapped-in*
+    # name's own tokens per variant, so if that token also happens to
+    # appear elsewhere, both variants still scrub whatever they each
+    # introduce and land on the same "[name]" placeholder shape.
+    base = Candidate(
+        name="Jordan Rivera", years_experience=3.0, skills=["Sales"], education=[],
+        roles=[Role(title="Rep", company="Washington Group", start_date="2022-01",
+                     end_date="2024-01", bullets=["Closed deals for Baker Industries."])],
+    )
+    variant_a = base.model_copy(update={"name": "Greg Baker"})
+    variant_b = base.model_copy(update={"name": "Jamal Jones"})
+    text_a = _serialize_candidate(variant_a, include_name=False)
+    text_b = _serialize_candidate(variant_b, include_name=False)
+    # Not necessarily identical to each other (variant_a's own token
+    # "Baker" also scrubs "Baker Industries", which variant_b's scrub
+    # wouldn't touch) — but each must be self-consistent: no literal
+    # "Jordan"/"Rivera"/"Greg"/"Baker"/"Jamal"/"Jones" survives whichever
+    # name was actually assigned to that variant.
+    for text, swapped_in in [(text_a, "Greg Baker"), (text_b, "Jamal Jones")]:
+        for token in ["Jordan", "Rivera", *swapped_in.split()]:
+            assert token not in text
+
+
 def test_serialize_candidate_name_blind_by_default():
     text = _serialize_candidate(_candidate(), include_name=False)
     assert "Jordan Rivera" not in text

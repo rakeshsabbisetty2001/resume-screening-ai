@@ -25,8 +25,12 @@ def delta_beyond_noise(variant_a_scores: list[float], variant_b_scores: list[flo
     # the smallest-weighted criterion alone would clear it and read as a
     # "real" finding.
     threshold = max(2 * floor["stdev"], 0.10)
+    # >=, not > : a delta landing exactly on the floor (e.g. a perfectly
+    # consistent 1-point education_fit-only flip across all reruns, which
+    # moves weighted_total by exactly 0.10) should count as a detected
+    # effect, not fall just outside it by a strict inequality.
     return {
         "mean_a": mean_a, "mean_b": mean_b, "delta": delta,
         "noise_threshold": threshold,
-        "beyond_noise": abs(delta) > threshold,
+        "beyond_noise": abs(delta) >= threshold,
     }

@@ -36,10 +36,12 @@ def extraction_accuracy(candidate: Candidate, ground_truth: dict) -> dict:
     }
 
 
-def top_k_precision(predicted_ids: list[str], truth_ids: list[str], k: int) -> float:
+def top_k_precision(predicted_ids: list[str], truth_ids: list[str], k: int) -> float | None:
     k = min(k, len(truth_ids))
     if k == 0:
-        return 1.0
+        return 1.0  # nothing to be wrong about — vacuously perfect, not missing
+    if not predicted_ids:
+        return None  # missing (e.g. every scoring call for this tier failed), not "0.0 precision"
     pred_top_k = set(predicted_ids[:k])
     truth_top_k = set(truth_ids[:k])
     return len(pred_top_k & truth_top_k) / k

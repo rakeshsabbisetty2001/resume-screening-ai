@@ -55,6 +55,12 @@ def test_top_k_precision_empty_truth():
     assert top_k_precision(["a"], [], k=3) == 1.0  # nothing to be wrong about
 
 
+def test_top_k_precision_empty_predicted_returns_none_not_zero():
+    # A total tier failure (nothing scored) is a missing result, not a
+    # real "0.0 precision" score — same distinction as pairwise_agreement.
+    assert top_k_precision([], ["a", "b", "c"], k=2) is None
+
+
 def test_pairwise_agreement_identical_order():
     assert pairwise_agreement(["a", "b", "c"], ["a", "b", "c"]) == 1.0
 
