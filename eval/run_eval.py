@@ -15,10 +15,13 @@ is a rough per-call rate, not a billed number — see that constant's comment.
 """
 import argparse
 import json
+import math
 import sys
 import time
 from pathlib import Path
 from statistics import mean
+
+import anthropic
 
 from app.config import settings
 from app.extraction.extract import ExtractionError, extract_candidate
@@ -97,6 +100,15 @@ def run_extraction_eval(resumes: list[dict]) -> tuple[dict, dict]:
             per_candidate.append({"candidate_id": entry["candidate_id"], "error": None, **acc})
         except ExtractionError as e:
             per_candidate.append({"candidate_id": entry["candidate_id"], "error": str(e)})
+        except anthropic.APIError as e:
+            # Transient upstream errors (seen live: a 400 "Grammar
+            # compilation timed out" on a structured-output call, not
+            # caused by anything wrong with this schema) aren't caught by
+            # ExtractionError — without this, one such hiccup partway
+            # through a 121-call run would crash the whole eval and
+            # discard every call already spent. Counted as a real failure
+            # (n_failed), same honesty standard as an ExtractionError.
+            per_candidate.append({"candidate_id": entry["candidate_id"], "error": type(e).__name__})
     elapsed = time.monotonic() - start
 
     ok = [r for r in per_candidate if r.get("error") is None]
@@ -137,6 +149,10 @@ def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict,
                 scores.append(score_candidate(candidate_obj, jd["text"], r["candidate_id"], jd["job_id"]))
             except ScoringError:
                 continue
+            except anthropic.APIError:
+                # Same reasoning as run_extraction_eval's APIError catch —
+                # a transient upstream error shouldn't crash a 121-call run.
+                continue
         ranked_ids = [s.candidate_id for s in rank_candidates(scores)]
         score_by_id = {s.candidate_id: s.weighted_total for s in scores}
 
@@ -149,7 +165,7 @@ def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict,
         try:
             bare_llm_ranked = rank_via_bare_llm(
                 jd["job_id"], jd["text"], {r["candidate_id"]: r["text"] for r in job_candidates})
-        except BaselineLLMError:
+        except (BaselineLLMError, anthropic.APIError):
             bare_llm_ranked = []
 
         per_tier = {}
@@ -192,7 +208,13 @@ def write_results_md(extraction: dict, ranking: dict, call_estimate: dict) -> No
         "## Ranking quality (per job, stratified within tier — see methodology notes)",
     ]
     def fmt(v):
-        return f"{v:.2f}" if isinstance(v, float) else "n/a"
+        # scipy's kendalltau returns NaN (not an exception, not None) when
+        # a tier has zero rank variance — caught for real on the first
+        # live eval run, where a 2-candidate senior tier with a tied
+        # rubric score produced a literal "tau-b=nan" in this file.
+        if isinstance(v, float) and not math.isnan(v):
+            return f"{v:.2f}"
+        return "n/a"
 
     for job in ranking["per_job"]:
         lines.append(f"### {job['job_id']} ({job['category']}, n={job['n_candidates']})")

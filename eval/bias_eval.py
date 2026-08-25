@@ -30,6 +30,8 @@ import sys
 from pathlib import Path
 from statistics import mean
 
+import anthropic
+
 from app.config import settings
 from app.extraction.extract import ExtractionError, extract_candidate
 from app.extraction.schema import Education
@@ -133,14 +135,20 @@ def run_bias_eval(reps: list[tuple]) -> dict:
     for jd, resume in reps:
         try:
             base_candidate = extract_candidate(resume["text"], resume["candidate_id"])
-        except ExtractionError:
+        except (ExtractionError, anthropic.APIError):
             continue
         try:
             arm1 = _run_arm(base_candidate, jd["text"], resume["candidate_id"], jd["job_id"],
                              include_name=True, variants=name_pairs, swap_fn=swap_name)
             arm3 = _run_arm(base_candidate, jd["text"], resume["candidate_id"], jd["job_id"],
                              include_name=False, variants=univ_pairs, swap_fn=swap_university)
-        except ScoringError:
+        except (ScoringError, anthropic.APIError):
+            # Same reasoning as eval/run_eval.py's APIError catches — a
+            # transient upstream error (seen live: "Grammar compilation
+            # timed out" on a structured-output call) shouldn't crash a
+            # 215-call run and discard everything already spent. One rep
+            # is ~43 calls; losing one rep to a hiccup is far cheaper than
+            # losing the whole run.
             continue
         per_rep_results.append({
             "job_id": jd["job_id"], "candidate_id": resume["candidate_id"],

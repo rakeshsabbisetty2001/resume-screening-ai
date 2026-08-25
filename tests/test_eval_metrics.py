@@ -100,6 +100,16 @@ def test_ranking_kendall_tau_b_too_few_common_returns_none():
     assert ranking_kendall_tau_b(["a"], ["a"], {"a": 1.0}) is None
 
 
+def test_ranking_kendall_tau_b_zero_variance_returns_none_not_nan():
+    # scipy's kendalltau returns NaN (not an exception) when a side has
+    # zero rank variance — caught for real on the first live eval run
+    # (a 2-candidate tier with a tied rubric score produced literal "nan"
+    # in results.md before this was fixed at the source).
+    tied_scores = {"a": 3.0, "b": 3.0}
+    result = ranking_kendall_tau_b(["a", "b"], ["a", "b"], tied_scores)
+    assert result is None
+
+
 def test_ranking_kendall_tau_b_uses_real_scores_not_just_positions():
     # Positions alone (a=0,b=1,c=2 vs predicted order [a,b,c]) would read
     # as a perfect tau-a. Real scores show b and c are actually tied — a

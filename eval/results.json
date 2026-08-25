@@ -1,0 +1,610 @@
+{
+  "extraction": {
+    "n": 40,
+    "n_failed": 0,
+    "mean_skill_f1": 1.0,
+    "years_within_tolerance_rate": 1,
+    "role_count_match_rate": 1,
+    "per_candidate": [
+      {
+        "candidate_id": "software_engineer_junior_001",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_junior_002",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_junior_003",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_mid_004",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_mid_005",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_mid_006",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_senior_007",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "software_engineer_senior_008",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_junior_009",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_junior_010",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_junior_011",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_mid_012",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_mid_013",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_mid_014",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_senior_015",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "data_analyst_senior_016",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_junior_017",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_junior_018",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_junior_019",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_mid_020",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_mid_021",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_mid_022",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_senior_023",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "product_manager_senior_024",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_junior_025",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_junior_026",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_junior_027",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_mid_028",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_mid_029",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_mid_030",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_senior_031",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "sales_senior_032",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_junior_033",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_junior_034",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_junior_035",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_mid_036",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_mid_037",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_mid_038",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_senior_039",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      },
+      {
+        "candidate_id": "registered_nurse_senior_040",
+        "error": null,
+        "skill_f1": 1.0,
+        "years_within_tolerance": true,
+        "role_count_match": true
+      }
+    ],
+    "wall_clock_seconds": 184.8,
+    "resumes_per_hour": 779.4
+  },
+  "ranking": {
+    "per_job": [
+      {
+        "job_id": "swe_backend",
+        "category": "software_engineer",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 0.6666666666666666
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": 0.0,
+            "tfidf_pairwise_agreement": 0.3333333333333333,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "swe_fullstack",
+        "category": "software_engineer",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": -0.816496580927726,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 0.3333333333333333
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": -1.0,
+            "tfidf_pairwise_agreement": 0.0,
+            "bare_llm_pairwise_agreement": 0.0
+          }
+        }
+      },
+      {
+        "job_id": "data_analyst_bi",
+        "category": "data_analyst",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.33333333333333337,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 0.3333333333333333
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.816496580927726,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": null,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "data_analyst_growth",
+        "category": "data_analyst",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 0.3333333333333333,
+            "bare_llm_pairwise_agreement": 0.6666666666666666
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "pm_core",
+        "category": "product_manager",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.6666666666666666
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "pm_associate",
+        "category": "product_manager",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 0.816496580927726,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.816496580927726,
+            "tfidf_pairwise_agreement": 0.3333333333333333,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": null,
+            "tfidf_pairwise_agreement": 0.0,
+            "bare_llm_pairwise_agreement": 0.0
+          }
+        }
+      },
+      {
+        "job_id": "sales_ae",
+        "category": "sales",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": -0.816496580927726,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.3333333333333333
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": 0.0,
+            "tfidf_pairwise_agreement": 0.6666666666666666,
+            "bare_llm_pairwise_agreement": 1.0
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": null,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "sales_bdr",
+        "category": "sales",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": -0.33333333333333337,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.0
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": -0.33333333333333337,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.3333333333333333
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": -1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      },
+      {
+        "job_id": "rn_medsurg",
+        "category": "registered_nurse",
+        "n_candidates": 8,
+        "per_tier": {
+          "junior": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": 0.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.0
+          },
+          "mid": {
+            "n_truth": 3,
+            "n_scored": 3,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.3333333333333333,
+            "rubric_kendall_tau_b": null,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 0.6666666666666666
+          },
+          "senior": {
+            "n_truth": 2,
+            "n_scored": 2,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 1.0,
+            "rubric_kendall_tau_b": 1.0,
+            "tfidf_pairwise_agreement": 1.0,
+            "bare_llm_pairwise_agreement": 1.0
+          }
+        }
+      }
+    ]
+  },
+  "call_estimate": {
+    "extraction_calls": 40,
+    "scoring_calls": 72,
+    "baseline_llm_calls": 9,
+    "total_calls": 121,
+    "estimated_cost_usd": 1.94
+  }
+}

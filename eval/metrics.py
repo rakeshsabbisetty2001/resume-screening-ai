@@ -4,6 +4,8 @@ Kept separate from run_eval.py's orchestration (live API calls, dataset
 loading) so the actual scoring math has unit tests that don't require a
 network call or an API key.
 """
+import math
+
 from scipy.stats import kendalltau
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -86,7 +88,13 @@ def ranking_kendall_tau_b(predicted_ids: list[str], truth_ids: list[str],
     # Negated so a higher score aligns with an earlier (smaller) truth rank.
     pred_values = [-scores_by_id[c] for c in common]
     tau, _ = kendalltau(truth_rank, pred_values, variant="b")
-    return tau
+    # scipy returns NaN (not an exception, not None) when a side has zero
+    # rank variance — e.g. all predicted scores tied in a 2-candidate
+    # tier. Undefined correlation is the same "nothing to report" case as
+    # too-few-common, and float('nan') would otherwise serialize into
+    # results.json as the non-standard JSON token `NaN` and print
+    # literally as "nan" in results.md. Caught on the first live eval run.
+    return None if math.isnan(tau) else tau
 
 
 def tfidf_baseline_rank(candidate_texts: dict[str, str], jd_text: str) -> list[str]:
