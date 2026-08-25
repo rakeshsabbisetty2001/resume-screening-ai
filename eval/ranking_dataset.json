@@ -1,0 +1,95 @@
+{
+  "methodology": "Labeled by reading resume text against each JD's stated requirements, blind to the corpus's underlying generation parameters, ranked within tier (not across tiers) per JD. Single non-recruiter labeler - a known limitation, disclosed in eval/results.md.",
+  "rankings": [
+    {
+      "job_id": "swe_backend",
+      "category": "software_engineer",
+      "tier_rankings": {
+        "junior": ["software_engineer_junior_001", "software_engineer_junior_002", "software_engineer_junior_003"],
+        "mid": ["software_engineer_mid_004", "software_engineer_mid_006", "software_engineer_mid_005"],
+        "senior": ["software_engineer_senior_007", "software_engineer_senior_008"]
+      },
+      "notes": "Junior: 001 best-matches core stack (Go/Python, Docker, PostgreSQL, AWS, unit testing) in a single stable role; 002 has REST API/CI/CD/AWS/unit testing but no Python/Go/Docker/PostgreSQL and 3 jobs in 1.2yrs; 003 has fewest matches. Mid: 004 vs 006 is a close call - 006 covers more of the literal requirements (Python, Docker, CI/CD) but has 6 jobs in 6.8yrs with no title progression, while 004 has fewer requirement matches but strong stability, progression, and quantified impact; stability/progression tipped it to 004. Senior: both candidates oddly carry a B.S. Nursing degree (generator artifact, no differentiation); ranked on skill match and stability (007's 3 roles/10yrs vs 008's 6 roles/11yrs)."
+    },
+    {
+      "job_id": "swe_fullstack",
+      "category": "software_engineer",
+      "tier_rankings": {
+        "junior": ["software_engineer_junior_003", "software_engineer_junior_002", "software_engineer_junior_001"],
+        "mid": ["software_engineer_mid_005", "software_engineer_mid_004", "software_engineer_mid_006"],
+        "senior": ["software_engineer_senior_007", "software_engineer_senior_008"]
+      },
+      "notes": "Junior: 002 and 003 both cover React + a backend language + 2 of the JD's bonus items; 003 edges ahead on employment stability (1 stable role vs 002's 3 roles in 1.2yrs) - close call. Mid: 005 is the only mid candidate with React, the JD's headline requirement, so it wins outright despite a thinner skill list. Senior: neither has React (a real gap for both); ranked on stability as in swe_backend."
+    },
+    {
+      "job_id": "data_analyst_bi",
+      "category": "data_analyst",
+      "tier_rankings": {
+        "junior": ["data_analyst_junior_009", "data_analyst_junior_011", "data_analyst_junior_010"],
+        "mid": ["data_analyst_mid_012", "data_analyst_mid_013", "data_analyst_mid_014"],
+        "senior": ["data_analyst_senior_015", "data_analyst_senior_016"]
+      },
+      "notes": "None of the three junior candidates list SQL, so ranking rests on Tableau/Power BI + data-pipeline coverage and bonus breadth (009 and 011 both close, 010 weakest on core reqs). Mid: 012 is the only mid candidate with SQL, a 'strong requirement' in the JD, so it wins clearly; 013 vs 014 close call resolved in 013's favor for quantified achievements and stability over 014's flat/qualitative bullets and 6 jobs in 6.8yrs."
+    },
+    {
+      "job_id": "data_analyst_growth",
+      "category": "data_analyst",
+      "tier_rankings": {
+        "junior": ["data_analyst_junior_009", "data_analyst_junior_010", "data_analyst_junior_011"],
+        "mid": ["data_analyst_mid_012", "data_analyst_mid_013", "data_analyst_mid_014"],
+        "senior": ["data_analyst_senior_016", "data_analyst_senior_015"]
+      },
+      "notes": "Senior: neither 015 nor 016 lists A/B testing (the JD's headline requirement), a real gap for both; broke the tie in 016's favor since it explicitly lists 'dashboarding', a stated bonus item, while 015 does not - a close, arguable call."
+    },
+    {
+      "job_id": "pm_core",
+      "category": "product_manager",
+      "tier_rankings": {
+        "junior": ["product_manager_junior_019", "product_manager_junior_017", "product_manager_junior_018"],
+        "mid": ["product_manager_mid_022", "product_manager_mid_021", "product_manager_mid_020"],
+        "senior": ["product_manager_senior_023", "product_manager_senior_024"]
+      },
+      "notes": "Junior: 019 matches all four core requirements (user research, roadmapping, stakeholder management, SQL) outright. Mid: 020 is the most stable tenure-wise (2 roles/6.1yrs) but matches only roadmapping of the four core requirements, so it ranks last despite the stability edge - skill match against stated requirements was weighted more heavily. Senior: 024 has by far the stronger career trajectory (APM->PM->Senior PM, longest tenures) but its skills list barely touches the JD's core requirements, so 023 wins on requirement match."
+    },
+    {
+      "job_id": "pm_associate",
+      "category": "product_manager",
+      "tier_rankings": {
+        "junior": ["product_manager_junior_019", "product_manager_junior_017", "product_manager_junior_018"],
+        "mid": ["product_manager_mid_022", "product_manager_mid_021", "product_manager_mid_020"],
+        "senior": ["product_manager_senior_024", "product_manager_senior_023"]
+      },
+      "notes": "None of the junior/mid candidates list A/B testing, the JD's headline skill; rankings lean on the SQL match plus overall analytical depth. Senior 023 vs 024 is a genuine close call - both match A/B testing and Figma equally, neither has SQL; resolved in 024's favor on overall career trajectory (12.2yrs, clear APM->PM->Sr.PM progression, longest average tenure)."
+    },
+    {
+      "job_id": "sales_ae",
+      "category": "sales",
+      "tier_rankings": {
+        "junior": ["sales_junior_026", "sales_junior_025", "sales_junior_027"],
+        "mid": ["sales_mid_029", "sales_mid_030", "sales_mid_028"],
+        "senior": ["sales_senior_031", "sales_senior_032"]
+      },
+      "notes": "Junior 026 has the strongest skill match (CRM + consultative selling + forecasting) but a severe red flag of 3 jobs in 0.5 years - ranked first anyway on requirement match, but this is a close/arguable call given the stability concern. Mid: 029 vs 030 close call - 030 is far more stable (2 roles/5.6yrs vs 029's 6 roles/6.1yrs) but 029 covers more of the JD's bonus list (forecasting + account management vs just account management); resolved in 029's favor on skill breadth."
+    },
+    {
+      "job_id": "sales_bdr",
+      "category": "sales",
+      "tier_rankings": {
+        "junior": ["sales_junior_025", "sales_junior_026", "sales_junior_027"],
+        "mid": ["sales_mid_030", "sales_mid_029", "sales_mid_028"],
+        "senior": ["sales_senior_031", "sales_senior_032"]
+      },
+      "notes": "Junior 025 and 026 match the same core+bonus skills (cold outreach, CRM, negotiation); 025 wins on stability (1 stable role vs 026's 3 jobs in 0.5yrs)."
+    },
+    {
+      "job_id": "rn_medsurg",
+      "category": "registered_nurse",
+      "tier_rankings": {
+        "junior": ["registered_nurse_junior_034", "registered_nurse_junior_035", "registered_nurse_junior_033"],
+        "mid": ["registered_nurse_mid_038", "registered_nurse_mid_037", "registered_nurse_mid_036"],
+        "senior": ["registered_nurse_senior_039", "registered_nurse_senior_040"]
+      },
+      "notes": "Core requirements (patient assessment, care planning, BLS, EHR/Epic) were weighted above bonus items (ACLS, wound care, charge nurse) throughout. Senior: both 039 and 040 carry a Charge Nurse title (satisfying the charge-nurse bonus), but 039 matches 3 of 4 core requirements versus 040 matching none explicitly, so 039 wins clearly despite similar tenure and experience length."
+    }
+  ]
+}
