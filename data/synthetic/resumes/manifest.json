@@ -3,240 +3,1717 @@
     "candidate_id": "software_engineer_junior_001",
     "category": "software_engineer",
     "tier": "junior",
-    "name": "Jordan Quintero"
+    "name": "Jordan Quintero",
+    "ground_truth": {
+      "years_experience": 1.1,
+      "skills": [
+        "React",
+        "Go",
+        "Python",
+        "AWS",
+        "PostgreSQL",
+        "Docker",
+        "unit testing"
+      ],
+      "roles": [
+        {
+          "title": "Junior Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2025-07",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_junior_002",
     "category": "software_engineer",
     "tier": "junior",
-    "name": "Avery Marsh"
+    "name": "Avery Marsh",
+    "ground_truth": {
+      "years_experience": 1.2,
+      "skills": [
+        "REST API design",
+        "unit testing",
+        "Java",
+        "AWS",
+        "CI/CD",
+        "React"
+      ],
+      "roles": [
+        {
+          "title": "Junior Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2026-05",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Junior Software Engineer",
+          "company": "Redstone Technologies",
+          "start_date": "2025-12",
+          "end_date": "2026-05"
+        },
+        {
+          "title": "Junior Software Engineer",
+          "company": "Northfield Systems",
+          "start_date": "2025-06",
+          "end_date": "2025-12"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "Northgate University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_junior_003",
     "category": "software_engineer",
     "tier": "junior",
-    "name": "Sam Marsh"
+    "name": "Sam Marsh",
+    "ground_truth": {
+      "years_experience": 1.7,
+      "skills": [
+        "Java",
+        "Git",
+        "Kubernetes",
+        "AWS",
+        "React"
+      ],
+      "roles": [
+        {
+          "title": "Junior Software Engineer",
+          "company": "Redstone Technologies",
+          "start_date": "2024-12",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "State University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_mid_004",
     "category": "software_engineer",
     "tier": "mid",
-    "name": "Morgan Novak"
+    "name": "Morgan Novak",
+    "ground_truth": {
+      "years_experience": 4.4,
+      "skills": [
+        "AWS",
+        "Git",
+        "Python",
+        "PostgreSQL",
+        "Java",
+        "unit testing"
+      ],
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2024-03",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Junior Software Engineer",
+          "company": "Northfield Systems",
+          "start_date": "2022-03",
+          "end_date": "2024-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_mid_005",
     "category": "software_engineer",
     "tier": "mid",
-    "name": "Morgan Hayes"
+    "name": "Morgan Hayes",
+    "ground_truth": {
+      "years_experience": 4.3,
+      "skills": [
+        "React",
+        "CI/CD",
+        "Java",
+        "Go"
+      ],
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2024-08",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Junior Software Engineer",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2022-04",
+          "end_date": "2024-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_mid_006",
     "category": "software_engineer",
     "tier": "mid",
-    "name": "Harper Foster"
+    "name": "Harper Foster",
+    "ground_truth": {
+      "years_experience": 6.8,
+      "skills": [
+        "Python",
+        "Docker",
+        "unit testing",
+        "CI/CD"
+      ],
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2025-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Northfield Systems",
+          "start_date": "2024-02",
+          "end_date": "2025-02"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2023-03",
+          "end_date": "2024-02"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Vantage Retail Group",
+          "start_date": "2022-05",
+          "end_date": "2023-03"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Redstone Technologies",
+          "start_date": "2021-01",
+          "end_date": "2022-05"
+        },
+        {
+          "title": "Software Engineer",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2019-10",
+          "end_date": "2021-01"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Computer Science",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_senior_007",
     "category": "software_engineer",
     "tier": "senior",
-    "name": "Rowan Hayes"
+    "name": "Rowan Hayes",
+    "ground_truth": {
+      "years_experience": 10.1,
+      "skills": [
+        "unit testing",
+        "AWS",
+        "PostgreSQL",
+        "Git",
+        "Python"
+      ],
+      "roles": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2023-04",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Northfield Systems",
+          "start_date": "2020-02",
+          "end_date": "2023-04"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Vantage Retail Group",
+          "start_date": "2016-07",
+          "end_date": "2020-02"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "software_engineer_senior_008",
     "category": "software_engineer",
     "tier": "senior",
-    "name": "Quinn Marsh"
+    "name": "Quinn Marsh",
+    "ground_truth": {
+      "years_experience": 11.4,
+      "skills": [
+        "Git",
+        "Python",
+        "Java",
+        "AWS"
+      ],
+      "roles": [
+        {
+          "title": "Senior Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2025-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Vantage Retail Group",
+          "start_date": "2022-08",
+          "end_date": "2025-02"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2020-07",
+          "end_date": "2022-08"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Northfield Systems",
+          "start_date": "2018-07",
+          "end_date": "2020-07"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Redstone Technologies",
+          "start_date": "2016-05",
+          "end_date": "2018-07"
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Meridian Software",
+          "start_date": "2015-03",
+          "end_date": "2016-05"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Northgate University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_junior_009",
     "category": "data_analyst",
     "tier": "junior",
-    "name": "Rowan Rhodes"
+    "name": "Rowan Rhodes",
+    "ground_truth": {
+      "years_experience": 1.1,
+      "skills": [
+        "data pipelines",
+        "statistics",
+        "Excel",
+        "R",
+        "A/B testing",
+        "Python",
+        "Tableau"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst I",
+          "company": "Vantage Retail Group",
+          "start_date": "2026-05",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Oakton Consulting",
+          "start_date": "2025-11",
+          "end_date": "2026-05"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2025-07",
+          "end_date": "2025-11"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_junior_010",
     "category": "data_analyst",
     "tier": "junior",
-    "name": "Reese Rhodes"
+    "name": "Reese Rhodes",
+    "ground_truth": {
+      "years_experience": 2.0,
+      "skills": [
+        "R",
+        "Tableau",
+        "A/B testing",
+        "Python"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst I",
+          "company": "Meridian Software",
+          "start_date": "2025-11",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2025-06",
+          "end_date": "2025-11"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Vantage Retail Group",
+          "start_date": "2024-08",
+          "end_date": "2025-06"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_junior_011",
     "category": "data_analyst",
     "tier": "junior",
-    "name": "Jordan Novak"
+    "name": "Jordan Novak",
+    "ground_truth": {
+      "years_experience": 0.6,
+      "skills": [
+        "R",
+        "Power BI",
+        "ETL",
+        "statistics"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst I",
+          "company": "Oakton Consulting",
+          "start_date": "2026-01",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_mid_012",
     "category": "data_analyst",
     "tier": "mid",
-    "name": "Sam Tran"
+    "name": "Sam Tran",
+    "ground_truth": {
+      "years_experience": 3.0,
+      "skills": [
+        "dashboarding",
+        "SQL",
+        "Python",
+        "Tableau",
+        "A/B testing"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst II",
+          "company": "Meridian Software",
+          "start_date": "2025-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Oakton Consulting",
+          "start_date": "2023-08",
+          "end_date": "2025-02"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_mid_013",
     "category": "data_analyst",
     "tier": "mid",
-    "name": "Alex Ortiz"
+    "name": "Alex Ortiz",
+    "ground_truth": {
+      "years_experience": 6.4,
+      "skills": [
+        "statistics",
+        "Power BI",
+        "A/B testing",
+        "R",
+        "data pipelines",
+        "pandas",
+        "Python"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst II",
+          "company": "Oakton Consulting",
+          "start_date": "2023-03",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2020-03",
+          "end_date": "2023-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "State University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_mid_014",
     "category": "data_analyst",
     "tier": "mid",
-    "name": "Morgan Rhodes"
+    "name": "Morgan Rhodes",
+    "ground_truth": {
+      "years_experience": 6.8,
+      "skills": [
+        "ETL",
+        "R",
+        "Tableau",
+        "Power BI",
+        "data pipelines"
+      ],
+      "roles": [
+        {
+          "title": "Data Analyst II",
+          "company": "Vantage Retail Group",
+          "start_date": "2025-09",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Oakton Consulting",
+          "start_date": "2024-09",
+          "end_date": "2025-09"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2023-05",
+          "end_date": "2024-09"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Meridian Software",
+          "start_date": "2021-10",
+          "end_date": "2023-05"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Lakeside Financial",
+          "start_date": "2020-10",
+          "end_date": "2021-10"
+        },
+        {
+          "title": "Data Analyst I",
+          "company": "Vantage Retail Group",
+          "start_date": "2019-10",
+          "end_date": "2020-10"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_senior_015",
     "category": "data_analyst",
     "tier": "senior",
-    "name": "Quinn Coleman"
+    "name": "Quinn Coleman",
+    "ground_truth": {
+      "years_experience": 14.8,
+      "skills": [
+        "Tableau",
+        "Power BI",
+        "Excel",
+        "R",
+        "statistics",
+        "data pipelines",
+        "SQL"
+      ],
+      "roles": [
+        {
+          "title": "Senior Data Analyst",
+          "company": "Oakton Consulting",
+          "start_date": "2021-08",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Data Analyst",
+          "company": "Lakeside Financial",
+          "start_date": "2016-03",
+          "end_date": "2021-08"
+        },
+        {
+          "title": "Senior Data Analyst",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2011-10",
+          "end_date": "2016-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "data_analyst_senior_016",
     "category": "data_analyst",
     "tier": "senior",
-    "name": "Casey Lambert"
+    "name": "Casey Lambert",
+    "ground_truth": {
+      "years_experience": 10.2,
+      "skills": [
+        "Excel",
+        "SQL",
+        "R",
+        "Power BI",
+        "dashboarding"
+      ],
+      "roles": [
+        {
+          "title": "Senior Data Analyst",
+          "company": "Vantage Retail Group",
+          "start_date": "2023-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Data Analyst",
+          "company": "Cedar Ridge Analytics",
+          "start_date": "2019-12",
+          "end_date": "2023-02"
+        },
+        {
+          "title": "Senior Data Analyst",
+          "company": "Oakton Consulting",
+          "start_date": "2016-06",
+          "end_date": "2019-12"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Statistics",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_junior_017",
     "category": "product_manager",
     "tier": "junior",
-    "name": "Morgan Sawyer"
+    "name": "Morgan Sawyer",
+    "ground_truth": {
+      "years_experience": 0.7,
+      "skills": [
+        "Jira",
+        "wireframing",
+        "agile",
+        "stakeholder management",
+        "SQL",
+        "OKRs",
+        "roadmapping"
+      ],
+      "roles": [
+        {
+          "title": "Associate Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2025-12",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_junior_018",
     "category": "product_manager",
     "tier": "junior",
-    "name": "Avery Hayes"
+    "name": "Avery Hayes",
+    "ground_truth": {
+      "years_experience": 0.7,
+      "skills": [
+        "user research",
+        "competitive analysis",
+        "agile",
+        "stakeholder management",
+        "go-to-market strategy"
+      ],
+      "roles": [
+        {
+          "title": "Associate Product Manager",
+          "company": "Northfield Systems",
+          "start_date": "2026-05",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2026-02",
+          "end_date": "2026-05"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2025-12",
+          "end_date": "2026-02"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_junior_019",
     "category": "product_manager",
     "tier": "junior",
-    "name": "Riley Ortiz"
+    "name": "Riley Ortiz",
+    "ground_truth": {
+      "years_experience": 1.8,
+      "skills": [
+        "stakeholder management",
+        "user research",
+        "roadmapping",
+        "SQL",
+        "OKRs",
+        "competitive analysis"
+      ],
+      "roles": [
+        {
+          "title": "Associate Product Manager",
+          "company": "Harbor Logistics",
+          "start_date": "2024-10",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_mid_020",
     "category": "product_manager",
     "tier": "mid",
-    "name": "Riley Tran"
+    "name": "Riley Tran",
+    "ground_truth": {
+      "years_experience": 6.1,
+      "skills": [
+        "roadmapping",
+        "competitive analysis",
+        "Jira",
+        "go-to-market strategy",
+        "Figma"
+      ],
+      "roles": [
+        {
+          "title": "Product Manager",
+          "company": "Northfield Systems",
+          "start_date": "2023-12",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2020-07",
+          "end_date": "2023-12"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_mid_021",
     "category": "product_manager",
     "tier": "mid",
-    "name": "Cameron Tran"
+    "name": "Cameron Tran",
+    "ground_truth": {
+      "years_experience": 6.1,
+      "skills": [
+        "agile",
+        "OKRs",
+        "SQL",
+        "competitive analysis",
+        "stakeholder management",
+        "Jira"
+      ],
+      "roles": [
+        {
+          "title": "Product Manager",
+          "company": "Oakton Consulting",
+          "start_date": "2025-11",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2024-04",
+          "end_date": "2025-11"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2022-12",
+          "end_date": "2024-04"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Northfield Systems",
+          "start_date": "2022-04",
+          "end_date": "2022-12"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Harbor Logistics",
+          "start_date": "2021-03",
+          "end_date": "2022-04"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Oakton Consulting",
+          "start_date": "2020-07",
+          "end_date": "2021-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_mid_022",
     "category": "product_manager",
     "tier": "mid",
-    "name": "Jamie Foster"
+    "name": "Jamie Foster",
+    "ground_truth": {
+      "years_experience": 5.0,
+      "skills": [
+        "SQL",
+        "competitive analysis",
+        "roadmapping",
+        "agile",
+        "Jira",
+        "wireframing",
+        "go-to-market strategy"
+      ],
+      "roles": [
+        {
+          "title": "Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2025-11",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Northfield Systems",
+          "start_date": "2025-03",
+          "end_date": "2025-11"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2024-05",
+          "end_date": "2025-03"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Harbor Logistics",
+          "start_date": "2023-02",
+          "end_date": "2024-05"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Oakton Consulting",
+          "start_date": "2022-04",
+          "end_date": "2023-02"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2021-08",
+          "end_date": "2022-04"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_senior_023",
     "category": "product_manager",
     "tier": "senior",
-    "name": "Jordan Ortiz"
+    "name": "Jordan Ortiz",
+    "ground_truth": {
+      "years_experience": 8.7,
+      "skills": [
+        "roadmapping",
+        "competitive analysis",
+        "Figma",
+        "stakeholder management",
+        "A/B testing"
+      ],
+      "roles": [
+        {
+          "title": "Senior Product Manager",
+          "company": "Vantage Retail Group",
+          "start_date": "2023-08",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Product Manager",
+          "company": "Oakton Consulting",
+          "start_date": "2020-08",
+          "end_date": "2023-08"
+        },
+        {
+          "title": "Senior Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2017-12",
+          "end_date": "2020-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "product_manager_senior_024",
     "category": "product_manager",
     "tier": "senior",
-    "name": "Taylor Coleman"
+    "name": "Taylor Coleman",
+    "ground_truth": {
+      "years_experience": 12.2,
+      "skills": [
+        "A/B testing",
+        "Figma",
+        "agile",
+        "Jira"
+      ],
+      "roles": [
+        {
+          "title": "Senior Product Manager",
+          "company": "Northfield Systems",
+          "start_date": "2022-05",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Product Manager",
+          "company": "Oakton Consulting",
+          "start_date": "2018-09",
+          "end_date": "2022-05"
+        },
+        {
+          "title": "Associate Product Manager",
+          "company": "Meridian Software",
+          "start_date": "2014-06",
+          "end_date": "2018-09"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_junior_025",
     "category": "sales",
     "tier": "junior",
-    "name": "Cameron Lambert"
+    "name": "Cameron Lambert",
+    "ground_truth": {
+      "years_experience": 0.7,
+      "skills": [
+        "prospecting",
+        "Salesforce",
+        "closing",
+        "account management",
+        "HubSpot",
+        "cold outreach",
+        "negotiation"
+      ],
+      "roles": [
+        {
+          "title": "Sales Development Rep",
+          "company": "Vantage Retail Group",
+          "start_date": "2025-12",
+          "end_date": "2026-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_junior_026",
     "category": "sales",
     "tier": "junior",
-    "name": "Cameron Hayes"
+    "name": "Cameron Hayes",
+    "ground_truth": {
+      "years_experience": 0.5,
+      "skills": [
+        "prospecting",
+        "forecasting",
+        "cold outreach",
+        "negotiation",
+        "consultative selling",
+        "Salesforce",
+        "CRM administration"
+      ],
+      "roles": [
+        {
+          "title": "Sales Development Rep",
+          "company": "Harbor Logistics",
+          "start_date": "2026-06",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Sales Development Rep",
+          "company": "Lakeside Financial",
+          "start_date": "2026-04",
+          "end_date": "2026-06"
+        },
+        {
+          "title": "Sales Development Rep",
+          "company": "Oakton Consulting",
+          "start_date": "2026-02",
+          "end_date": "2026-04"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_junior_027",
     "category": "sales",
     "tier": "junior",
-    "name": "Riley Novak"
+    "name": "Riley Novak",
+    "ground_truth": {
+      "years_experience": 1.2,
+      "skills": [
+        "HubSpot",
+        "prospecting",
+        "closing",
+        "cold outreach",
+        "pipeline management"
+      ],
+      "roles": [
+        {
+          "title": "Sales Development Rep",
+          "company": "Harbor Logistics",
+          "start_date": "2026-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Sales Development Rep",
+          "company": "Lakeside Financial",
+          "start_date": "2025-09",
+          "end_date": "2026-02"
+        },
+        {
+          "title": "Sales Development Rep",
+          "company": "Northfield Systems",
+          "start_date": "2025-05",
+          "end_date": "2025-09"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "State University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_mid_028",
     "category": "sales",
     "tier": "mid",
-    "name": "Rowan Bennett"
+    "name": "Rowan Bennett",
+    "ground_truth": {
+      "years_experience": 3.4,
+      "skills": [
+        "pipeline management",
+        "Salesforce",
+        "CRM administration",
+        "prospecting",
+        "consultative selling"
+      ],
+      "roles": [
+        {
+          "title": "Account Executive",
+          "company": "Lakeside Financial",
+          "start_date": "2025-11",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Northfield Systems",
+          "start_date": "2024-11",
+          "end_date": "2025-11"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Oakton Consulting",
+          "start_date": "2023-12",
+          "end_date": "2024-11"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Harbor Logistics",
+          "start_date": "2023-03",
+          "end_date": "2023-12"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_mid_029",
     "category": "sales",
     "tier": "mid",
-    "name": "Cameron Quintero"
+    "name": "Cameron Quintero",
+    "ground_truth": {
+      "years_experience": 6.1,
+      "skills": [
+        "HubSpot",
+        "quota attainment",
+        "account management",
+        "forecasting",
+        "CRM administration",
+        "pipeline management",
+        "closing"
+      ],
+      "roles": [
+        {
+          "title": "Account Executive",
+          "company": "Lakeside Financial",
+          "start_date": "2025-01",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Northfield Systems",
+          "start_date": "2024-03",
+          "end_date": "2025-01"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Harbor Logistics",
+          "start_date": "2023-07",
+          "end_date": "2024-03"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Oakton Consulting",
+          "start_date": "2022-10",
+          "end_date": "2023-07"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Vantage Retail Group",
+          "start_date": "2021-10",
+          "end_date": "2022-10"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Lakeside Financial",
+          "start_date": "2020-07",
+          "end_date": "2021-10"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Northgate University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_mid_030",
     "category": "sales",
     "tier": "mid",
-    "name": "Harper Quintero"
+    "name": "Harper Quintero",
+    "ground_truth": {
+      "years_experience": 5.6,
+      "skills": [
+        "CRM administration",
+        "account management",
+        "quota attainment",
+        "Salesforce",
+        "prospecting"
+      ],
+      "roles": [
+        {
+          "title": "Account Executive",
+          "company": "Harbor Logistics",
+          "start_date": "2023-09",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Oakton Consulting",
+          "start_date": "2021-01",
+          "end_date": "2023-09"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Business Administration",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_senior_031",
     "category": "sales",
     "tier": "senior",
-    "name": "Quinn Sawyer"
+    "name": "Quinn Sawyer",
+    "ground_truth": {
+      "years_experience": 9.1,
+      "skills": [
+        "forecasting",
+        "pipeline management",
+        "HubSpot",
+        "prospecting",
+        "consultative selling",
+        "cold outreach",
+        "account management"
+      ],
+      "roles": [
+        {
+          "title": "Senior Account Executive",
+          "company": "Harbor Logistics",
+          "start_date": "2023-05",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Senior Account Executive",
+          "company": "Oakton Consulting",
+          "start_date": "2020-06",
+          "end_date": "2023-05"
+        },
+        {
+          "title": "Senior Account Executive",
+          "company": "Lakeside Financial",
+          "start_date": "2017-07",
+          "end_date": "2020-06"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "sales_senior_032",
     "category": "sales",
     "tier": "senior",
-    "name": "Sam Novak"
+    "name": "Sam Novak",
+    "ground_truth": {
+      "years_experience": 11.3,
+      "skills": [
+        "pipeline management",
+        "prospecting",
+        "negotiation",
+        "HubSpot"
+      ],
+      "roles": [
+        {
+          "title": "Senior Account Executive",
+          "company": "Lakeside Financial",
+          "start_date": "2022-10",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Account Executive",
+          "company": "Northfield Systems",
+          "start_date": "2018-09",
+          "end_date": "2022-10"
+        },
+        {
+          "title": "Sales Development Rep",
+          "company": "Harbor Logistics",
+          "start_date": "2015-04",
+          "end_date": "2018-09"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.A. Communications",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_junior_033",
     "category": "registered_nurse",
     "tier": "junior",
-    "name": "Cameron Kessler"
+    "name": "Cameron Kessler",
+    "ground_truth": {
+      "years_experience": 1.7,
+      "skills": [
+        "patient education",
+        "vitals monitoring",
+        "BLS/ACLS certification",
+        "wound care",
+        "IV therapy",
+        "infection control"
+      ],
+      "roles": [
+        {
+          "title": "Staff Nurse",
+          "company": "Brightline Health",
+          "start_date": "2026-03",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2025-08",
+          "end_date": "2026-03"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2024-12",
+          "end_date": "2025-08"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Northgate University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_junior_034",
     "category": "registered_nurse",
     "tier": "junior",
-    "name": "Rowan Foster"
+    "name": "Rowan Foster",
+    "ground_truth": {
+      "years_experience": 0.6,
+      "skills": [
+        "wound care",
+        "vitals monitoring",
+        "patient education",
+        "BLS/ACLS certification",
+        "care planning",
+        "infection control",
+        "patient assessment"
+      ],
+      "roles": [
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2026-06",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2026-04",
+          "end_date": "2026-06"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Cedar Grove Hospital",
+          "start_date": "2026-01",
+          "end_date": "2026-04"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Northgate University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_junior_035",
     "category": "registered_nurse",
     "tier": "junior",
-    "name": "Harper Kessler"
+    "name": "Harper Kessler",
+    "ground_truth": {
+      "years_experience": 1.7,
+      "skills": [
+        "patient education",
+        "patient assessment",
+        "charting",
+        "care planning"
+      ],
+      "roles": [
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2025-12",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2025-05",
+          "end_date": "2025-12"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Harborview Medical Group",
+          "start_date": "2024-12",
+          "end_date": "2025-05"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "State University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_mid_036",
     "category": "registered_nurse",
     "tier": "mid",
-    "name": "Drew Tran"
+    "name": "Drew Tran",
+    "ground_truth": {
+      "years_experience": 4.6,
+      "skills": [
+        "care planning",
+        "medication administration",
+        "infection control",
+        "triage",
+        "wound care",
+        "vitals monitoring",
+        "patient education"
+      ],
+      "roles": [
+        {
+          "title": "Clinical Nurse",
+          "company": "Brightline Health",
+          "start_date": "2024-03",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Clinical Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2022-01",
+          "end_date": "2024-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Riverbend University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_mid_037",
     "category": "registered_nurse",
     "tier": "mid",
-    "name": "Reese Grant"
+    "name": "Reese Grant",
+    "ground_truth": {
+      "years_experience": 5.7,
+      "skills": [
+        "wound care",
+        "patient assessment",
+        "patient education",
+        "EHR/Epic"
+      ],
+      "roles": [
+        {
+          "title": "Clinical Nurse",
+          "company": "Harborview Medical Group",
+          "start_date": "2025-06",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2024-12",
+          "end_date": "2025-06"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2023-10",
+          "end_date": "2024-12"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Brightline Health",
+          "start_date": "2023-01",
+          "end_date": "2023-10"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Cedar Grove Hospital",
+          "start_date": "2022-02",
+          "end_date": "2023-01"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Harborview Medical Group",
+          "start_date": "2020-12",
+          "end_date": "2022-02"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "State University"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_mid_038",
     "category": "registered_nurse",
     "tier": "mid",
-    "name": "Harper Irwin"
+    "name": "Harper Irwin",
+    "ground_truth": {
+      "years_experience": 6.8,
+      "skills": [
+        "patient assessment",
+        "wound care",
+        "infection control",
+        "IV therapy",
+        "triage",
+        "care planning",
+        "BLS/ACLS certification"
+      ],
+      "roles": [
+        {
+          "title": "Clinical Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2023-03",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Clinical Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2019-11",
+          "end_date": "2023-03"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_senior_039",
     "category": "registered_nurse",
     "tier": "senior",
-    "name": "Rowan Tran"
+    "name": "Rowan Tran",
+    "ground_truth": {
+      "years_experience": 8.2,
+      "skills": [
+        "medication administration",
+        "IV therapy",
+        "patient education",
+        "care planning",
+        "patient assessment",
+        "BLS/ACLS certification"
+      ],
+      "roles": [
+        {
+          "title": "Charge Nurse",
+          "company": "Brightline Health",
+          "start_date": "2024-02",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Clinical Nurse",
+          "company": "Harborview Medical Group",
+          "start_date": "2021-05",
+          "end_date": "2024-02"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2018-06",
+          "end_date": "2021-05"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Lakeview College"
+        }
+      ]
+    }
   },
   {
     "candidate_id": "registered_nurse_senior_040",
     "category": "registered_nurse",
     "tier": "senior",
-    "name": "Taylor Ortiz"
+    "name": "Taylor Ortiz",
+    "ground_truth": {
+      "years_experience": 9.4,
+      "skills": [
+        "vitals monitoring",
+        "charting",
+        "medication administration",
+        "triage",
+        "infection control",
+        "patient education",
+        "wound care"
+      ],
+      "roles": [
+        {
+          "title": "Charge Nurse",
+          "company": "Pinecrest Medical Center",
+          "start_date": "2023-09",
+          "end_date": "2026-08"
+        },
+        {
+          "title": "Clinical Nurse",
+          "company": "Harborview Medical Group",
+          "start_date": "2020-10",
+          "end_date": "2023-09"
+        },
+        {
+          "title": "Staff Nurse",
+          "company": "Lakeshore Health System",
+          "start_date": "2017-03",
+          "end_date": "2020-10"
+        }
+      ],
+      "education": [
+        {
+          "degree": "B.S. Nursing",
+          "institution": "Central Tech Institute"
+        }
+      ]
+    }
   }
 ]

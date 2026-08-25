@@ -169,7 +169,15 @@ def split_months(rng: random.Random, total_months: int, n_roles: int, hopping: b
     return [max(1, p) for p in parts]
 
 
-def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
+def make_resume(rng: random.Random, category: str, tier: str, name: str) -> tuple[str, dict]:
+    # Returns (resume_text, ground_truth) — ground_truth captures only
+    # FACTUAL fields already computed while rendering (skills, years,
+    # role dates/titles/companies, education), for Phase 4's extraction
+    # accuracy eval. Deliberately excludes the quality-relevant attributes
+    # (quantified/tenure_pattern/progressing/degree_match) — those exist to
+    # give a human/rubric judge something to grade, not to be read back out
+    # as a label, or the ranking eval would be circular again (design
+    # decision 1's whole point).
     lo, hi = TIER_MONTHS[tier]
     total_months = rng.randint(lo, hi)
 
@@ -227,6 +235,7 @@ def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
 
     cursor_end = AS_OF
     combo_i = 0
+    gt_roles = []
     for i, months in enumerate(role_months):  # role_months[0] = most recent
         start = shift_months(cursor_end, months)
         if progressing:
@@ -235,19 +244,29 @@ def make_resume(rng: random.Random, category: str, tier: str, name: str) -> str:
             rank_idx = tier_rank_idx
         title = ranks[rank_idx]
         company = companies[i % len(companies)]
-        lines.append(f"- {title}, {company} ({start.isoformat()[:7]} - {cursor_end.isoformat()[:7]})")
+        start_ym, end_ym = start.isoformat()[:7], cursor_end.isoformat()[:7]
+        lines.append(f"- {title}, {company} ({start_ym} - {end_ym})")
 
         for _ in range(n_bullets_per_role[i]):
             tmpl, sk, metric = chosen_combos[combo_i]
             combo_i += 1
             bullet = tmpl.format(skill=sk, metric=metric, pct=rng.randint(8, 40))
             lines.append(f"    * {bullet}")
+        gt_roles.append({"title": title, "company": company, "start_date": start_ym, "end_date": end_ym})
         cursor_end = start
 
     degree = DEGREES[category] if degree_match else rng.choice(
         [d for c, d in DEGREES.items() if c != category])
-    lines += ["", f"Education: {degree}, {rng.choice(SCHOOLS)}"]
-    return "\n".join(lines)
+    institution = rng.choice(SCHOOLS)
+    lines += ["", f"Education: {degree}, {institution}"]
+
+    ground_truth = {
+        "years_experience": years_display,
+        "skills": skills,
+        "roles": gt_roles,
+        "education": [{"degree": degree, "institution": institution}],
+    }
+    return "\n".join(lines), ground_truth
 
 
 def main() -> None:
@@ -273,10 +292,10 @@ def main() -> None:
                 name = names[name_i]
                 name_i += 1
                 candidate_id = f"{category}_{tier}_{name_i:03d}"
-                resume_text = make_resume(rng, category, tier, name)
+                resume_text, ground_truth = make_resume(rng, category, tier, name)
                 (OUT_DIR / f"{candidate_id}.txt").write_text(resume_text, encoding="utf-8")
                 manifest.append({"candidate_id": candidate_id, "category": category,
-                                  "tier": tier, "name": name})
+                                  "tier": tier, "name": name, "ground_truth": ground_truth})
 
     (OUT_DIR / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(f"Wrote {len(manifest)} resumes to {OUT_DIR}")
