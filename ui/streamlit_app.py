@@ -3,6 +3,11 @@ import os
 import requests
 import streamlit as st
 
+# On Streamlit Community Cloud, API_URL MUST be set in the app's Secrets
+# (exposed to this process as a regular env var) — the localhost fallback
+# only makes sense for local dev. Left unset on Cloud, every request fails
+# with an opaque connection error and no hint why; documented as a
+# required deploy step in the README, alongside Render's ANTHROPIC_API_KEY.
 API_URL = os.environ.get("API_URL", "http://localhost:8000")
 
 st.set_page_config(page_title="Resume Screening & Ranking", page_icon="📋")

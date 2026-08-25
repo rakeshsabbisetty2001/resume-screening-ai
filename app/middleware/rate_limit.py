@@ -13,7 +13,18 @@ def _client_ip(request: Request) -> str:
     X-Forwarded-For is entirely client-supplied and trusting it (rightmost
     or not) lets every request pick its own bucket by forging a new value —
     confirmed empirically before adding this gate. Falls back to the
-    connection's actual remote address, which a client can't spoof."""
+    connection's actual remote address, which a client can't spoof.
+
+    Rightmost is only correct if the deployed proxy topology has exactly
+    one hop appending the real client IP — a claim this codebase can't
+    verify without an actual deployment (unlike TRUST_PROXY=false's
+    behavior, checked live in a container in Phase 7). If Render (or
+    whatever's in front) rewrites XFF to a single value, leftmost and
+    rightmost coincide and this works by luck; if there are 2+ appending
+    hops, rightmost lands on an internal proxy IP and every real client
+    collapses into one shared bucket — a silent availability bug, not a
+    security one. Verify the real header shape post-deploy (log it once)
+    before trusting this in production; see README's deploying section."""
     if settings.trust_proxy:
         forwarded = request.headers.get("x-forwarded-for")
         if forwarded:

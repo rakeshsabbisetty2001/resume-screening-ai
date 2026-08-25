@@ -1,8 +1,13 @@
 .venv/
 .git/
 .env
-__pycache__/
-*.pyc
+# **/ prefix required — dockerignore patterns match the whole relative
+# path and a bare `*` doesn't cross `/`, unlike .gitignore where these
+# same patterns match at any depth. Without it, host-built __pycache__/
+# and .pyc files under app/ silently shipped into the image (found by
+# actually inspecting the built image's /app, not by reading the file).
+**/__pycache__/
+**/*.pyc
 .pytest_cache/
 ui/
 eval/

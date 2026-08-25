@@ -20,10 +20,19 @@ ENV HOME=/home/app
 
 EXPOSE 8000
 # Render (and most PaaS hosts) inject $PORT and expect the app to bind to
-# it. --proxy-headers --forwarded-allow-ips='*' trusts Render's own
-# X-Forwarded-For — matches TRUST_PROXY=true set in render.yaml; without
-# both together the rate limiter would either trust a spoofable header
-# (proxy-headers on, TRUST_PROXY off would be inert) or key every request
-# behind Render's proxy IP (TRUST_PROXY on, proxy-headers off would key
-# everyone on the same bucket) — see app/middleware/rate_limit.py.
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --proxy-headers --forwarded-allow-ips='*'"]
+# it. Deliberately NOT passing --proxy-headers/--forwarded-allow-ips: an
+# earlier version did, on the assumption it would pair with render.yaml's
+# TRUST_PROXY=true — checked against uvicorn 0.52.4's actual behavior and
+# found the two contradict each other instead of pairing. uvicorn's own
+# X-Forwarded-For resolution (--forwarded-allow-ips) takes the LEFTMOST
+# entry and rewrites request.client.host; app/middleware/rate_limit.py's
+# TRUST_PROXY path reads the header directly and takes the RIGHTMOST —
+# so --proxy-headers contributes nothing to rate limiting either way, and
+# with TRUST_PROXY off it would silently turn get_remote_address's
+# supposedly-unspoofable fallback into a spoofable one (uvicorn would have
+# already overwritten request.client.host with the client's own forged
+# leftmost value). Leaving proxy-headers off keeps TRUST_PROXY the single
+# source of truth for who the header is trusted from. No absolute URLs
+# are generated anywhere in this app, so the scheme-detection --proxy-headers
+# would otherwise provide isn't needed either.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
