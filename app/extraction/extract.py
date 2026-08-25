@@ -26,7 +26,12 @@ from app.config import settings
 from app.extraction.schema import Candidate
 from app.logging_config import log_extraction
 
-client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
+# timeout=60: the SDK default (600s, with retries) is fine for a script,
+# but these sync endpoints run in FastAPI's threadpool — a hung upstream
+# call at 600s can pin a worker thread that long, and combined with an
+# unlimited/forged-rate-limit-key edge (see app/middleware/rate_limit.py's
+# trust_proxy gate) a handful of hangs would take the whole API down.
+client = anthropic.Anthropic(api_key=settings.anthropic_api_key, timeout=60.0)
 
 EXTRACTION_PROMPT = (
     "Extract structured candidate information from the resume text below. "

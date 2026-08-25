@@ -30,7 +30,8 @@ from app.extraction.schema import Candidate
 from app.logging_config import log_scoring
 from app.scoring.rubric import RubricScore
 
-client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
+# timeout=60 — same reasoning as app/extraction/extract.py's client.
+client = anthropic.Anthropic(api_key=settings.anthropic_api_key, timeout=60.0)
 
 SCORE_PROMPT = (
     "Score this candidate against the job description below using the rubric "

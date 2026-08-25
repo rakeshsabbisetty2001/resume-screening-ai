@@ -19,7 +19,7 @@ def _get_client():
     global client
     if client is None:
         import anthropic
-        client = anthropic.Anthropic(api_key=settings.anthropic_api_key)
+        client = anthropic.Anthropic(api_key=settings.anthropic_api_key, timeout=60.0)
     return client
 
 

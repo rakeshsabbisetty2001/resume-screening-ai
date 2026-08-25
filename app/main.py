@@ -1,3 +1,4 @@
+import hashlib
 import logging
 import uuid
 
@@ -41,6 +42,12 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     # the 422 body — for this app that can be the raw resume/JD text a
     # candidate/user submitted. Strip it; keep the field path and message,
     # which is enough to fix a malformed request without echoing content.
+    # Note: this only covers `input`. Both request models here are flat
+    # `str` fields with no custom validators, so `msg`/`ctx` can only ever
+    # carry constraint metadata (e.g. min_length) — but a future
+    # `@field_validator` that raises `ValueError(f"bad value: {v}")` would
+    # put the value in `msg` instead, past this filter. Keep validators on
+    # these models constraint-only, or extend the strip if that changes.
     errors = [{k: v for k, v in err.items() if k != "input"} for err in exc.errors()]
     return JSONResponse(status_code=422, content={"detail": errors})
 
@@ -97,10 +104,16 @@ def score(request: Request, body: ScoreRequest):
     except ExtractionError as e:
         logger.warning("extraction failed", extra={"extra_fields": {"request_id": request_id}})
         return JSONResponse(status_code=422, content={"detail": str(e)})
+    # A stable digest of the JD text, not the per-request uuid — reusing
+    # request_id as job_id meant every score's job_id was unique to that
+    # one request, so scores could never be grouped by job (the one
+    # aggregation a ranking API actually wants). A digest, not the JD text
+    # itself, keeps the PII contract (ids only) intact.
+    job_id = hashlib.sha256(body.job_description.encode("utf-8")).hexdigest()[:12]
     try:
         # include_name defaults to False — name-blind scoring is the
         # production path (app/scoring/score.py design decision 3).
-        return score_candidate(candidate, body.job_description, request_id, request_id)
+        return score_candidate(candidate, body.job_description, request_id, job_id)
     except ScoringError as e:
         logger.warning("scoring failed", extra={"extra_fields": {"request_id": request_id}})
         return JSONResponse(status_code=422, content={"detail": str(e)})

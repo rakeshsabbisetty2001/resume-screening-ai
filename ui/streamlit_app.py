@@ -28,39 +28,42 @@ uploaded_files = st.file_uploader("Candidate resumes (.txt)", type=["txt"],
                                    accept_multiple_files=True)
 
 if st.button("Rank candidates", type="primary") and job_description and uploaded_files:
-    resumes = []
-    for f in uploaded_files:
-        # Decode immediately and drop the reference — this app never writes
-        # upload bytes to disk itself. (Streamlit's own file_uploader keeps
-        # small files like these in memory; very large uploads can be
-        # transiently spooled to a temp file by Streamlit internally,
-        # outside this app's control — not a realistic concern for
-        # resume-sized text files, disclosed here for completeness.)
-        resumes.append({"name": f.name, "text": f.read().decode("utf-8", errors="replace")})
-    uploaded_files = None  # drop references now that text is extracted
+    # This app itself never writes upload bytes to disk — files are only
+    # decoded to str and sent to the API over HTTPS. Note the bytes still
+    # live in Streamlit's own session-scoped UploadedFileManager for the
+    # duration of the session regardless of what this code does with its
+    # local reference to `uploaded_files` — that's Streamlit's mechanism,
+    # not something an app-level `= None` rebind changes.
+    resumes = [{"name": f.name, "text": f.read().decode("utf-8", errors="replace")}
+               for f in uploaded_files]
 
     results = []
     progress = st.progress(0.0)
     for i, r in enumerate(resumes):
         try:
-            resp = requests.post(f"{API_URL}/score",
-                                  json={"resume_text": r["text"], "job_description": job_description},
-                                  timeout=100)
-        except requests.Timeout:
-            st.error(f"{r['name']}: API timed out (likely a free-tier cold start) — try again.")
-            continue
-        except requests.RequestException as e:
-            st.error(f"{r['name']}: could not reach the API ({e}).")
-            continue
-        if resp.status_code != 200:
             try:
-                detail = resp.json().get("detail", "Something went wrong.")
-            except ValueError:
-                detail = f"Something went wrong (HTTP {resp.status_code})."
-            st.warning(f"{r['name']}: {detail}")
-            continue
-        results.append({"file_name": r["name"], **resp.json()})
-        progress.progress((i + 1) / len(resumes))
+                resp = requests.post(f"{API_URL}/score",
+                                      json={"resume_text": r["text"], "job_description": job_description},
+                                      timeout=100)
+            except requests.Timeout:
+                st.error(f"{r['name']}: API timed out (likely a free-tier cold start) — try again.")
+                continue
+            except requests.RequestException as e:
+                st.error(f"{r['name']}: could not reach the API ({e}).")
+                continue
+            if resp.status_code != 200:
+                try:
+                    detail = resp.json().get("detail", "Something went wrong.")
+                except ValueError:
+                    detail = f"Something went wrong (HTTP {resp.status_code})."
+                st.warning(f"{r['name']}: {detail}")
+                continue
+            results.append({"file_name": r["name"], **resp.json()})
+        finally:
+            # Always advance, success or failure — an earlier version only
+            # advanced on the success path, so the bar stalled partway
+            # through whenever a resume errored.
+            progress.progress((i + 1) / len(resumes))
     progress.empty()
 
     if results:

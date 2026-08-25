@@ -7,13 +7,17 @@ from app.config import settings
 
 
 def _client_ip(request: Request) -> str:
-    """Key the rate limit on the RIGHTMOST X-Forwarded-For entry, not the
-    leftmost. Render (the first real proxy in front of this app) appends
-    the true client IP as the last hop, which a client can't forge from
-    outside; the leftmost entry is whatever the client itself sent."""
-    forwarded = request.headers.get("x-forwarded-for")
-    if forwarded:
-        return forwarded.split(",")[-1].strip()
+    """Key the rate limit on the RIGHTMOST X-Forwarded-For entry — but only
+    when settings.trust_proxy is on, meaning a real reverse proxy sits in
+    front and appends the true client IP as the last hop. Without a proxy,
+    X-Forwarded-For is entirely client-supplied and trusting it (rightmost
+    or not) lets every request pick its own bucket by forging a new value —
+    confirmed empirically before adding this gate. Falls back to the
+    connection's actual remote address, which a client can't spoof."""
+    if settings.trust_proxy:
+        forwarded = request.headers.get("x-forwarded-for")
+        if forwarded:
+            return forwarded.split(",")[-1].strip()
     return get_remote_address(request)
 
 

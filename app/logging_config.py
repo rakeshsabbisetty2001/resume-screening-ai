@@ -32,14 +32,32 @@ def configure_logging() -> None:
     root.handlers = [handler]
     root.setLevel(logging.INFO)
 
+    # Route uvicorn's own loggers through this handler too. uvicorn's
+    # default config gives "uvicorn"/"uvicorn.error"/"uvicorn.access" their
+    # own handlers with propagate=False — so an unhandled exception that
+    # ServerErrorMiddleware re-raises after app/main.py's catch-all handler
+    # returns gets logged by uvicorn's own plain-text formatter, bypassing
+    # this module's exc_type-only JsonFormatter entirely. Without this, the
+    # PII guardrail above only holds for exceptions logged through
+    # application code, not ones that escape past it. Verified with a real
+    # traceback containing a name/SSN before adding this — it printed in
+    # full via uvicorn's formatter until these loggers were silenced.
+    for name in ("uvicorn", "uvicorn.error", "uvicorn.access"):
+        logger = logging.getLogger(name)
+        logger.handlers = []
+        logger.propagate = True
 
-# PII guardrail, by discipline not by filter: this formatter still dumps
-# exc_info (tracebacks) same as sec-filings-rag's, and a formatter-level
-# scrub can't reliably tell "resume text" from any other string. So the
-# actual guardrail lives at the call site: application code must never put
-# raw resume/JD text into an exception's message or args (raise with a
-# candidate/job id only), and must never pass raw text into `extra_fields`.
-# Only ids, counts, model names, and latency belong in these logs.
+
+# PII guardrail, mostly by discipline, not by filter — a formatter-level
+# scrub can't reliably tell "resume text" from any other string, so
+# JsonFormatter only ever emits the exception TYPE (never formatException's
+# full traceback, unlike sec-filings-rag's formatter) and configure_logging
+# additionally silences uvicorn's own loggers so a re-raised unhandled
+# exception can't bypass this module through uvicorn's separate handler.
+# The remaining guardrail lives at the call site: application code must
+# never put raw resume/JD text into an exception's message or args (raise
+# with a candidate/job id only), and must never pass raw text into
+# `extra_fields`. Only ids, counts, model names, and latency belong here.
 def log_extraction(candidate_id: str, model: str, tokens: int, latency_ms: float,
                     stop_reason: str) -> None:
     logging.getLogger("extraction").info(

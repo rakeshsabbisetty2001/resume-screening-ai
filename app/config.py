@@ -21,6 +21,13 @@ class Settings(BaseSettings):
 
     rate_limit_per_minute: int = 10
     max_body_bytes: int = 32_000  # resumes are text, not files with attachments
+    # False until an actual reverse proxy sits in front (Phase 7 deploy).
+    # With no proxy, X-Forwarded-For is entirely client-supplied — trusting
+    # it here would let every request pick its own rate-limit bucket via a
+    # forged header (verified: 4 requests, 4 different XFF values, all 200
+    # under a 2/minute limit). Flip to true only once deployed behind a
+    # real proxy that overwrites/appends this header itself.
+    trust_proxy: bool = False
 
     # Pinned model IDs so every number in eval/results.md and
     # eval/bias_results.md stays attributable to a specific model version
