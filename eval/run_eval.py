@@ -207,10 +207,12 @@ def write_results_md(extraction: dict, ranking: dict, call_estimate: dict) -> No
     lines += [
         "",
         "## Methodology notes",
-        "- Ranking ground truth: one non-recruiter labeler (see eval/ranking_dataset.json's "
-        "own methodology field), reading resume text blind to the corpus's generation "
-        "parameters, ranked within tier (not across tiers) per JD to avoid the tier "
-        "confound design decision 1 flagged.",
+        "- Ranking ground truth was labeled by Claude itself (see eval/ranking_dataset.json's "
+        "own methodology field), reading resume/JD text directly and blind to the corpus's "
+        "generation parameters, ranked within tier (not across tiers) per JD to avoid the "
+        "tier confound design decision 1 flagged. This is a real circularity, not a "
+        "human/'non-recruiter' labeler as originally planned — an LLM judging the data used "
+        "to grade an LLM scorer. Disclosed as a limitation, not glossed over.",
         "- Headline ranking metric is per-JD, per-tier pairwise agreement, not a single "
         "blended number — same convention as Projects 1 and 2 (don't blend distinct axes).",
         "- Kendall tau-b is reported as a secondary/supporting number only — at this n "

@@ -1,5 +1,5 @@
 {
-  "methodology": "Labeled by reading resume text against each JD's stated requirements, blind to the corpus's underlying generation parameters, ranked within tier (not across tiers) per JD. Single non-recruiter labeler - a known limitation, disclosed in eval/results.md.",
+  "methodology": "Labeled by Claude reading resume text directly against each JD's stated requirements, blind to the corpus's underlying generation parameters, ranked within tier (not across tiers) per JD. This is an LLM-labeled ground truth, not a human/non-recruiter labeler as originally planned - a real circularity (an LLM judging the data used to grade an LLM scorer), disclosed as a known limitation in eval/results.md and README.md, not glossed over.",
   "rankings": [
     {
       "job_id": "swe_backend",
