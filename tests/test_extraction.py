@@ -151,10 +151,18 @@ def test_extract_candidate_happy_path_logs(monkeypatch):
 
 @pytest.mark.skipif(not has_real_api_key(), reason="live API smoke test")
 def test_live_extraction_smoke():
+    # Stated years must actually match the role's date span, or a live run
+    # legitimately fails the years-consistency invariant — caught for real
+    # against the live API: an earlier version hardcoded "5.0 years" next
+    # to a "2020-01 - present" role, which was ~6.6 years by the time this
+    # test ran, not 5.0. Computed from today so the fixture can't drift
+    # out of sync with itself as time passes.
+    today = date.today()
+    start = date(today.year - 5, today.month, 1)
     resume = (
-        "Jordan Rivera\n\n5.0 years of experience in software engineer roles.\n\n"
+        f"Jordan Rivera\n\n5.0 years of experience in software engineer roles.\n\n"
         "Skills: Python, AWS, Docker\n\nExperience:\n"
-        "- Software Engineer, Acme Corp (2020-01 - present)\n"
+        f"- Software Engineer, Acme Corp ({start.year}-{start.month:02d} - present)\n"
         "    * Built internal tools using Python.\n\n"
         "Education: B.S. Computer Science, State University"
     )
