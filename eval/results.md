@@ -7,12 +7,12 @@ Models: extraction=`claude-sonnet-5`, scoring=`claude-sonnet-5` (pinned in app/c
 - mean skill-set F1: 1.0
 - years-within-1yr-tolerance rate: 1
 - role-count-match rate: 1
-- throughput: 779.4 resumes/hour (184.8s wall-clock for 40 resumes)
+- throughput: 780.1 resumes/hour (184.6s wall-clock for 40 resumes)
 
 ## Ranking quality (per job, stratified within tier — see methodology notes)
 ### swe_backend (software_engineer, n=8)
-- junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=0.67, bare-LLM baseline=0.67
-- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=0.00, TF-IDF baseline=0.33, bare-LLM baseline=1.00
+- junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.82, TF-IDF baseline=0.67, bare-LLM baseline=1.00
+- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.33, TF-IDF baseline=0.33, bare-LLM baseline=1.00
 - senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### swe_fullstack (software_engineer, n=8)
 - junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=-0.82, TF-IDF baseline=0.67, bare-LLM baseline=0.33
@@ -20,31 +20,31 @@ Models: extraction=`claude-sonnet-5`, scoring=`claude-sonnet-5` (pinned in app/c
 - senior (scored 2/2): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-1.00, TF-IDF baseline=0.00, bare-LLM baseline=0.00
 ### data_analyst_bi (data_analyst, n=8)
 - junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.33, TF-IDF baseline=0.67, bare-LLM baseline=0.33
-- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.82, TF-IDF baseline=0.67, bare-LLM baseline=1.00
+- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.33, TF-IDF baseline=0.67, bare-LLM baseline=1.00
 - senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=n/a, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### data_analyst_growth (data_analyst, n=8)
 - junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=0.33, bare-LLM baseline=0.67
 - mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
-- senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
+- senior (scored 2/2): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### pm_core (product_manager, n=8)
 - junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=0.67, bare-LLM baseline=1.00
-- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=0.67
-- senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
+- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
+- senior (scored 2/2): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### pm_associate (product_manager, n=8)
 - junior (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=0.82, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 - mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.82, TF-IDF baseline=0.33, bare-LLM baseline=1.00
-- senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=n/a, TF-IDF baseline=0.00, bare-LLM baseline=0.00
+- senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=0.00, bare-LLM baseline=0.00
 ### sales_ae (sales, n=8)
-- junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-0.82, TF-IDF baseline=1.00, bare-LLM baseline=0.33
-- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=0.00, TF-IDF baseline=0.67, bare-LLM baseline=1.00
+- junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-0.82, TF-IDF baseline=1.00, bare-LLM baseline=0.00
+- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=n/a, TF-IDF baseline=0.67, bare-LLM baseline=1.00
 - senior (scored 2/2): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=n/a, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### sales_bdr (sales, n=8)
-- junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=-0.33, TF-IDF baseline=1.00, bare-LLM baseline=0.00
-- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=-0.33, TF-IDF baseline=1.00, bare-LLM baseline=0.33
+- junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=-0.82, TF-IDF baseline=1.00, bare-LLM baseline=0.00
+- mid (scored 3/3): top-k precision=1.00, rubric pairwise-agreement=0.67, tau-b=0.33, TF-IDF baseline=1.00, bare-LLM baseline=0.33
 - senior (scored 2/2): top-k precision=0.00, rubric pairwise-agreement=0.00, tau-b=-1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 ### rn_medsurg (registered_nurse, n=8)
 - junior (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=0.00, TF-IDF baseline=1.00, bare-LLM baseline=0.00
-- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.33, tau-b=n/a, TF-IDF baseline=1.00, bare-LLM baseline=0.67
+- mid (scored 3/3): top-k precision=0.00, rubric pairwise-agreement=0.67, tau-b=0.33, TF-IDF baseline=1.00, bare-LLM baseline=0.67
 - senior (scored 2/2): top-k precision=1.00, rubric pairwise-agreement=1.00, tau-b=1.00, TF-IDF baseline=1.00, bare-LLM baseline=1.00
 
 ## Methodology notes

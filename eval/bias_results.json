@@ -1,0 +1,295 @@
+{
+  "results": {
+    "reps": [
+      {
+        "job_id": "swe_backend",
+        "candidate_id": "software_engineer_mid_004",
+        "name_swap_visible_scorer": [
+          {
+            "pair_id": "pair_1",
+            "mean_a": 3.9166666666666665,
+            "mean_b": 4.0,
+            "delta": -0.083333,
+            "noise_threshold": 0.288675,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_2",
+            "mean_a": 4.066666666666666,
+            "mean_b": 3.9166666666666665,
+            "delta": 0.15,
+            "noise_threshold": 0.288675,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_3",
+            "mean_a": 3.8333333333333335,
+            "mean_b": 3.8333333333333335,
+            "delta": 0.0,
+            "noise_threshold": 0.288675,
+            "beyond_noise": false
+          }
+        ],
+        "university_swap_blind_scorer": [
+          {
+            "pair_id": "univ_1",
+            "mean_a": 4.0,
+            "mean_b": 4.1,
+            "delta": -0.1,
+            "noise_threshold": 0.1,
+            "beyond_noise": true
+          },
+          {
+            "pair_id": "univ_2",
+            "mean_a": 4.0,
+            "mean_b": 4.1,
+            "delta": -0.1,
+            "noise_threshold": 0.1,
+            "beyond_noise": true
+          },
+          {
+            "pair_id": "univ_3",
+            "mean_a": 3.9,
+            "mean_b": 4.0,
+            "delta": -0.1,
+            "noise_threshold": 0.1,
+            "beyond_noise": true
+          }
+        ]
+      },
+      {
+        "job_id": "data_analyst_bi",
+        "candidate_id": "data_analyst_mid_012",
+        "name_swap_visible_scorer": [
+          {
+            "pair_id": "pair_1",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_2",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_3",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          }
+        ],
+        "university_swap_blind_scorer": [
+          {
+            "pair_id": "univ_1",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_2",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_3",
+            "mean_a": 4.7,
+            "mean_b": 4.7,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          }
+        ]
+      },
+      {
+        "job_id": "pm_core",
+        "candidate_id": "product_manager_mid_020",
+        "name_swap_visible_scorer": [
+          {
+            "pair_id": "pair_1",
+            "mean_a": 3.55,
+            "mean_b": 3.55,
+            "delta": 0.0,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_2",
+            "mean_a": 3.55,
+            "mean_b": 3.65,
+            "delta": -0.1,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_3",
+            "mean_a": 3.55,
+            "mean_b": 3.55,
+            "delta": 0.0,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          }
+        ],
+        "university_swap_blind_scorer": [
+          {
+            "pair_id": "univ_1",
+            "mean_a": 3.55,
+            "mean_b": 3.65,
+            "delta": -0.1,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_2",
+            "mean_a": 3.85,
+            "mean_b": 3.55,
+            "delta": 0.3,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_3",
+            "mean_a": 3.65,
+            "mean_b": 3.55,
+            "delta": 0.1,
+            "noise_threshold": 0.34641,
+            "beyond_noise": false
+          }
+        ]
+      },
+      {
+        "job_id": "sales_ae",
+        "candidate_id": "sales_mid_028",
+        "name_swap_visible_scorer": [
+          {
+            "pair_id": "pair_1",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_2",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_3",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          }
+        ],
+        "university_swap_blind_scorer": [
+          {
+            "pair_id": "univ_1",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_2",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "univ_3",
+            "mean_a": 4.8,
+            "mean_b": 4.8,
+            "delta": 0.0,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          }
+        ]
+      },
+      {
+        "job_id": "rn_medsurg",
+        "candidate_id": "registered_nurse_mid_036",
+        "name_swap_visible_scorer": [
+          {
+            "pair_id": "pair_1",
+            "mean_a": 3.1333333333333333,
+            "mean_b": 3.9,
+            "delta": -0.766667,
+            "noise_threshold": 0.550757,
+            "beyond_noise": true
+          },
+          {
+            "pair_id": "pair_2",
+            "mean_a": 3.9999999999999996,
+            "mean_b": 3.5,
+            "delta": 0.5,
+            "noise_threshold": 0.550757,
+            "beyond_noise": false
+          },
+          {
+            "pair_id": "pair_3",
+            "mean_a": 3.6333333333333333,
+            "mean_b": 4.1,
+            "delta": -0.466667,
+            "noise_threshold": 0.550757,
+            "beyond_noise": false
+          }
+        ],
+        "university_swap_blind_scorer": [
+          {
+            "pair_id": "univ_1",
+            "mean_a": 3.75,
+            "mean_b": 4.1,
+            "delta": -0.35,
+            "noise_threshold": 0.1,
+            "beyond_noise": true
+          },
+          {
+            "pair_id": "univ_2",
+            "mean_a": 4.1,
+            "mean_b": 3.9999999999999996,
+            "delta": 0.1,
+            "noise_threshold": 0.1,
+            "beyond_noise": true
+          },
+          {
+            "pair_id": "univ_3",
+            "mean_a": 3.8666666666666667,
+            "mean_b": 3.9,
+            "delta": -0.033333,
+            "noise_threshold": 0.1,
+            "beyond_noise": false
+          }
+        ]
+      }
+    ]
+  },
+  "call_estimate": {
+    "per_rep_calls": 43,
+    "n_reps": 5,
+    "total_calls": 215,
+    "name_pairs": 3,
+    "univ_pairs": 3,
+    "n_reruns": 3,
+    "estimated_cost_usd": 3.44
+  }
+}

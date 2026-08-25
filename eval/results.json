@@ -287,8 +287,8 @@
         "role_count_match": true
       }
     ],
-    "wall_clock_seconds": 184.8,
-    "resumes_per_hour": 779.4
+    "wall_clock_seconds": 184.6,
+    "resumes_per_hour": 780.1
   },
   "ranking": {
     "per_job": [
@@ -301,17 +301,17 @@
             "n_truth": 3,
             "n_scored": 3,
             "rubric_top_k_precision": 1.0,
-            "rubric_pairwise_agreement": 1.0,
-            "rubric_kendall_tau_b": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.816496580927726,
             "tfidf_pairwise_agreement": 0.6666666666666666,
-            "bare_llm_pairwise_agreement": 0.6666666666666666
+            "bare_llm_pairwise_agreement": 1.0
           },
           "mid": {
             "n_truth": 3,
             "n_scored": 3,
-            "rubric_top_k_precision": 0.0,
-            "rubric_pairwise_agreement": 0.3333333333333333,
-            "rubric_kendall_tau_b": 0.0,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.33333333333333337,
             "tfidf_pairwise_agreement": 0.3333333333333333,
             "bare_llm_pairwise_agreement": 1.0
           },
@@ -379,7 +379,7 @@
             "n_scored": 3,
             "rubric_top_k_precision": 1.0,
             "rubric_pairwise_agreement": 0.6666666666666666,
-            "rubric_kendall_tau_b": 0.816496580927726,
+            "rubric_kendall_tau_b": 0.33333333333333337,
             "tfidf_pairwise_agreement": 0.6666666666666666,
             "bare_llm_pairwise_agreement": 1.0
           },
@@ -420,9 +420,9 @@
           "senior": {
             "n_truth": 2,
             "n_scored": 2,
-            "rubric_top_k_precision": 1.0,
-            "rubric_pairwise_agreement": 1.0,
-            "rubric_kendall_tau_b": 1.0,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": -1.0,
             "tfidf_pairwise_agreement": 1.0,
             "bare_llm_pairwise_agreement": 1.0
           }
@@ -449,14 +449,14 @@
             "rubric_pairwise_agreement": 1.0,
             "rubric_kendall_tau_b": 1.0,
             "tfidf_pairwise_agreement": 1.0,
-            "bare_llm_pairwise_agreement": 0.6666666666666666
+            "bare_llm_pairwise_agreement": 1.0
           },
           "senior": {
             "n_truth": 2,
             "n_scored": 2,
-            "rubric_top_k_precision": 1.0,
-            "rubric_pairwise_agreement": 1.0,
-            "rubric_kendall_tau_b": 1.0,
+            "rubric_top_k_precision": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": -1.0,
             "tfidf_pairwise_agreement": 1.0,
             "bare_llm_pairwise_agreement": 1.0
           }
@@ -490,7 +490,7 @@
             "n_scored": 2,
             "rubric_top_k_precision": 1.0,
             "rubric_pairwise_agreement": 1.0,
-            "rubric_kendall_tau_b": null,
+            "rubric_kendall_tau_b": 1.0,
             "tfidf_pairwise_agreement": 0.0,
             "bare_llm_pairwise_agreement": 0.0
           }
@@ -508,14 +508,14 @@
             "rubric_pairwise_agreement": 0.0,
             "rubric_kendall_tau_b": -0.816496580927726,
             "tfidf_pairwise_agreement": 1.0,
-            "bare_llm_pairwise_agreement": 0.3333333333333333
+            "bare_llm_pairwise_agreement": 0.0
           },
           "mid": {
             "n_truth": 3,
             "n_scored": 3,
             "rubric_top_k_precision": 0.0,
-            "rubric_pairwise_agreement": 0.3333333333333333,
-            "rubric_kendall_tau_b": 0.0,
+            "rubric_pairwise_agreement": 0.0,
+            "rubric_kendall_tau_b": null,
             "tfidf_pairwise_agreement": 0.6666666666666666,
             "bare_llm_pairwise_agreement": 1.0
           },
@@ -540,16 +540,16 @@
             "n_scored": 3,
             "rubric_top_k_precision": 0.0,
             "rubric_pairwise_agreement": 0.3333333333333333,
-            "rubric_kendall_tau_b": -0.33333333333333337,
+            "rubric_kendall_tau_b": -0.816496580927726,
             "tfidf_pairwise_agreement": 1.0,
             "bare_llm_pairwise_agreement": 0.0
           },
           "mid": {
             "n_truth": 3,
             "n_scored": 3,
-            "rubric_top_k_precision": 0.0,
-            "rubric_pairwise_agreement": 0.3333333333333333,
-            "rubric_kendall_tau_b": -0.33333333333333337,
+            "rubric_top_k_precision": 1.0,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.33333333333333337,
             "tfidf_pairwise_agreement": 1.0,
             "bare_llm_pairwise_agreement": 0.3333333333333333
           },
@@ -582,8 +582,8 @@
             "n_truth": 3,
             "n_scored": 3,
             "rubric_top_k_precision": 0.0,
-            "rubric_pairwise_agreement": 0.3333333333333333,
-            "rubric_kendall_tau_b": null,
+            "rubric_pairwise_agreement": 0.6666666666666666,
+            "rubric_kendall_tau_b": 0.33333333333333337,
             "tfidf_pairwise_agreement": 1.0,
             "bare_llm_pairwise_agreement": 0.6666666666666666
           },

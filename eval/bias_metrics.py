@@ -16,7 +16,15 @@ def noise_floor(unswapped_scores: list[float]) -> dict:
 def delta_beyond_noise(variant_a_scores: list[float], variant_b_scores: list[float],
                         floor: dict) -> dict:
     mean_a, mean_b = mean(variant_a_scores), mean(variant_b_scores)
-    delta = mean_a - mean_b
+    # Rounded to 6dp: inputs are already 4dp (RubricScore.weighted_total),
+    # but subtracting two means of 4dp floats can still land a fraction of
+    # a ULP off an exact value (e.g. -0.09999999999999964 instead of
+    # -0.1) — caught for real on a live run, where three functionally
+    # identical -0.100 deltas landed on both sides of the >= threshold
+    # purely from float noise, flipping one pair's beyond_noise verdict
+    # for no real reason. 6dp keeps genuine sub-0.0001 precision (none
+    # exists at this rubric's resolution) while collapsing the artifact.
+    delta = round(mean_a - mean_b, 6)
     # 2 stdev of the unswapped baseline as the "is this noise" threshold —
     # a delta smaller than that isn't distinguishable from sampling variance.
     # Floored at 0.10, not an arbitrary 0.05: rubric weights are multiples
@@ -24,7 +32,7 @@ def delta_beyond_noise(variant_a_scores: list[float], variant_b_scores: list[flo
     # *below* weighted_total's own quantum, so a single one-point flip on
     # the smallest-weighted criterion alone would clear it and read as a
     # "real" finding.
-    threshold = max(2 * floor["stdev"], 0.10)
+    threshold = round(max(2 * floor["stdev"], 0.10), 6)
     # >=, not > : a delta landing exactly on the floor (e.g. a perfectly
     # consistent 1-point education_fit-only flip across all reruns, which
     # moves weighted_total by exactly 0.10) should count as a detected

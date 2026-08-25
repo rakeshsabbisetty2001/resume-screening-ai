@@ -52,24 +52,17 @@ job_description.txt ----------------------------------------> Claude structured 
 
 ## Eval results
 
-**Status: harness built, reviewed (2-3 Opus rounds per phase), and dry-run verified — not yet run against the live API.** Both eval scripts print an exact call-count estimate and refuse to spend anything without `ANTHROPIC_API_KEY` and an explicit `--run` flag:
+Real numbers, from `python -m eval.run_eval --run` and `python -m eval.bias_eval --run` against `claude-sonnet-5`. Full breakdowns: [`eval/results.md`](eval/results.md), [`eval/bias_results.md`](eval/bias_results.md).
 
-```
-python -m eval.run_eval
-# Call estimate: {'extraction_calls': 40, 'scoring_calls': 72, 'baseline_llm_calls': 9,
-#                 'total_calls': 121, 'estimated_cost_usd': 1.94}
-# Dry run (default) — pass --run to actually call the API. No requests were made.
-python -m eval.run_eval --run  # actually runs it, writes eval/results.md
+**Extraction accuracy** (n=40 resumes, 0 failed): mean skill-set F1 **1.0**, years-within-1yr-tolerance **100%**, role-count-match **100%**. Throughput: 780 resumes/hour.
 
-python -m eval.bias_eval
-# Call estimate: {'per_rep_calls': 43, 'n_reps': 5, 'total_calls': 215, 'name_pairs': 3,
-#                 'univ_pairs': 3, 'n_reruns': 3, 'estimated_cost_usd': 3.44}
-python -m eval.bias_eval --run # actually runs it, writes eval/bias_results.md
-```
+**Ranking quality** (9 job descriptions × tier-stratified candidates, vs. a labeled ground truth): mixed, not uniformly strong, and the spread is real — across all 27 scored tiers, pairwise agreement lands at 1.00 in 10, 0.67 in 7, 0.33 in 3, and 0.00 in 7. The rubric scorer does not clearly beat either baseline (deterministic TF-IDF cosine, or a rubric-free bare-LLM ranking): `sales_ae` scores 0.00 pairwise agreement on *all three* tiers, and on `data_analyst_growth` senior and `pm_core` senior the rubric scored 0.00 while both baselines scored a perfect 1.00 — the rubric actively lost to a simpler method there, not just tied it. Reported per-tier rather than blended into one flattering average; see `eval/results.md` for every number.
 
-(`estimated_cost_usd` is a rough per-call rate, not a billed figure — see `ESTIMATED_COST_PER_CALL_USD` in `eval/run_eval.py`. `total_calls` is exact, computed from the real manifests before anything is spent.)
+**Bias eval** (5 reps — one per job category, a single data point per category, not a trend — n=3 reruns per condition against a measured noise floor): two categories flagged something on the university-swap arm, `data_analyst`/`sales` were flat zero on both arms, and none of it adds up to a clean "bias found" or "bias absent" story.
 
-This section will be replaced with the real numbers once those run — no placeholder numbers are committed in their place.
+`swe_backend`'s university-swap arm flagged all 3 pairs `beyond_noise=True` — but every pair moved by exactly the same -0.100, precisely the detection floor (the smallest single rubric criterion's weight). That's the boundary case the methodology note already names: a perfectly consistent one-criterion flip is designed to count as detected, so this is either a real (if minimal) consistent effect, or an artifact of setting the floor exactly at that quantum — the eval can't distinguish those from 3 reruns. `pm_core`'s university-swap mean |delta| (0.167, max 0.300) is above that fixed 0.10 floor but stayed under *its own* noise-adjusted threshold (0.346, from higher measured rerun variance) — `beyond_noise=False` on every pair there, a different and weaker statement than "no effect."
+
+The one rep worth real scrutiny is `registered_nurse` (`rn_medsurg`): its name-swap arm flagged 1 of 3 pairs (delta -0.767) and its university-swap arm flagged 2 of 3. But the same rep's deltas flip sign across pairs (-0.767, +0.500, -0.467 on the name-swap arm) — a consistent directional bias shouldn't reverse sign pair to pair — and its own name-swap noise threshold (0.551) is the highest of any rep's — above `pm_core`'s 0.346 (the next-highest, itself elevated above the 0.10 floor) and 5.5× `data_analyst_bi`/`sales_ae`'s 0.10 — meaning this rep scored as intrinsically higher-variance than most others, not just as showing a bigger effect. With 30 pair-level tests total (5 reps × 2 arms × 3 pairs) at this threshold, some `True` flags are expected by chance even with no real effect — this could be exactly that. Reported here rather than either burying it as "no bias found" or overselling it as a confirmed finding: a signal worth more reps in that category to actually resolve, not evidence on its own. Full numbers, every pair: `eval/bias_results.md`.
 
 ### Methodology (what each eval actually measures)
 

@@ -34,6 +34,26 @@ def test_delta_beyond_noise_zero_stdev_still_has_nonzero_threshold():
     assert result["noise_threshold"] >= 0.10  # rubric quantum floor, not an arbitrary 0.05
 
 
+def test_delta_beyond_noise_float_noise_does_not_flip_identical_deltas():
+    # Caught on a live run (eval/bias_results.json): three mathematically
+    # identical -0.100 deltas landed on both sides of the >= 0.10 threshold
+    # purely from float subtraction noise. The exact real values matter —
+    # a fixture that happens to round the same way on both sides of the
+    # boundary would pass even without the fix (verified: an earlier
+    # version of this test used inputs that were tautologically safe).
+    # 4.0 - 4.1 == -0.09999999999999964 (< 0.10 in raw float math, False
+    # pre-fix); 3.9 - 4.0 == -0.10000000000000009 (> 0.10, True pre-fix) —
+    # same -0.1 mathematically, opposite verdicts without rounding.
+    floor = {"mean": 3.0, "stdev": 0.0}
+    results = [
+        delta_beyond_noise([4.0], [4.1], floor),
+        delta_beyond_noise([4.0], [4.1], floor),
+        delta_beyond_noise([3.9], [4.0], floor),
+    ]
+    verdicts = {r["beyond_noise"] for r in results}
+    assert len(verdicts) == 1, f"identical -0.1 deltas disagreed: {results}"
+
+
 def test_delta_beyond_noise_below_rubric_quantum_is_not_beyond_noise():
     # A delta smaller than the 0.10 rubric-quantum floor (education_fit's
     # weight, the smallest criterion) shouldn't read as a "real" finding.
