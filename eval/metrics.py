@@ -45,12 +45,16 @@ def top_k_precision(predicted_ids: list[str], truth_ids: list[str], k: int) -> f
     return len(pred_top_k & truth_top_k) / k
 
 
-def pairwise_agreement(predicted_ids: list[str], truth_ids: list[str]) -> float:
+def pairwise_agreement(predicted_ids: list[str], truth_ids: list[str]) -> float | None:
     # Fraction of candidate pairs (both present in both lists) whose
-    # relative order agrees between predicted and truth ranking.
+    # relative order agrees between predicted and truth ranking. None (not
+    # 1.0) when there's nothing to compare — an empty predicted_ids (e.g.
+    # every scoring call for this tier failed) is a missing result, not a
+    # perfect one; returning 1.0 there would silently report a total
+    # failure as flawless agreement.
     common = [c for c in truth_ids if c in predicted_ids]
     if len(common) < 2:
-        return 1.0
+        return None
     truth_rank = {c: i for i, c in enumerate(truth_ids) if c in common}
     pred_rank = {c: i for i, c in enumerate(predicted_ids) if c in common}
     agree, total = 0, 0
@@ -62,16 +66,24 @@ def pairwise_agreement(predicted_ids: list[str], truth_ids: list[str]) -> float:
             pred_order = pred_rank[a] < pred_rank[b]
             if truth_order == pred_order:
                 agree += 1
-    return agree / total if total else 1.0
+    return agree / total
 
 
-def ranking_kendall_tau_b(predicted_ids: list[str], truth_ids: list[str]) -> float | None:
+def ranking_kendall_tau_b(predicted_ids: list[str], truth_ids: list[str],
+                           scores_by_id: dict[str, float]) -> float | None:
+    # Takes the actual weighted_total per candidate, not just rank
+    # position — `rank_candidates` upstream breaks ties via a seeded
+    # shuffle before sorting, so a pure rank-position input would already
+    # be tie-free and this would silently compute tau-a, not tau-b, on
+    # exactly the tied rubric totals the plan calls out as the reason
+    # tau-b (not tau-a) was chosen.
     common = [c for c in truth_ids if c in predicted_ids]
     if len(common) < 2:
         return None  # not enough overlap to compute a correlation
-    truth_rank = [i for i, _ in enumerate(common)]
-    pred_rank = [predicted_ids.index(c) for c in common]
-    tau, _ = kendalltau(truth_rank, pred_rank, variant="b")
+    truth_rank = list(range(len(common)))
+    # Negated so a higher score aligns with an earlier (smaller) truth rank.
+    pred_values = [-scores_by_id[c] for c in common]
+    tau, _ = kendalltau(truth_rank, pred_values, variant="b")
     return tau
 
 

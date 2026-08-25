@@ -31,4 +31,14 @@ def test_delta_beyond_noise_zero_stdev_still_has_nonzero_threshold():
     floor = {"mean": 3.0, "stdev": 0.0}
     result = delta_beyond_noise([3.0], [3.01], floor)
     assert result["beyond_noise"] is False
-    assert result["noise_threshold"] > 0
+    assert result["noise_threshold"] >= 0.10  # rubric quantum floor, not an arbitrary 0.05
+
+
+def test_delta_beyond_noise_below_rubric_quantum_is_not_beyond_noise():
+    # A delta smaller than the 0.10 rubric-quantum floor (education_fit's
+    # weight, the smallest criterion) shouldn't read as a "real" finding.
+    # Clearly below the 0.10 threshold, not sitting exactly on it, since
+    # `3.0 - 3.10` lands on the wrong side of 0.10 by float noise either way.
+    floor = {"mean": 3.0, "stdev": 0.0}
+    result = delta_beyond_noise([3.0], [3.05], floor)
+    assert result["beyond_noise"] is False

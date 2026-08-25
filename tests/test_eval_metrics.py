@@ -68,22 +68,43 @@ def test_pairwise_agreement_partial():
     assert 0.0 < agreement < 1.0
 
 
-def test_pairwise_agreement_single_candidate_is_vacuously_perfect():
-    assert pairwise_agreement(["a"], ["a"]) == 1.0
+def test_pairwise_agreement_single_candidate_returns_none():
+    assert pairwise_agreement(["a"], ["a"]) is None  # nothing to compare, not "perfect"
+
+
+def test_pairwise_agreement_empty_predicted_returns_none_not_perfect():
+    # A total failure (every scoring call for this tier errored) must not
+    # silently read as flawless agreement.
+    assert pairwise_agreement([], ["a", "b", "c"]) is None
 
 
 def test_ranking_kendall_tau_b_perfect_agreement():
-    tau = ranking_kendall_tau_b(["a", "b", "c"], ["a", "b", "c"])
+    scores = {"a": 5.0, "b": 3.0, "c": 1.0}
+    tau = ranking_kendall_tau_b(["a", "b", "c"], ["a", "b", "c"], scores)
     assert abs(tau - 1.0) < 1e-9
 
 
 def test_ranking_kendall_tau_b_full_disagreement():
-    tau = ranking_kendall_tau_b(["c", "b", "a"], ["a", "b", "c"])
+    scores = {"a": 1.0, "b": 3.0, "c": 5.0}
+    tau = ranking_kendall_tau_b(["c", "b", "a"], ["a", "b", "c"], scores)
     assert abs(tau - (-1.0)) < 1e-9
 
 
 def test_ranking_kendall_tau_b_too_few_common_returns_none():
-    assert ranking_kendall_tau_b(["a"], ["a"]) is None
+    assert ranking_kendall_tau_b(["a"], ["a"], {"a": 1.0}) is None
+
+
+def test_ranking_kendall_tau_b_uses_real_scores_not_just_positions():
+    # Positions alone (a=0,b=1,c=2 vs predicted order [a,b,c]) would read
+    # as a perfect tau-a. Real scores show b and c are actually tied — a
+    # true tau-b must reflect that tie, not just rank position.
+    truth_ids = ["a", "b", "c"]
+    predicted_ids = ["a", "b", "c"]
+    tied_scores = {"a": 5.0, "b": 3.0, "c": 3.0}
+    tau_tied = ranking_kendall_tau_b(predicted_ids, truth_ids, tied_scores)
+    distinct_scores = {"a": 5.0, "b": 3.0, "c": 1.0}
+    tau_distinct = ranking_kendall_tau_b(predicted_ids, truth_ids, distinct_scores)
+    assert tau_tied != tau_distinct  # the tie must change the statistic vs. positions alone
 
 
 def test_tfidf_baseline_rank_prefers_more_overlap():

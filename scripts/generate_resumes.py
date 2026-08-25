@@ -31,8 +31,8 @@ checks against this data: every role's end month equals the next role's
 start month (contiguous, month-resolution convention — not an overlap
 artifact), and every candidate's most recent role ends exactly at AS_OF
 (the corpus has no employment-gap or "not currently employed" case to test
-extraction against; add one by hand in eval/extraction_dataset.json if that
-case needs coverage).
+extraction against; add one by hand to tests/test_extraction.py or a
+manually-written resume fixture if that case needs coverage).
 """
 import json
 import random

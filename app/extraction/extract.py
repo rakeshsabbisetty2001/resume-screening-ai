@@ -125,8 +125,9 @@ def _validate_invariants(candidate: Candidate, candidate_id: str) -> None:
         stated_months = candidate.years_experience * 12
         # ponytail: tolerance is a placeholder, not calibrated against real
         # (non-synthetic) resumes — the corpus's worst gap is <1 month, so
-        # this hasn't actually been exercised yet. Revisit once eval/
-        # extraction_dataset.json has real disagreement to measure against.
+        # this hasn't actually been exercised yet. Revisit once eval/run_eval.py
+        # (extraction accuracy, scored against manifest.json's ground_truth)
+        # has real disagreement to measure against.
         if abs(stated_months - total_months) > max(3, total_months * 0.10):
             raise ExtractionError(
                 f"stated years_experience inconsistent with role dates for candidate {candidate_id}")

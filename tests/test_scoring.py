@@ -52,6 +52,21 @@ def test_weighted_total_math():
     assert abs(mixed.weighted_total() - expected) < 1e-9
 
 
+def test_blind_serialization_identical_across_name_swap():
+    # Referenced by eval/bias_eval.py's module docstring as the reason the
+    # name-swap/BLIND-scorer arm isn't run as an API call: with the name
+    # field dropped and nothing else about the candidate changed, a bare
+    # name swap must serialize to byte-identical text — that's an exact
+    # offline fact, not something worth spending ~126 live scoring calls
+    # to remeasure as noise.
+    base = _candidate(name="Jordan Rivera")
+    variant_a = base.model_copy(update={"name": "Emily Walsh"})
+    variant_b = base.model_copy(update={"name": "Lakisha Washington"})
+    assert (_serialize_candidate(variant_a, include_name=False)
+            == _serialize_candidate(variant_b, include_name=False)
+            == _serialize_candidate(base, include_name=False))
+
+
 def test_serialize_candidate_name_blind_by_default():
     text = _serialize_candidate(_candidate(), include_name=False)
     assert "Jordan Rivera" not in text

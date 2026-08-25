@@ -8,6 +8,13 @@ Pinned models: extraction_model / scoring_model from app.config.settings —
 recorded into results.md so every number here stays attributable to a
 specific model version (see app/config.py's comment on why these carry no
 date suffix).
+
+Rough cost: ~$0.016/call at claude-sonnet-5 intro pricing ($3/$15 per 1M
+in/out tokens, ~1200 input + ~800 output tokens/call — extraction and
+scoring prompts are short, effort="low"). This project's total estimate:
+run_eval.py 121 calls (~$1.90), bias_eval.py 215 calls (~$3.40) — the call
+counts are exact (both scripts compute and print them from the real
+manifests before spending anything); the $ figures are the approximate part.
 """
 import argparse
 import json
@@ -20,7 +27,8 @@ from app.config import settings
 from app.extraction.extract import ExtractionError, extract_candidate
 from app.scoring.score import ScoringError, rank_candidates, score_candidate
 from eval.baseline_llm import BaselineLLMError, rank_via_bare_llm
-from eval.metrics import extraction_accuracy, pairwise_agreement, ranking_kendall_tau_b, tfidf_baseline_rank
+from eval.metrics import (extraction_accuracy, pairwise_agreement, ranking_kendall_tau_b,
+                           tfidf_baseline_rank, top_k_precision)
 
 ROOT = Path(__file__).resolve().parent.parent
 RESUMES_DIR = ROOT / "data" / "synthetic" / "resumes"
@@ -65,12 +73,20 @@ def estimate_calls(resumes: list[dict], jds: list[dict]) -> dict:
             "baseline_llm_calls": baseline_llm_calls, "total_calls": total}
 
 
-def run_extraction_eval(resumes: list[dict]) -> dict:
+def run_extraction_eval(resumes: list[dict]) -> tuple[dict, dict]:
+    # Returns (results, candidates_by_id) — the caller (run_ranking_eval)
+    # reuses these Candidate objects rather than re-extracting, since each
+    # resume belongs to exactly one category and therefore feeds every JD
+    # in that category. Re-extracting per JD was the estimate_calls bug:
+    # it silently tripled/doubled the real call count beyond what the
+    # printed estimate promised.
     per_candidate = []
+    candidates_by_id = {}
     start = time.monotonic()
     for entry in resumes:
         try:
             candidate = extract_candidate(entry["text"], entry["candidate_id"])
+            candidates_by_id[entry["candidate_id"]] = candidate
             acc = extraction_accuracy(candidate, entry["ground_truth"])
             per_candidate.append({"candidate_id": entry["candidate_id"], "error": None, **acc})
         except ExtractionError as e:
@@ -78,7 +94,7 @@ def run_extraction_eval(resumes: list[dict]) -> dict:
     elapsed = time.monotonic() - start
 
     ok = [r for r in per_candidate if r.get("error") is None]
-    return {
+    results = {
         "n": len(resumes),
         "n_failed": len(resumes) - len(ok),
         "mean_skill_f1": mean(r["skill_f1"] for r in ok) if ok else None,
@@ -88,9 +104,11 @@ def run_extraction_eval(resumes: list[dict]) -> dict:
         "wall_clock_seconds": round(elapsed, 1),
         "resumes_per_hour": round(len(resumes) / (elapsed / 3600), 1) if elapsed > 0 else None,
     }
+    return results, candidates_by_id
 
 
-def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict) -> dict:
+def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict,
+                      candidates_by_id: dict) -> dict:
     truth_by_job = {r["job_id"]: r for r in ranking_truth["rankings"]}
     per_job = []
 
@@ -102,15 +120,19 @@ def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict) 
         if truth is None:
             continue
 
-        # AI scorer (name-blind by default) — one call per candidate.
+        # AI scorer (name-blind by default) — one call per candidate,
+        # reusing the already-extracted Candidate (no re-extraction).
         scores = []
         for r in job_candidates:
+            candidate_obj = candidates_by_id.get(r["candidate_id"])
+            if candidate_obj is None:
+                continue  # extraction already failed for this candidate
             try:
-                candidate_obj = extract_candidate(r["text"], r["candidate_id"])
                 scores.append(score_candidate(candidate_obj, jd["text"], r["candidate_id"], jd["job_id"]))
-            except (ExtractionError, ScoringError):
+            except ScoringError:
                 continue
         ranked_ids = [s.candidate_id for s in rank_candidates(scores)]
+        score_by_id = {s.candidate_id: s.weighted_total for s in scores}
 
         # Baseline 1: deterministic TF-IDF cosine, no LLM call.
         tfidf_ranked = tfidf_baseline_rank(
@@ -126,17 +148,18 @@ def run_ranking_eval(resumes: list[dict], jds: list[dict], ranking_truth: dict) 
 
         per_tier = {}
         for tier, truth_ids in truth["tier_rankings"].items():
+            if not truth_ids:
+                continue
             tier_pred = [c for c in ranked_ids if c in truth_ids]
             tier_tfidf = [c for c in tfidf_ranked if c in truth_ids]
             tier_bare_llm = [c for c in bare_llm_ranked if c in truth_ids]
-            if not truth_ids:
-                continue
             per_tier[tier] = {
+                "n_truth": len(truth_ids), "n_scored": len(tier_pred),  # visible when a tier partly failed
+                "rubric_top_k_precision": top_k_precision(tier_pred, truth_ids, k=max(1, len(truth_ids) // 2)),
                 "rubric_pairwise_agreement": pairwise_agreement(tier_pred, truth_ids),
-                "rubric_kendall_tau_b": ranking_kendall_tau_b(tier_pred, truth_ids),
+                "rubric_kendall_tau_b": ranking_kendall_tau_b(tier_pred, truth_ids, score_by_id),
                 "tfidf_pairwise_agreement": pairwise_agreement(tier_tfidf, truth_ids),
-                "bare_llm_pairwise_agreement": (
-                    pairwise_agreement(tier_bare_llm, truth_ids) if tier_bare_llm else None),
+                "bare_llm_pairwise_agreement": pairwise_agreement(tier_bare_llm, truth_ids),
             }
 
         per_job.append({"job_id": jd["job_id"], "category": jd["category"],
@@ -162,14 +185,19 @@ def write_results_md(extraction: dict, ranking: dict, call_estimate: dict) -> No
         "",
         "## Ranking quality (per job, stratified within tier — see methodology notes)",
     ]
+    def fmt(v):
+        return f"{v:.2f}" if isinstance(v, float) else "n/a"
+
     for job in ranking["per_job"]:
         lines.append(f"### {job['job_id']} ({job['category']}, n={job['n_candidates']})")
         for tier, m in job["per_tier"].items():
             lines.append(
-                f"- {tier}: rubric pairwise-agreement={m['rubric_pairwise_agreement']:.2f}, "
-                f"tau-b={m['rubric_kendall_tau_b']}, "
-                f"TF-IDF baseline={m['tfidf_pairwise_agreement']:.2f}, "
-                f"bare-LLM baseline={m['bare_llm_pairwise_agreement']}")
+                f"- {tier} (scored {m['n_scored']}/{m['n_truth']}): "
+                f"top-k precision={fmt(m['rubric_top_k_precision'])}, "
+                f"rubric pairwise-agreement={fmt(m['rubric_pairwise_agreement'])}, "
+                f"tau-b={fmt(m['rubric_kendall_tau_b'])}, "
+                f"TF-IDF baseline={fmt(m['tfidf_pairwise_agreement'])}, "
+                f"bare-LLM baseline={fmt(m['bare_llm_pairwise_agreement'])}")
     lines += [
         "",
         "## Methodology notes",
@@ -211,8 +239,8 @@ def main() -> None:
         sys.exit(1)
 
     ranking_truth = load_ranking_ground_truth()
-    extraction_results = run_extraction_eval(resumes)
-    ranking_results = run_ranking_eval(resumes, jds, ranking_truth)
+    extraction_results, candidates_by_id = run_extraction_eval(resumes)
+    ranking_results = run_ranking_eval(resumes, jds, ranking_truth, candidates_by_id)
 
     RESULTS_JSON.write_text(json.dumps(
         {"extraction": extraction_results, "ranking": ranking_results, "call_estimate": estimate},
