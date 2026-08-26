@@ -2,9 +2,9 @@
 
 Score and rank candidate resumes against a job description with a per-criterion rationale for every score — and, unlike most "AI resume screener" demos, an actual measurement of whether the scorer is sensitive to a candidate's name.
 
-**Live demo (UI):** _pending — Streamlit Community Cloud deploy needs the account holder's Streamlit login_
-**Live API:** _pending — Render deploy needs the account holder's Render account_
-**API docs:** `<api-url>/docs` once deployed (FastAPI auto-generated)
+**Live demo (UI):** https://resume-screening-a-ljjnblec8emagdpruk4g4f.streamlit.app
+**Live API:** https://resume-screening-ai-ebt7.onrender.com
+**API docs:** https://resume-screening-ai-ebt7.onrender.com/docs (FastAPI auto-generated)
 
 ## The problem
 
@@ -111,7 +111,7 @@ docker run -p 8000:8000 -e ANTHROPIC_API_KEY=... resume-screening-ai
 ## Tests
 
 ```bash
-pytest -q   # 63 passed, 2 skipped (the 2 are live-API smoke tests, gated on a real ANTHROPIC_API_KEY)
+pytest -q   # 68 passed, 2 skipped (the 2 are live-API smoke tests, gated on a real ANTHROPIC_API_KEY)
 ```
 
 Every non-trivial code path (extraction invariants, scoring math, name-blind scrubbing, tie-break behavior, eval metrics, bias-noise statistics, API error handling) has an offline test that runs with zero API calls — `tests/conftest.py` sets a dummy API key so `app/main.py` can import for testing without a real one, and a `has_real_api_key()` helper keeps the two genuine live-smoke tests from misfiring against that dummy value.

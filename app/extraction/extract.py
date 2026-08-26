@@ -128,7 +128,7 @@ def _validate_invariants(candidate: Candidate, candidate_id: str) -> None:
     if intervals:
         total_months = _union_months(intervals)
         stated_months = candidate.years_experience * 12
-        # ponytail: tolerance is a placeholder, not calibrated against real
+        # NOTE: tolerance is a placeholder, not calibrated against real
         # (non-synthetic) resumes — the corpus's worst gap is <1 month, so
         # this hasn't actually been exercised yet. Revisit once eval/run_eval.py
         # (extraction accuracy, scored against manifest.json's ground_truth)

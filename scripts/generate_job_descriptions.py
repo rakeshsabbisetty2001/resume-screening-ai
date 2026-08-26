@@ -1,5 +1,5 @@
 """Synthetic job-description corpus. Hand-written, not LLM-generated — same
-ponytail rationale as generate_resumes.py: 9 short JDs is less work to write
+rationale as generate_resumes.py: 9 short JDs is less work to write
 directly than to prompt-engineer and pay an API call for, and hand-written
 means no risk of an LLM silently biasing a JD's wording toward whichever
 resumes exist in the corpus.

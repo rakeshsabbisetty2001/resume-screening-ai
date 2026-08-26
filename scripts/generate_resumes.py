@@ -1,6 +1,6 @@
 """Synthetic resume corpus generator.
 
-ponytail note: the plan originally called for calling the Anthropic API to
+Design note: the plan originally called for calling the Anthropic API to
 generate resumes. Switched to a deterministic, seeded template generator
 instead — no API cost, and it's a *better* fit for two of the plan's own
 requirements: (1) "no planted quality label" is trivially true (there's no
