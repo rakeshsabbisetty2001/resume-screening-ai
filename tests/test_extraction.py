@@ -49,8 +49,13 @@ def test_years_inconsistent_with_roles_rejected():
     bad = _candidate(years_experience=5.0,
                       roles=[Role(title="X", company="Y", start_date="2023-01",
                                   end_date="2024-01", bullets=[])])
-    with pytest.raises(ExtractionError, match="inconsistent"):
+    with pytest.raises(ExtractionError, match="inconsistent") as exc_info:
         _validate_invariants(bad, "cand_4")
+    # Both numbers (stated vs. computed) should be in the message — the
+    # whole point of the error is telling a caller which one looks wrong,
+    # not just that they disagree.
+    assert "5.0" in str(exc_info.value)
+    assert "1.0" in str(exc_info.value)
 
 
 def test_present_end_date_uses_today():

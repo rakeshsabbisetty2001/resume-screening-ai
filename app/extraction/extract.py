@@ -134,5 +134,16 @@ def _validate_invariants(candidate: Candidate, candidate_id: str) -> None:
         # (extraction accuracy, scored against manifest.json's ground_truth)
         # has real disagreement to measure against.
         if abs(stated_months - total_months) > max(3, total_months * 0.10):
+            # Numbers only, no resume text — safe under the PII contract
+            # above, and this is the context worth having: which of the two
+            # numbers looks wrong, and by how much. A real-world resume can
+            # legitimately trip this without either number being "wrong" —
+            # self-reported years_experience commonly includes unlisted
+            # gaps (freelance work, education, a role left off the resume)
+            # that the listed-roles sum can't see; the placeholder tolerance
+            # above was only ever calibrated against the synthetic corpus,
+            # whose worst gap is <1 month, not against real resumes like this.
             raise ExtractionError(
-                f"stated years_experience inconsistent with role dates for candidate {candidate_id}")
+                f"stated years_experience ({candidate.years_experience:.1f}) inconsistent with "
+                f"role dates ({total_months / 12:.1f} computed from listed roles, "
+                f"tolerance ±{max(3, total_months * 0.10) / 12:.1f}) for candidate {candidate_id}")
