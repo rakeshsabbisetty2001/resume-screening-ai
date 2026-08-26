@@ -17,3 +17,9 @@ jobs:
       # fully mocked or skipif-gated on a real key (tests/conftest.py sets
       # a dummy one so app/main.py can still import).
       - run: pytest -q
+      # ui/ is deliberately excluded from requirements.txt (see its own
+      # requirements.txt comment) so its one self-check installs and runs
+      # separately rather than bloating the API's install for a UI-only
+      # dependency (pypdf/python-docx).
+      - run: pip install -r ui/requirements.txt
+      - run: python ui/resume_parsing.py

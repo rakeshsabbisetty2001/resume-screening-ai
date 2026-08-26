@@ -4,6 +4,8 @@ import random
 import requests
 import streamlit as st
 
+from resume_parsing import ExtractionError, extract_text
+
 # On Streamlit Community Cloud, API_URL MUST be set in the app's Secrets
 # (exposed to this process as a regular env var) — the localhost fallback
 # only makes sense for local dev. Left unset on Cloud, every request fails
@@ -14,8 +16,8 @@ API_URL = os.environ.get("API_URL", "http://localhost:8000")
 st.set_page_config(page_title="Resume Screening & Ranking", page_icon="📋")
 st.title("📋 Resume Screening & Ranking")
 st.caption(
-    "Paste a job description and upload candidate resumes (.txt) to get a "
-    "ranked list with a per-criterion rationale for each score. "
+    "Paste a job description and upload candidate resumes (.txt/.pdf/.docx) "
+    "to get a ranked list with a per-criterion rationale for each score. "
     "Scoring is name-blind by default — the model never sees a candidate's "
     "name, only their skills, experience, and education."
 )
@@ -30,18 +32,24 @@ st.info(
 job_description = st.text_area("Job description", height=150,
                                 placeholder="Paste the job description here...")
 
-uploaded_files = st.file_uploader("Candidate resumes (.txt)", type=["txt"],
+uploaded_files = st.file_uploader("Candidate resumes (.txt/.pdf/.docx)",
+                                   type=["txt", "pdf", "docx"],
                                    accept_multiple_files=True)
 
 if st.button("Rank candidates", type="primary") and job_description and uploaded_files:
     # This app itself never writes upload bytes to disk — files are only
-    # decoded to str and sent to the API over HTTPS. Note the bytes still
-    # live in Streamlit's own session-scoped UploadedFileManager for the
-    # duration of the session regardless of what this code does with its
-    # local reference to `uploaded_files` — that's Streamlit's mechanism,
-    # not something an app-level `= None` rebind changes.
-    resumes = [{"name": f.name, "text": f.read().decode("utf-8", errors="replace")}
-               for f in uploaded_files]
+    # decoded/parsed to str in memory and sent to the API over HTTPS. Note
+    # the bytes still live in Streamlit's own session-scoped
+    # UploadedFileManager for the duration of the session regardless of
+    # what this code does with its local reference to `uploaded_files` —
+    # that's Streamlit's mechanism, not something an app-level `= None`
+    # rebind changes.
+    resumes = []
+    for f in uploaded_files:
+        try:
+            resumes.append({"name": f.name, "text": extract_text(f.name, f.read())})
+        except ExtractionError as e:
+            st.warning(f"{f.name}: {e} — skipped.")
 
     results = []
     progress = st.progress(0.0)
