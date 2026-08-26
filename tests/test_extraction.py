@@ -49,13 +49,25 @@ def test_years_inconsistent_with_roles_rejected():
     bad = _candidate(years_experience=5.0,
                       roles=[Role(title="X", company="Y", start_date="2023-01",
                                   end_date="2024-01", bullets=[])])
-    with pytest.raises(ExtractionError, match="inconsistent") as exc_info:
+    with pytest.raises(ExtractionError, match="difference") as exc_info:
         _validate_invariants(bad, "cand_4")
     # Both numbers (stated vs. computed) should be in the message — the
     # whole point of the error is telling a caller which one looks wrong,
     # not just that they disagree.
     assert "5.0" in str(exc_info.value)
     assert "1.0" in str(exc_info.value)
+
+
+def test_years_real_world_rounding_gap_tolerated():
+    # Regression case: a real (non-synthetic) resume reported 14.0 years
+    # stated against ~15.75 years of listed roles — a self-reporting
+    # rounding/overlap quirk, not a bad extraction. This missed the old
+    # max(3, 10%) tolerance by ~0.2yr and was wrongly rejected; the
+    # loosened max(6, 15%) tolerance must pass it.
+    ok = _candidate(years_experience=14.0,
+                     roles=[Role(title="X", company="Y", start_date="2008-05",
+                                 end_date="2024-02", bullets=[])])
+    _validate_invariants(ok, "cand_9")  # no exception
 
 
 def test_present_end_date_uses_today():

@@ -128,22 +128,26 @@ def _validate_invariants(candidate: Candidate, candidate_id: str) -> None:
     if intervals:
         total_months = _union_months(intervals)
         stated_months = candidate.years_experience * 12
-        # NOTE: tolerance is a placeholder, not calibrated against real
-        # (non-synthetic) resumes — the corpus's worst gap is <1 month, so
-        # this hasn't actually been exercised yet. Revisit once eval/run_eval.py
-        # (extraction accuracy, scored against manifest.json's ground_truth)
-        # has real disagreement to measure against.
-        if abs(stated_months - total_months) > max(3, total_months * 0.10):
+        # Was max(3, 10%) months — calibrated only against the synthetic
+        # corpus (worst gap <1 month), never against a real resume. First
+        # real one to hit this (14.0 stated vs. 15.8 computed, a 1.8yr gap)
+        # missed the old ±1.6yr bar by just 0.2yr — exactly the kind of
+        # self-reporting quirk this check can't tell apart from a real
+        # extraction error (rounding to a "clean" number, overlapping roles
+        # counted cumulatively instead of as a union, a role left off the
+        # resume). Loosened to max(6, 15%) months so that case passes with
+        # headroom, while the test corpus's actual bad case (5yr stated vs
+        # 1yr of roles) still fails by a wide margin either way.
+        tolerance_months = max(6, total_months * 0.15)
+        if abs(stated_months - total_months) > tolerance_months:
+            stated_years = candidate.years_experience
+            computed_years = total_months / 12
+            gap_years = abs(stated_months - total_months) / 12
             # Numbers only, no resume text — safe under the PII contract
-            # above, and this is the context worth having: which of the two
-            # numbers looks wrong, and by how much. A real-world resume can
-            # legitimately trip this without either number being "wrong" —
-            # self-reported years_experience commonly includes unlisted
-            # gaps (freelance work, education, a role left off the resume)
-            # that the listed-roles sum can't see; the placeholder tolerance
-            # above was only ever calibrated against the synthetic corpus,
-            # whose worst gap is <1 month, not against real resumes like this.
+            # above. Phrased as a summary a non-technical caller can read
+            # (which number is bigger and by how much), not a formula dump.
             raise ExtractionError(
-                f"stated years_experience ({candidate.years_experience:.1f}) inconsistent with "
-                f"role dates ({total_months / 12:.1f} computed from listed roles, "
-                f"tolerance ±{max(3, total_months * 0.10) / 12:.1f}) for candidate {candidate_id}")
+                f"This resume states {stated_years:.1f} years of experience, but the "
+                f"listed roles span {computed_years:.1f} years — a {gap_years:.1f}-year "
+                f"difference, outside the ±{tolerance_months / 12:.1f}-year tolerance this "
+                f"check allows. (candidate {candidate_id})")
