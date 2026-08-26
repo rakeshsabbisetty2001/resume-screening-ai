@@ -62,13 +62,20 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
     return JSONResponse(status_code=500, content={"detail": "Something went wrong."})
 
 
+# resume_text's cap was 20,000 chars back when the UI only accepted pasted
+# plain text. PDF/DOCX extraction (pypdf/python-docx) routinely produces
+# more bytes than a hand-typed resume for the same content — extra
+# whitespace from column/table layouts, page-break artifacts on multi-page
+# resumes — so a real 1-2 page resume can land well above what a plain-text
+# equivalent would. Raised 5x with real headroom, not just bumped past one
+# observed failure.
 class ExtractRequest(BaseModel):
-    resume_text: str = Field(min_length=20, max_length=20000)
+    resume_text: str = Field(min_length=20, max_length=100_000)
 
 
 class ScoreRequest(BaseModel):
-    resume_text: str = Field(min_length=20, max_length=20000)
-    job_description: str = Field(min_length=20, max_length=10000)
+    resume_text: str = Field(min_length=20, max_length=100_000)
+    job_description: str = Field(min_length=20, max_length=20_000)
 
 
 @app.get("/", include_in_schema=False)

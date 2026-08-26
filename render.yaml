@@ -11,7 +11,7 @@ services:
       - key: RATE_LIMIT_PER_MINUTE
         value: "10"
       - key: MAX_BODY_BYTES
-        value: "32000"
+        value: "300000" # raised from 32000 once PDF/DOCX uploads started routinely exceeding it — see app/config.py
       - key: TRUST_PROXY
         value: "true" # Render's own proxy sits in front here — safe to trust X-Forwarded-For,
                        # unlike local/no-proxy dev where app/config.py defaults this to false

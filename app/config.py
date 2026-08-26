@@ -20,7 +20,11 @@ class Settings(BaseSettings):
         return v.strip() if isinstance(v, str) else v
 
     rate_limit_per_minute: int = 10
-    max_body_bytes: int = 32_000  # resumes are text, not files with attachments
+    # Comfortably above the 100k/20k char field caps in app/main.py plus
+    # JSON escaping overhead — was 32,000 back when the UI only accepted
+    # pasted plain text; PDF/DOCX extraction produces bigger payloads for
+    # the same real resume (see app/main.py's ExtractRequest comment).
+    max_body_bytes: int = 300_000
     # False until an actual reverse proxy sits in front (Phase 7 deploy).
     # With no proxy, X-Forwarded-For is entirely client-supplied — trusting
     # it here would let every request pick its own rate-limit bucket via a
