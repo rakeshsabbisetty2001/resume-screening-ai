@@ -1,0 +1,11 @@
+# Matches the portfolio site's dark palette (rakeshsabbisetty2001.github.io/portfolio)
+# so a recruiter clicking from the portfolio card into the live demo doesn't land
+# on Streamlit's default light theme — same intent as the requirements.txt fix
+# noted in the portfolio roadmap log (co-located with the entrypoint, not repo root).
+[theme]
+base = "dark"
+primaryColor = "#6ee7b7"
+backgroundColor = "#0b0d10"
+secondaryBackgroundColor = "#181c22"
+textColor = "#e8eaed"
+font = "sans serif"
